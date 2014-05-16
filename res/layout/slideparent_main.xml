@@ -13,12 +13,12 @@
         android:padding="1dip" >
 
         <LinearLayout
-            android:id="@+id/lin_m"
+            android:id="@+id/lin_slideparent"
             android:layout_width="fill_parent"
             android:layout_height="fill_parent" >
 
             <TextView
-                android:id="@+id/tv_m"
+                android:id="@+id/tv_slideview"
                 android:layout_width="80dp"
                 android:layout_height="fill_parent"
                 android:background="@drawable/slideparent_slideview" />

@@ -17,8 +17,8 @@ public class SlideParent_Activity extends BaseActivity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.slideparent_main);
-		slide_view = (TextView) findViewById(R.id.tv_m);
-		slide_parent = (LinearLayout) findViewById(R.id.lin_m);
+		slide_view = (TextView) findViewById(R.id.tv_slideview);
+		slide_parent = (LinearLayout) findViewById(R.id.lin_slideparent);
 		final SlideParent sp = new SlideParent();
 		sp.setParentView(slide_parent);
 		sp.setSlideView(slide_view);
