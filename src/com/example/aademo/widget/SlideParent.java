@@ -16,7 +16,7 @@ import com.nineoldandroids.animation.Animator.AnimatorListener;
 public class SlideParent {
 	
 	/**
-	 * 滑动按钮类
+	 * 滑动按钮控件用法见SlideParent_Activity
 	 */
 	View slideView;
 	View parentView;
