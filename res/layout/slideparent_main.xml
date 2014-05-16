@@ -4,12 +4,12 @@
     android:layout_height="match_parent"
     android:background="#000000"
     android:gravity="center"
-    tools:context=".MainActivity" >
+    tools:context=".SlideParent_Activity" >
 
     <FrameLayout
         android:layout_width="160dp"
         android:layout_height="40dp"
-        android:background="@drawable/cornershape"
+        android:background="@drawable/slideparent_parentcornershape"
         android:padding="1dip" >
 
         <LinearLayout
@@ -21,7 +21,7 @@
                 android:id="@+id/tv_m"
                 android:layout_width="80dp"
                 android:layout_height="fill_parent"
-                android:background="@drawable/headlefttabcornershape" />
+                android:background="@drawable/slideparent_slideview" />
         </LinearLayout>
 
         <LinearLayout
@@ -34,7 +34,7 @@
                 android:layout_height="fill_parent"
                 android:layout_weight="1.0"
                 android:gravity="center"
-                android:text="众筹网"
+                android:text="关"
                 android:textColor="#1fc0ca" />
 
             <TextView
@@ -42,7 +42,7 @@
                 android:layout_height="fill_parent"
                 android:layout_weight="1.0"
                 android:gravity="center"
-                android:text="原始会"
+                android:text="开"
                 android:textColor="#1fc0ca" />
         </LinearLayout>
     </FrameLayout>

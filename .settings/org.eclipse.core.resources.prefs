@@ -1,4 +1,3 @@
 eclipse.preferences.version=1
-encoding//src/com/example/aademo/MainActivity.java=UTF-8
-encoding//src/com/example/aademo/MyTextView.java=UTF-8
-encoding//src/com/example/aademo/SlideParent.java=UTF-8
+encoding//src/com/example/aademo/SlideParent_Activity.java=UTF-8
+encoding//src/com/example/aademo/widget/SlideParent.java=UTF-8

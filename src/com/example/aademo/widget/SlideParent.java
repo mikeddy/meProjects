@@ -1,4 +1,4 @@
-package com.example.aademo;
+package com.example.aademo.widget;
 
 import static com.nineoldandroids.view.ViewHelper.setTranslationX;
 import static com.nineoldandroids.view.ViewPropertyAnimator.animate;
@@ -9,12 +9,15 @@ import android.view.View;
 import android.view.View.OnTouchListener;
 import android.view.ViewConfiguration;
 
+import com.example.aademo.impl.ICallBack;
 import com.nineoldandroids.animation.Animator;
 import com.nineoldandroids.animation.Animator.AnimatorListener;
 
 public class SlideParent {
 	
-	
+	/**
+	 * 滑动按钮类
+	 */
 	View slideView;
 	View parentView;
 	
