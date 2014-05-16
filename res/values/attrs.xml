@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <declare-styleable name="MyTextView">
+    <attr name="x" format="float" /> 
+    <attr name="y" format="float" /> 
+    <attr name="degree" format="float" /> 
+  </declare-styleable>
+</resources> 

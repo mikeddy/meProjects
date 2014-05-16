@@ -1,0 +1,22 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#000000"
+    android:gravity="center"
+    tools:context=".MainActivity" >
+
+    <com.example.aademo.MyTextView
+        xmlns:mytext="http://schemas.android.com/apk/res/com.example.aademo"
+        android:id="@+id/tv_m"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/headlefttabcornershape"
+        android:gravity="center"
+        android:text="1111"
+        android:textColor="#000000"
+        mytext:degree="10"
+        mytext:x="0"
+        mytext:y="0" />
+
+</LinearLayout>
