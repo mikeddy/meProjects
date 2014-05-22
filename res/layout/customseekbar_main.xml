@@ -1,0 +1,31 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#000000"
+    android:gravity="center_vertical"
+    android:orientation="vertical" >
+
+    <TextView
+        android:id="@+id/customseekbar_tvtip"
+        android:layout_width="30dp"
+        android:layout_height="wrap_content"
+        android:background="#fc6958"
+        android:gravity="center"
+        android:text="0"
+        android:textColor="#ffffff" />
+
+    <com.example.aademo.widget.CustomSeekBar
+        android:id="@+id/customseekbar_sb"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:maxHeight="8.0dip"
+        android:minHeight="8.0dip"
+        android:layout_marginLeft="20dip"
+        android:layout_marginRight="20dip"
+        android:paddingLeft="8.0dip"
+        android:paddingRight="8.0dip"
+        android:progressDrawable="@drawable/seekbar_style"
+        android:thumb="@drawable/customseekbar_thumb" />
+
+</LinearLayout>
