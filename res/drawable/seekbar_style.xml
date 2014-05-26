@@ -10,7 +10,9 @@
                 android:startColor="#cbcbcb" />
         </shape>
     </item>
-    <item android:id="@android:id/progress">
+    <item
+        android:id="@android:id/progress"
+        android:drawable="@drawable/progressdrable">
         <clip>
             <shape>
                 <corners android:radius="15dp" />

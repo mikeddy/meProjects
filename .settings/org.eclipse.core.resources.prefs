@@ -1,6 +1,9 @@
 eclipse.preferences.version=1
+encoding//src/com/example/aademo/CoverActivity.java=UTF-8
 encoding//src/com/example/aademo/CustomSeekBarActivity.java=UTF-8
 encoding//src/com/example/aademo/LayersDrawableActivity.java=UTF-8
 encoding//src/com/example/aademo/MainActivity.java=UTF-8
 encoding//src/com/example/aademo/SlideParent_Activity.java=UTF-8
+encoding//src/com/example/aademo/bean/CoverLvItemBean.java=UTF-8
+encoding//src/com/example/aademo/widget/InterceptFrameLayout.java=UTF-8
 encoding//src/com/example/aademo/widget/SlideParent.java=UTF-8

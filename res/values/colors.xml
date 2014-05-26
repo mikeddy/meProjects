@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <color name="rounded_container_border">#ffb7babb</color>
+    <color name="normal_list_bg">#0ac2cc</color>
+
+    <!-- ITEM BACKGROUND COLOR - STATE - DEFAULT -->
+    <color name="base_start_color_default">#FFFFFF</color>
+    <color name="base_end_color_default">#FFFFFF</color>
+
+    <!-- ITEM BACKGROUND COLOR - STATE - PRESSED -->
+    <color name="base_start_color_pressed">#fffcfcfc</color>
+    <color name="base_end_color_pressed">#ffd7d7d7</color>
+    <color name="sure_nor_bt">#00c1cb</color>
+    <color name="sure_pre_bt">#00878e</color>
+    <color name="cancel_nor_bt">#d52c2a</color>
+    <color name="cancel_pre_bt">#941f1e</color>
+
+    <!-- ITEM TEXT COLORS - STATES - PRESSED AND DEFAULT -->
+    <color name="text_color_default">#000000</color>
+    <color name="text_color_pressed">#ffffff</color>
+    <color name="account_txt_gray">#333333</color>
+    <color name="bg_color">#e3e8e9</color> <!-- 背景颜色 -->
+    <color name="black">#333333</color> <!-- 黑色 -->
+    <color name="search_black">#048cac</color>
+    <color name="gray">#333333</color> <!-- 灰色 -->
+    <color name="white">#ffffff</color> <!-- 白色 -->
+    <color name="Darkgreen">#33cc99</color> <!-- 白色 -->
+    <color name="white_001">#5fffffff</color> <!-- 白色 透明 -->
+    <color name="disabled">#777777</color> <!-- 不可用 -->
+    <color name="red">#df4a32</color>
+    <color name="blue">#00b4bf</color>
+    <color name="darkyellow">#FF6600</color>
+    <color name="green">#7f00ff00</color>
+    <color name="yellow">#ffffff00</color>
+    <color name="dark_green">#205f21</color> <!-- 深绿色 -->
+    <color name="light_green">#14c172</color> <!-- 绿色 -->
+    <color name="silver">#cccccc</color> <!-- 银灰色 -->
+    <color name="transparent">#00000000</color> <!-- 透明 -->
+    <color name="transparent001">#12000000</color> <!-- 透明 -->
+    <color name="transparent002">#aaffffff</color> <!-- 透明 -->
+    <color name="transparents">#eeeeeeee</color>
+    <color name="light_gray">#808080</color> <!-- 浅灰 -->
+    <color name="light_gray2">#838383</color> <!-- 浅灰 -->
+    <color name="light_gray3">#f4f4f4</color> <!-- 灰 -->
+    <color name="dark_yellow">#ff8800</color> <!-- 深黄 -->
+
+    <color name="status_orange">#ff7030</color>
+    <color name="status_green">#34da8e</color>
+    <color name="status_red">#fd3941</color>
+    <color name="status_gray">#999999</color>
+    <color name="status_default">#f19149</color>
+    <color name="friend_refresh">#999999</color> <!-- 深黄 -->
+    <color name="blue_1">#013698</color> <!-- 蓝1 -->
+    <color name="blue_2">#003cff</color> <!-- 蓝2 -->
+    <color name="text26">#003e98</color> <!-- 字体26 -->
+    <color name="text36">#ff6600</color> <!-- 字体36 -->
+    <color name="text37">#fb5a00</color> <!-- 字体37 -->
+    <color name="text38">#d3d3d3</color> <!-- 字体37 -->
+    <color name="text39">#205f95</color> <!-- 字体39 -->
+    <color name="text40">#6cc302</color> <!-- 字体40 -->
+    <color name="text41">#ff0c00</color> <!-- 字体41 -->
+    <color name="text42">#3f3f3f</color> <!-- 字体42 -->
+    <color name="text43">#efefef</color> <!-- 字体43 -->
+    <color name="dard_blue">#013bff</color> <!-- 字体深蓝 -->
+    <color name="Orange">#fe5a01</color> <!-- 字体橙色 -->
+    <drawable name="white">#ffffff</drawable> <!-- 白色 -->
+    <drawable name="orange">#9e4700</drawable> <!-- 深橙色 -->
+    <drawable name="black">#000000</drawable> <!-- 黑色 -->
+    <drawable name="gray">#3f3f3f</drawable> <!-- 深橙色 -->
+    <drawable name="cannot">#c8a684</drawable> <!-- 橙色按钮不可用 -->
+    <color name="gray_1">#c1c4c1</color> <!-- 灰色按钮不可用 -->
+    <color name="gray_11">#999b9d</color> <!--  -->
+    <color name="gray_4">#F0F0F0</color>
+    <color name="dynamic_gray0">#dadfe3</color> <!-- 动态灰色条 -->
+    <color name="dynamic_gray1">#e4e7e9</color> <!-- 动态灰色条 -->
+    <color name="dynamic_gray2">#a7abb2</color> <!-- 动态灰色条 -->
+    <color name="dynamic_gray3">#8b8b8b</color> <!-- 动态灰色条 -->
+    <color name="dynamic_gray">#f1f1f1</color> <!-- 动态灰色条 -->
+    <color name="dynamic_gray4">#f0f1f2</color> <!-- 动态灰色条 -->
+    <color name="topic_bar">#fbf9f9</color> <!-- 动态灰色条 -->
+    <color name="topic_bar_bound">#e5e5e5</color> <!-- 动态灰色条 -->
+    <color name="topic_content_hint">#d4d4d4</color> <!-- 动态灰色条 -->
+    <color name="comment_bg_gray">#dde1e4</color> <!-- 评论按钮灰色条 -->
+    <color name="comment_bg_blue">#00c0cc</color> <!-- 评论按钮蓝色条 -->
+    <color name="dynamic_topic_owner">#00818c</color> <!-- 动态灰色条 -->
+    <color name="login_alert_gray">#a9adb3</color> <!-- 动态灰色条 -->
+    <color name="activity_bg">#EBEBEB</color>
+    <color name="darkgray">#A9A9A9</color>
+    <color name="down_line">#999b9d</color>
+    <color name="transparent_bg">#a0000000</color>
+    <color name="background">#f1f1f1</color>
+    <color name="black_gray">#696969</color> <!-- 暗灰色 -->
+    <color name="line_gray">#C0C0C0</color> <!-- 线灰色 -->
+    <color name="mydialog_gray">#8e8e8e</color>
+    <color name="mydialog_bt">#e4e4e4</color>
+    <color name="order_orange">#ff7030</color> <!-- 橙色 -->
+    <color name="order_gray">#666666</color> <!-- 灰色 -->
+    <color name="ysh_gray">#bebebe</color>
+    <color name="ysh_yellow">#f1e5bb</color>
+    <color name="ysh_yellow1">#fcfce2</color>
+    <color name="ysh_red">#ff6666</color>
+    <color name="ysh_hint">#c7c7cd</color>
+    <color name="ysh_gray1">#737373</color>
+    <color name="ysh_gray2">#a2a2a2</color>
+    <color name="topic_devider">#19000000</color>
+    <color name="alpha_bg">#c0000000</color>
+    <color name="alpha_devider">#33ffffff</color>
+    <color name="myorder_text">#0099ff</color>
+    <color name="home_title_tab_textcolor_normal">#1fc0ca</color>
+    
+    <color name="coverlvitem_up_tv">#ffffff</color>
+    <color name="coverlvitem_up_vline">#23c8d3</color>
+    <color name="coverlvitem_up_bg">#00c0cb</color>
+    <color name="coverlvitem_under_lasttiem">#b7b7b7</color>
+    <color name="coverlvitem_under_content">#6c6c6c</color>
+    <color name="coverlvitem_under_title_money">#57d4db</color>
+    <color name="coverlvitem_under_title_name">#585858</color>
+    
+    
+</resources>

@@ -28,7 +28,7 @@ public class MainActivity extends BaseActivity {
 		listItemHolders.add(new MainItemHolder("自定义seekbar", CustomSeekBarActivity.class));
 		listItemHolders.add(new MainItemHolder("横向带纹理进度条", HorizontalProgressBarActivity.class));
 		listItemHolders.add(new MainItemHolder("层图片", LayersDrawableActivity.class));
-		
+		listItemHolders.add(new MainItemHolder("滑动遮盖效果", CoverActivity.class));
 		
 		for (int i = 0; i < listItemHolders.size(); i++) {
 			linParent.addView(listItemHolders.get(i).btn);

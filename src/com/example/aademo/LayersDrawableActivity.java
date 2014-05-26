@@ -45,9 +45,9 @@ public class LayersDrawableActivity extends BaseActivity {
 		array[2] = new BitmapDrawable(bitmap);
 		array[3] = new BitmapDrawable(bitmap);
 		LayerDrawable la = new LayerDrawable(array);
-		la.setLayerInset(0, 0, 0, 0, 0);
-		la.setLayerInset(1, 25, 0, -25, 0);
-		la.setLayerInset(2, 50, 0, -50, 0);
+		la.setLayerInset(0, -25, 0, 25, 0);
+		la.setLayerInset(1, 0, 0, 0, 0);
+		la.setLayerInset(2, 25, 0, -25, 0);
 		la.setLayerInset(3, 125, 0, -125, 0);
 		// la.getDrawable(0).setAlpha(200);
 		// la.getDrawable(1).setAlpha(150);
