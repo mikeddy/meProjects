@@ -286,7 +286,7 @@ containing a value of this type.
         public static final int white=0x7f02000b;
     }
     public static final class id {
-        public static final int action_settings=0x7f0a0017;
+        public static final int action_settings=0x7f0a0018;
         public static final int btn_add=0x7f0a0011;
         public static final int btn_sub=0x7f0a0012;
         public static final int cover_frame_itercept=0x7f0a0000;
@@ -309,6 +309,7 @@ containing a value of this type.
         public static final int lin_slideparent=0x7f0a0015;
         public static final int main_parentlin=0x7f0a0014;
         public static final int progressBar=0x7f0a0010;
+        public static final int touchscale_lv=0x7f0a0017;
         public static final int tv_slideview=0x7f0a0016;
     }
     public static final class layout {
@@ -319,6 +320,8 @@ containing a value of this type.
         public static final int layersdrawable_main=0x7f030004;
         public static final int main=0x7f030005;
         public static final int slideparent_main=0x7f030006;
+        public static final int touchscale_item=0x7f030007;
+        public static final int touchscale_main=0x7f030008;
     }
     public static final class menu {
         public static final int main=0x7f090000;

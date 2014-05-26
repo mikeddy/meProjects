@@ -21,13 +21,13 @@
                 android:layout_height="fill_parent"
                 android:layout_weight="1" >
 
-                <ImageView
+                <com.example.aademo.widget.CircleImageView
                     android:layout_width="50dp"
                     android:layout_height="50dp"
                     android:layout_alignParentTop="true"
                     android:layout_centerHorizontal="true"
-                    android:layout_marginTop="20dp"
-                    android:src="@drawable/headicon" />
+                    android:layout_marginTop="25dp"
+                    android:src="@drawable/default_header_ico" />
             </RelativeLayout>
 
             <LinearLayout
@@ -38,7 +38,7 @@
                 android:orientation="vertical"
                 android:paddingBottom="20dp"
                 android:paddingRight="7dp"
-                android:paddingTop="10dp" >
+                android:paddingTop="15dp" >
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -60,7 +60,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="5dp"
                         android:singleLine="true"
-                        android:text="可以"
+                        android:text="滑动"
                         android:textColor="@color/coverlvitem_under_lasttiem"
                         android:textSize="13dp" />
 
@@ -70,7 +70,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="5dp"
                         android:singleLine="true"
-                        android:text="滑动"
+                        android:text="展开菜单"
                         android:textColor="@color/coverlvitem_under_title_name"
                         android:textSize="14dp" />
 
@@ -80,7 +80,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="5dp"
                         android:singleLine="true"
-                        android:text="---->"
+                        android:text="-------->"
                         android:textColor="@color/coverlvitem_under_title_money"
                         android:textSize="14dp" />
                 </LinearLayout>
@@ -111,20 +111,20 @@
 
                 <ImageView
                     android:id="@+id/cover_lvitem_img_projecticon"
-                    android:layout_width="80dp"
-                    android:layout_height="80dp"
+                    android:layout_width="85dp"
+                    android:layout_height="85dp"
                     android:layout_alignParentTop="true"
                     android:layout_centerHorizontal="true"
-                    android:layout_marginTop="10dp"
+                    android:layout_marginTop="20dp"
                     android:src="@drawable/cover_pic" />
             </RelativeLayout>
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="fill_parent"
-            android:layout_height="90dip"
+            android:layout_height="120dp"
             android:background="@android:color/transparent"
-            android:paddingTop="10dp" >
+            android:gravity="center_vertical" >
 
             <LinearLayout
                 android:id="@+id/cover_lvitem_lin_up"
@@ -139,7 +139,7 @@
                     android:layout_height="fill_parent"
                     android:layout_weight="2"
                     android:gravity="center"
-                    android:text="CCCC\nEEE"
+                    android:text="AAAAA\naaaaa"
                     android:textColor="@color/coverlvitem_up_tv"
                     android:textSize="15dp" />
 
@@ -156,7 +156,7 @@
                     android:layout_height="fill_parent"
                     android:layout_weight="2"
                     android:gravity="center"
-                    android:text="AAA"
+                    android:text="BBBBB\nbbbb"
                     android:textColor="@color/coverlvitem_up_tv"
                     android:textSize="15dp" />
 
@@ -173,7 +173,7 @@
                     android:layout_height="fill_parent"
                     android:layout_weight="3"
                     android:gravity="center"
-                    android:text="BBB\nBBB"
+                    android:text="CCCC\nCCCCC"
                     android:textColor="@color/coverlvitem_up_tv"
                     android:textSize="15dp" />
             </LinearLayout>
