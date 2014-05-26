@@ -37,6 +37,9 @@
         <activity
             android:name="com.example.aademo.CoverActivity"
             android:screenOrientation="portrait" />
+        <activity
+            android:name="com.example.aademo.CircleImageActivity"
+            android:screenOrientation="portrait" />
     </application>
 
 </manifest>
