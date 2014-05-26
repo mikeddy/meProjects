@@ -54,7 +54,7 @@ public class CoverActivity extends BaseActivity {
 		lin_under.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				showToast("点击事件");
+				showToast("点击");
 			}
 		});
 
@@ -70,7 +70,7 @@ public class CoverActivity extends BaseActivity {
 		@Override
 		public void handleMessage(Message msg) {
 			super.handleMessage(msg);
-			showToast("滑动事件");
+			showToast("滑动");
 			if (!isOpen) {
 				lin_up.animate().translationX(OffsetWidth).setDuration(500);
 				isOpen = true;
