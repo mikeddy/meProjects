@@ -260,33 +260,34 @@ containing a value of this type.
     public static final class drawable {
         /**  深橙色 
          */
-        public static final int black=0x7f02000d;
+        public static final int black=0x7f02000e;
         /**  深橙色 
          */
-        public static final int cannot=0x7f02000f;
+        public static final int cannot=0x7f020010;
         public static final int cover_pic=0x7f020000;
         public static final int customseekbar_thumb=0x7f020001;
         public static final int default_header_ico=0x7f020002;
         /**  黑色 
          */
-        public static final int gray=0x7f02000e;
+        public static final int gray=0x7f02000f;
         public static final int headicon=0x7f020003;
         public static final int ic_launcher=0x7f020004;
         public static final int layerdrawable=0x7f020005;
         /**  白色 
          */
-        public static final int orange=0x7f02000c;
+        public static final int orange=0x7f02000d;
         public static final int progressdrable=0x7f020006;
         public static final int seek_bar_thumb_bg=0x7f020007;
         public static final int seekbar_style=0x7f020008;
         public static final int slideparent_parentcornershape=0x7f020009;
         public static final int slideparent_slideview=0x7f02000a;
+        public static final int touchscale_headimg=0x7f02000b;
         /**  字体橙色 
          */
-        public static final int white=0x7f02000b;
+        public static final int white=0x7f02000c;
     }
     public static final class id {
-        public static final int action_settings=0x7f0a0018;
+        public static final int action_settings=0x7f0a0019;
         public static final int btn_add=0x7f0a0011;
         public static final int btn_sub=0x7f0a0012;
         public static final int cover_frame_itercept=0x7f0a0000;
@@ -309,7 +310,8 @@ containing a value of this type.
         public static final int lin_slideparent=0x7f0a0015;
         public static final int main_parentlin=0x7f0a0014;
         public static final int progressBar=0x7f0a0010;
-        public static final int touchscale_lv=0x7f0a0017;
+        public static final int touchscale_head_img=0x7f0a0017;
+        public static final int touchscale_lv=0x7f0a0018;
         public static final int tv_slideview=0x7f0a0016;
     }
     public static final class layout {
@@ -320,8 +322,9 @@ containing a value of this type.
         public static final int layersdrawable_main=0x7f030004;
         public static final int main=0x7f030005;
         public static final int slideparent_main=0x7f030006;
-        public static final int touchscale_item=0x7f030007;
-        public static final int touchscale_main=0x7f030008;
+        public static final int touchscale_head=0x7f030007;
+        public static final int touchscale_item=0x7f030008;
+        public static final int touchscale_main=0x7f030009;
     }
     public static final class menu {
         public static final int main=0x7f090000;

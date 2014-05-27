@@ -30,6 +30,7 @@ public class MainActivity extends BaseActivity {
 		listItemHolders.add(new MainItemHolder("层图片", LayersDrawableActivity.class));
 		listItemHolders.add(new MainItemHolder("滑动遮盖效果", CoverActivity.class));
 		listItemHolders.add(new MainItemHolder("圆形图片", CircleImageActivity.class));
+		listItemHolders.add(new MainItemHolder("下拉放大效果", TouchScaleActivity.class));
 		
 		for (int i = 0; i < listItemHolders.size(); i++) {
 			linParent.addView(listItemHolders.get(i).btn);

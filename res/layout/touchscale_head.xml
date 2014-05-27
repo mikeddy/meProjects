@@ -3,9 +3,10 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent" >
 
-    <TextView
+    <ImageView
+        android:id="@+id/touchscale_head_img"
         android:layout_width="fill_parent"
-        android:layout_height="50dp"
-        android:text="1111" />
+        android:layout_height="170dp"
+        android:background="@drawable/touchscale_headimg" />
 
 </LinearLayout>
