@@ -9,7 +9,7 @@ import android.widget.Toast;
 
 @SuppressLint("ShowToast")
 public class BaseActivity extends Activity {
-	//branch2 and branch1_1 into test master1_1
+	//new
 	Toast mToast=null;
 	public static final int LONGTOASTDURATION = 2500;
 	public Context mContext;
