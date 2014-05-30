@@ -8,7 +8,7 @@ import android.util.Log;
 import android.widget.Toast;
 
 @SuppressLint("ShowToast")
-public class BaseActivity extends Activity {
+public class BaseActivity extends Activity {  
 	//branch megre
 	Toast mToast=null;
 	public static final int LONGTOASTDURATION = 2500;
