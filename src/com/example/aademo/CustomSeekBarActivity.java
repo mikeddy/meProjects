@@ -16,6 +16,7 @@ import static com.nineoldandroids.view.ViewHelper.setX;
  */
 
 public class CustomSeekBarActivity extends BaseActivity {
+	//branch1
 	CustomSeekBar mSeekBar;
 	TextView tvTip;
 
