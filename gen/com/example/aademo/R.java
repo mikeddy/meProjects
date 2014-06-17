@@ -287,9 +287,10 @@ containing a value of this type.
         public static final int white=0x7f02000c;
     }
     public static final class id {
-        public static final int action_settings=0x7f0a0019;
-        public static final int btn_add=0x7f0a0011;
-        public static final int btn_sub=0x7f0a0012;
+        public static final int action_settings=0x7f0a001c;
+        public static final int btn_add=0x7f0a0013;
+        public static final int btn_show=0x7f0a0011;
+        public static final int btn_sub=0x7f0a0014;
         public static final int cover_frame_itercept=0x7f0a0000;
         public static final int cover_lvitem_img_projecticon=0x7f0a0009;
         public static final int cover_lvitem_lin_under=0x7f0a0001;
@@ -306,25 +307,30 @@ containing a value of this type.
         public static final int cover_lvitem_tv_title_name2=0x7f0a0004;
         public static final int customseekbar_sb=0x7f0a000f;
         public static final int customseekbar_tvtip=0x7f0a000e;
-        public static final int layer_imgview=0x7f0a0013;
-        public static final int lin_slideparent=0x7f0a0015;
-        public static final int main_parentlin=0x7f0a0014;
-        public static final int progressBar=0x7f0a0010;
-        public static final int touchscale_head_img=0x7f0a0017;
-        public static final int touchscale_lv=0x7f0a0018;
-        public static final int tv_slideview=0x7f0a0016;
+        public static final int layer_imgview=0x7f0a0015;
+        public static final int lin_slideparent=0x7f0a0017;
+        public static final int main_parentlin=0x7f0a0016;
+        public static final int progressBar=0x7f0a0012;
+        public static final int test_tv=0x7f0a0019;
+        public static final int text=0x7f0a0010;
+        public static final int touchscale_head_img=0x7f0a001a;
+        public static final int touchscale_lv=0x7f0a001b;
+        public static final int tv_slideview=0x7f0a0018;
     }
     public static final class layout {
         public static final int circleimage_main=0x7f030000;
         public static final int cover_main=0x7f030001;
         public static final int customseekbar_main=0x7f030002;
-        public static final int horizontalprogress_main=0x7f030003;
-        public static final int layersdrawable_main=0x7f030004;
-        public static final int main=0x7f030005;
-        public static final int slideparent_main=0x7f030006;
-        public static final int touchscale_head=0x7f030007;
-        public static final int touchscale_item=0x7f030008;
-        public static final int touchscale_main=0x7f030009;
+        public static final int fragmentdialo_dialog=0x7f030003;
+        public static final int fragmentdialo_main=0x7f030004;
+        public static final int horizontalprogress_main=0x7f030005;
+        public static final int layersdrawable_main=0x7f030006;
+        public static final int main=0x7f030007;
+        public static final int slideparent_main=0x7f030008;
+        public static final int test_main=0x7f030009;
+        public static final int touchscale_head=0x7f03000a;
+        public static final int touchscale_item=0x7f03000b;
+        public static final int touchscale_main=0x7f03000c;
     }
     public static final class menu {
         public static final int main=0x7f090000;

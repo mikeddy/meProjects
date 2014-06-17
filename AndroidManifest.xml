@@ -3,6 +3,7 @@
     package="com.example.aademo"
     android:versionCode="1"
     android:versionName="1.0" >
+    
 
     <uses-sdk
         android:minSdkVersion="8"
@@ -42,6 +43,12 @@
             android:screenOrientation="portrait" />
         <activity
             android:name="com.example.aademo.TouchScaleActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.example.aademo.DialogFragement_Activity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.example.aademo.TestActivity"
             android:screenOrientation="portrait" />
     </application>
 
