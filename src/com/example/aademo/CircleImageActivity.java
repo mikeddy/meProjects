@@ -3,7 +3,7 @@ package com.example.aademo;
 import android.os.Bundle;
 
 public class CircleImageActivity extends BaseActivity {
-	//fix bug
+	//v3.3
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
