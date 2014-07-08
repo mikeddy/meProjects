@@ -7,6 +7,8 @@ import android.content.Context;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.webkit.WebView;
+import android.webkit.WebViewClient;
 import android.widget.Toast;
 
 @SuppressLint("ShowToast")
@@ -23,13 +25,25 @@ public class BaseActivity extends Activity {
 		if (mToast == null)mToast = Toast.makeText(mContext, "", LONGTOASTDURATION);
 	}
 
-	public void showToast(String message) {
+	public void showToast(String message) { 
 		if (mToast != null) {
 			mToast.setDuration(LONGTOASTDURATION);
 			mToast.setText(message);
 			mToast.show();
 		}
 	}
+	
+	
+//	@Override
+//	public View findViewById(int id) {
+//		
+//		return super.findViewById(id);
+//	}
+	@SuppressWarnings("unchecked")
+	public <T>T findView(int id){
+		T t=(T)findViewById(id);
+		return t;
+	} 
 	
 	public void printLogv(String message) {
 		Log.v(this.getClass().getName(), message);
