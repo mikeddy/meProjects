@@ -56,4 +56,8 @@ public class BaseActivity extends Activity {
 	public void printLogE(String message) {
 		Log.e(this.getClass().getName(), message);
 	}
+	
+	public int getColor(int colorid){
+		return getResources().getColor(colorid);
+	}
 }

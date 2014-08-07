@@ -53,6 +53,14 @@
         <activity
             android:name="com.example.aademo.ParseIntActivity"
             android:screenOrientation="portrait" />
+        <activity
+            android:name="com.example.aademo.CircleProgressActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.example.aademo.DrawableXMLActivity"
+            android:screenOrientation="portrait" />
+        
+        
         
     </application>
 
