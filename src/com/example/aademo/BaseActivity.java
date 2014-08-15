@@ -2,11 +2,9 @@ package com.example.aademo;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
-import android.app.AlertDialog;
 import android.content.Context;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.View;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.Toast;
@@ -20,6 +18,10 @@ public class BaseActivity extends Activity {
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
+//		WebView v;
+//		v.loadUrl(url, additionalHttpHeaders)
+//		v.postUrl(url, postData);
+		
 		super.onCreate(savedInstanceState);
 		mContext=this;
 		if (mToast == null)mToast = Toast.makeText(mContext, "", LONGTOASTDURATION);
