@@ -31,9 +31,7 @@ public class MainActivity extends BaseActivity {
 		listItemHolders.add(new MainItemHolder("滑动遮盖效果", CoverActivity.class));
 		listItemHolders.add(new MainItemHolder("圆形图片", CircleImageActivity.class));
 		listItemHolders.add(new MainItemHolder("下拉放大效果", TouchScaleActivity.class));
-		listItemHolders.add(new MainItemHolder("fragementDialog", DialogFragement_Activity.class));
-		listItemHolders.add(new MainItemHolder("根据文字多少决定textview的字体大小(不超过一行)", ScaleTextViewActivity.class));
-		listItemHolders.add(new MainItemHolder("将元转换成分,(元位最多8位,分位最多2位)", ParseIntActivity.class));
+		listItemHolders.add(new MainItemHolder("文字多少决定textview的字体大小(不超过一行)", ScaleTextViewActivity.class));
 		listItemHolders.add(new MainItemHolder("Text颜色渐变AND圆形进度条", CircleProgressActivity.class));
 		listItemHolders.add(new MainItemHolder("自定义drawable.xml的深入研究", DrawableXMLActivity.class));
 		

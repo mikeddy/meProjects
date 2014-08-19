@@ -12,6 +12,20 @@ public final class R {
         public static final int umeng_socialize_slide_out_from_bottom=0x7f040000;
     }
     public static final class attr {
+        /** <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
+Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
+in (inches), mm (millimeters).
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int background_width=0x7f010004;
+        /** <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+         */
+        public static final int circularProgressBarStyle=0x7f01000b;
         /** <p>Must be a floating point value, such as "<code>1.2</code>".
 <p>This may also be a reference to a resource (in the form
 "<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
@@ -20,6 +34,66 @@ theme attribute (in the form
 containing a value of this type.
          */
         public static final int degree=0x7f010002;
+        /** <p>Must be a floating point value, such as "<code>1.2</code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int marker_progress=0x7f010006;
+        /** <p>Must be a boolean value, either "<code>true</code>" or "<code>false</code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int marker_visible=0x7f01000a;
+        /** <p>Must be a floating point value, such as "<code>1.2</code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int progress=0x7f010005;
+        /** <p>Must be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
+"<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int progress_background_color=0x7f010008;
+        /** <p>Must be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
+"<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int progress_color=0x7f010007;
+        /** <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
+Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
+in (inches), mm (millimeters).
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int stroke_width=0x7f010003;
+        /** <p>Must be a boolean value, either "<code>true</code>" or "<code>false</code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int thumb_visible=0x7f010009;
         /** <p>Must be a floating point value, such as "<code>1.2</code>".
 <p>This may also be a reference to a resource (in the form
 "<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
@@ -561,45 +635,44 @@ containing a value of this type.
         public static final int touchscale_headimg=0x7f020016;
     }
     public static final class id {
-        public static final int action_settings=0x7f0a0026;
-        public static final int btn_add=0x7f0a0017;
-        public static final int btn_show=0x7f0a0015;
-        public static final int btn_sub=0x7f0a0018;
+        public static final int action_settings=0x7f0a0025;
+        public static final int btn_add=0x7f0a0019;
+        public static final int btn_sub=0x7f0a001a;
+        public static final int circleprogress_btn_add=0x7f0a0002;
+        public static final int circleprogress_btn_reduce=0x7f0a0003;
         public static final int circleprogress_tv=0x7f0a0000;
-        public static final int cover_frame_itercept=0x7f0a0001;
-        public static final int cover_lvitem_img_projecticon=0x7f0a000a;
-        public static final int cover_lvitem_lin_under=0x7f0a0002;
-        public static final int cover_lvitem_lin_up=0x7f0a000b;
-        public static final int cover_lvitem_rela_projecticon=0x7f0a0009;
-        public static final int cover_lvitem_tv_content=0x7f0a0007;
-        public static final int cover_lvitem_tv_haveown=0x7f0a000c;
-        public static final int cover_lvitem_tv_joinpersion=0x7f0a000d;
-        public static final int cover_lvitem_tv_lasttime=0x7f0a0008;
-        public static final int cover_lvitem_tv_plan=0x7f0a000e;
-        public static final int cover_lvitem_tv_title_action=0x7f0a0004;
-        public static final int cover_lvitem_tv_title_money=0x7f0a0006;
-        public static final int cover_lvitem_tv_title_name1=0x7f0a0003;
-        public static final int cover_lvitem_tv_title_name2=0x7f0a0005;
-        public static final int customseekbar_sb=0x7f0a0010;
-        public static final int customseekbar_tvtip=0x7f0a000f;
-        public static final int img_item_2_2=0x7f0a0011;
-        public static final int img_item_2_3=0x7f0a0012;
-        public static final int img_item_3_2=0x7f0a0013;
-        public static final int layer_imgview=0x7f0a0019;
-        public static final int lin_slideparent=0x7f0a0021;
-        public static final int main_parentlin=0x7f0a001a;
-        public static final int parseint_btn=0x7f0a001c;
-        public static final int parseint_edit=0x7f0a001b;
-        public static final int parseint_tv=0x7f0a001d;
-        public static final int progressBar=0x7f0a0016;
-        public static final int scale_btn=0x7f0a001f;
-        public static final int scale_edit=0x7f0a001e;
-        public static final int scale_tv=0x7f0a0020;
-        public static final int selected=0x7f0a0025;
-        public static final int text=0x7f0a0014;
-        public static final int touchscale_head_img=0x7f0a0023;
-        public static final int touchscale_lv=0x7f0a0024;
-        public static final int tv_slideview=0x7f0a0022;
+        public static final int cover_frame_itercept=0x7f0a0004;
+        public static final int cover_lvitem_img_projecticon=0x7f0a000d;
+        public static final int cover_lvitem_lin_under=0x7f0a0005;
+        public static final int cover_lvitem_lin_up=0x7f0a000e;
+        public static final int cover_lvitem_rela_projecticon=0x7f0a000c;
+        public static final int cover_lvitem_tv_content=0x7f0a000a;
+        public static final int cover_lvitem_tv_haveown=0x7f0a000f;
+        public static final int cover_lvitem_tv_joinpersion=0x7f0a0010;
+        public static final int cover_lvitem_tv_lasttime=0x7f0a000b;
+        public static final int cover_lvitem_tv_plan=0x7f0a0011;
+        public static final int cover_lvitem_tv_title_action=0x7f0a0007;
+        public static final int cover_lvitem_tv_title_money=0x7f0a0009;
+        public static final int cover_lvitem_tv_title_name1=0x7f0a0006;
+        public static final int cover_lvitem_tv_title_name2=0x7f0a0008;
+        public static final int customseekbar_sb=0x7f0a0013;
+        public static final int customseekbar_tvtip=0x7f0a0012;
+        public static final int holoCircularProgressBar1=0x7f0a0001;
+        public static final int img_item_2_2=0x7f0a0014;
+        public static final int img_item_2_3=0x7f0a0015;
+        public static final int img_item_3_2=0x7f0a0016;
+        public static final int layer_imgview=0x7f0a001b;
+        public static final int lin_slideparent=0x7f0a0020;
+        public static final int main_parentlin=0x7f0a001c;
+        public static final int progressBar=0x7f0a0018;
+        public static final int scale_btn=0x7f0a001e;
+        public static final int scale_edit=0x7f0a001d;
+        public static final int scale_tv=0x7f0a001f;
+        public static final int selected=0x7f0a0024;
+        public static final int text=0x7f0a0017;
+        public static final int touchscale_head_img=0x7f0a0022;
+        public static final int touchscale_lv=0x7f0a0023;
+        public static final int tv_slideview=0x7f0a0021;
     }
     public static final class layout {
         public static final int circleimage_main=0x7f030000;
@@ -608,16 +681,14 @@ containing a value of this type.
         public static final int customseekbar_main=0x7f030003;
         public static final int drawablexmlmain=0x7f030004;
         public static final int fragmentdialo_dialog=0x7f030005;
-        public static final int fragmentdialo_main=0x7f030006;
-        public static final int horizontalprogress_main=0x7f030007;
-        public static final int layersdrawable_main=0x7f030008;
-        public static final int main=0x7f030009;
-        public static final int parseint_main=0x7f03000a;
-        public static final int scale_main=0x7f03000b;
-        public static final int slideparent_main=0x7f03000c;
-        public static final int touchscale_head=0x7f03000d;
-        public static final int touchscale_item=0x7f03000e;
-        public static final int touchscale_main=0x7f03000f;
+        public static final int horizontalprogress_main=0x7f030006;
+        public static final int layersdrawable_main=0x7f030007;
+        public static final int main=0x7f030008;
+        public static final int scale_main=0x7f030009;
+        public static final int slideparent_main=0x7f03000a;
+        public static final int touchscale_head=0x7f03000b;
+        public static final int touchscale_item=0x7f03000c;
+        public static final int touchscale_main=0x7f03000d;
     }
     public static final class menu {
         public static final int main=0x7f090000;
@@ -645,6 +716,161 @@ containing a value of this type.
         public static final int AppTheme=0x7f080001;
     }
     public static final class styleable {
+        /** Attributes that can be used with a HoloCircularProgressBar.
+           <p>Includes the following attributes:</p>
+           <table>
+           <colgroup align="left" />
+           <colgroup align="left" />
+           <tr><th>Attribute</th><th>Description</th></tr>
+           <tr><td><code>{@link #HoloCircularProgressBar_android_gravity android:gravity}</code></td><td></td></tr>
+           <tr><td><code>{@link #HoloCircularProgressBar_background_width com.example.aademo:background_width}</code></td><td></td></tr>
+           <tr><td><code>{@link #HoloCircularProgressBar_marker_progress com.example.aademo:marker_progress}</code></td><td></td></tr>
+           <tr><td><code>{@link #HoloCircularProgressBar_marker_visible com.example.aademo:marker_visible}</code></td><td></td></tr>
+           <tr><td><code>{@link #HoloCircularProgressBar_progress com.example.aademo:progress}</code></td><td></td></tr>
+           <tr><td><code>{@link #HoloCircularProgressBar_progress_background_color com.example.aademo:progress_background_color}</code></td><td></td></tr>
+           <tr><td><code>{@link #HoloCircularProgressBar_progress_color com.example.aademo:progress_color}</code></td><td></td></tr>
+           <tr><td><code>{@link #HoloCircularProgressBar_stroke_width com.example.aademo:stroke_width}</code></td><td></td></tr>
+           <tr><td><code>{@link #HoloCircularProgressBar_thumb_visible com.example.aademo:thumb_visible}</code></td><td></td></tr>
+           </table>
+           @see #HoloCircularProgressBar_android_gravity
+           @see #HoloCircularProgressBar_background_width
+           @see #HoloCircularProgressBar_marker_progress
+           @see #HoloCircularProgressBar_marker_visible
+           @see #HoloCircularProgressBar_progress
+           @see #HoloCircularProgressBar_progress_background_color
+           @see #HoloCircularProgressBar_progress_color
+           @see #HoloCircularProgressBar_stroke_width
+           @see #HoloCircularProgressBar_thumb_visible
+         */
+        public static final int[] HoloCircularProgressBar = {
+            0x010100af, 0x7f010003, 0x7f010004, 0x7f010005,
+            0x7f010006, 0x7f010007, 0x7f010008, 0x7f010009,
+            0x7f01000a
+        };
+        /**
+          <p>This symbol is the offset where the {@link android.R.attr#gravity}
+          attribute's value can be found in the {@link #HoloCircularProgressBar} array.
+          @attr name android:gravity
+        */
+        public static final int HoloCircularProgressBar_android_gravity = 0;
+        /**
+          <p>This symbol is the offset where the {@link com.example.aademo.R.attr#background_width}
+          attribute's value can be found in the {@link #HoloCircularProgressBar} array.
+
+
+          <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
+Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
+in (inches), mm (millimeters).
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          @attr name com.example.aademo:background_width
+        */
+        public static final int HoloCircularProgressBar_background_width = 2;
+        /**
+          <p>This symbol is the offset where the {@link com.example.aademo.R.attr#marker_progress}
+          attribute's value can be found in the {@link #HoloCircularProgressBar} array.
+
+
+          <p>Must be a floating point value, such as "<code>1.2</code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          @attr name com.example.aademo:marker_progress
+        */
+        public static final int HoloCircularProgressBar_marker_progress = 4;
+        /**
+          <p>This symbol is the offset where the {@link com.example.aademo.R.attr#marker_visible}
+          attribute's value can be found in the {@link #HoloCircularProgressBar} array.
+
+
+          <p>Must be a boolean value, either "<code>true</code>" or "<code>false</code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          @attr name com.example.aademo:marker_visible
+        */
+        public static final int HoloCircularProgressBar_marker_visible = 8;
+        /**
+          <p>This symbol is the offset where the {@link com.example.aademo.R.attr#progress}
+          attribute's value can be found in the {@link #HoloCircularProgressBar} array.
+
+
+          <p>Must be a floating point value, such as "<code>1.2</code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          @attr name com.example.aademo:progress
+        */
+        public static final int HoloCircularProgressBar_progress = 3;
+        /**
+          <p>This symbol is the offset where the {@link com.example.aademo.R.attr#progress_background_color}
+          attribute's value can be found in the {@link #HoloCircularProgressBar} array.
+
+
+          <p>Must be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
+"<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          @attr name com.example.aademo:progress_background_color
+        */
+        public static final int HoloCircularProgressBar_progress_background_color = 6;
+        /**
+          <p>This symbol is the offset where the {@link com.example.aademo.R.attr#progress_color}
+          attribute's value can be found in the {@link #HoloCircularProgressBar} array.
+
+
+          <p>Must be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
+"<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          @attr name com.example.aademo:progress_color
+        */
+        public static final int HoloCircularProgressBar_progress_color = 5;
+        /**
+          <p>This symbol is the offset where the {@link com.example.aademo.R.attr#stroke_width}
+          attribute's value can be found in the {@link #HoloCircularProgressBar} array.
+
+
+          <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
+Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
+in (inches), mm (millimeters).
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          @attr name com.example.aademo:stroke_width
+        */
+        public static final int HoloCircularProgressBar_stroke_width = 1;
+        /**
+          <p>This symbol is the offset where the {@link com.example.aademo.R.attr#thumb_visible}
+          attribute's value can be found in the {@link #HoloCircularProgressBar} array.
+
+
+          <p>Must be a boolean value, either "<code>true</code>" or "<code>false</code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          @attr name com.example.aademo:thumb_visible
+        */
+        public static final int HoloCircularProgressBar_thumb_visible = 7;
         /** Attributes that can be used with a MyTextView.
            <p>Includes the following attributes:</p>
            <table>
