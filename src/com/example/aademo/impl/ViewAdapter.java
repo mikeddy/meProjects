@@ -1,0 +1,1 @@
+package com.example.aademo.impl;import android.view.View;import android.view.ViewGroup;public abstract class ViewAdapter {public abstract int getViewCount();public abstract View getView(int position, View convertView, ViewGroup parent);}

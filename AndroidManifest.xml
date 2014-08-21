@@ -54,6 +54,12 @@
         <activity
             android:name="com.example.aademo.DrawableXMLActivity"
             android:screenOrientation="portrait" />
+         <activity
+            android:name="com.example.aademo.HorizontalListViewActivity"
+            android:screenOrientation="portrait" />
+         <activity
+            android:name="com.example.aademo.CustomViewGroupActivity"
+            android:screenOrientation="portrait" />
     </application>
 
 </manifest>

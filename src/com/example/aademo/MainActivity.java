@@ -9,6 +9,7 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 import android.widget.LinearLayout.LayoutParams;;
 
 public class MainActivity extends BaseActivity {
@@ -34,6 +35,10 @@ public class MainActivity extends BaseActivity {
 		listItemHolders.add(new MainItemHolder("文字多少决定textview的字体大小(不超过一行)", ScaleTextViewActivity.class));
 		listItemHolders.add(new MainItemHolder("Text颜色渐变AND圆形进度条", CircleProgressActivity.class));
 		listItemHolders.add(new MainItemHolder("自定义drawable.xml的深入研究", DrawableXMLActivity.class));
+		listItemHolders.add(new MainItemHolder("横向滑动的listview", HorizontalListViewActivity.class));
+		listItemHolders.add(new MainItemHolder("翻阅listview源码后根据自己的理解写出的一些小玩意", CustomViewGroupActivity.class));
+		
+		
 		
 		
 		
