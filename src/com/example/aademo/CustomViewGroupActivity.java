@@ -26,10 +26,8 @@ public class CustomViewGroupActivity extends BaseActivity {
 		btn_add.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
-//				View itemView=LayoutInflater.from(mContext).inflate(R.layout.customviewgroup_item, null);
-//				cvgGroup.addChildView(itemView);
-//				cvgGroup.addView(itemView);
 				cvgGroup.startAnimation();
+				showToast("初步实现,还有不少BUG,等待完美版吧~^_^ ");
 			}
 		});
 		for (int i = 0; i < 100; i++) {
