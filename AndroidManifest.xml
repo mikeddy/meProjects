@@ -60,6 +60,14 @@
          <activity
             android:name="com.example.aademo.CustomViewGroupActivity"
             android:screenOrientation="portrait" />
+         <activity
+            android:name="com.example.aademo.WheelMenuActivity"
+            android:screenOrientation="portrait" />
+         <activity
+            android:name="com.example.aademo.RotateActivity"
+            android:screenOrientation="portrait" />
+         
+         
     </application>
 
 </manifest>

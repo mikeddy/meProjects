@@ -45,7 +45,6 @@ public class CustomViewGroupActivity extends BaseActivity {
 			public View getView(int position, View convertView, ViewGroup parent) {
 				TextView tv = null;
 				if (convertView == null) {
-					PalLog.printD("aaa============");
 					convertView = LayoutInflater.from(mContext).inflate(R.layout.customviewgroup_item, null);
 					tv = ((TextView) convertView.findViewById(R.id.svgitem_tv));
 					convertView.setTag(tv);

@@ -37,6 +37,8 @@ public class MainActivity extends BaseActivity {
 		listItemHolders.add(new MainItemHolder("自定义drawable.xml的深入研究", DrawableXMLActivity.class));
 		listItemHolders.add(new MainItemHolder("横向滑动的listview", HorizontalListViewActivity.class));
 		listItemHolders.add(new MainItemHolder("翻阅listview源码后根据自己的理解写出的一些小玩意", CustomViewGroupActivity.class));
+		listItemHolders.add(new MainItemHolder("图片的手动控制旋转", WheelMenuActivity.class));
+		listItemHolders.add(new MainItemHolder("控件旋转", RotateActivity.class));
 		
 		
 		
