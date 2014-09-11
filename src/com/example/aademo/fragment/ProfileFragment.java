@@ -8,12 +8,6 @@ import android.view.ViewGroup;
 
 import com.example.aademo.R;
 
-/**
- * User: special
- * Date: 13-12-22
- * Time: 下午1:31
- * Mail: specialcyci@gmail.com
- */
 public class ProfileFragment extends Fragment {
 
     @Override

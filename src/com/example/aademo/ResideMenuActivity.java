@@ -41,7 +41,7 @@ public class ResideMenuActivity extends FragmentActivity implements View.OnClick
 
 		// attach to current activity;
 		resideMenu = new ResideMenu(this);
-		resideMenu.setBackground(R.drawable.menu_background);
+		resideMenu.setBackground(R.drawable.jianbian_tv_bg);
 		resideMenu.attachToActivity(this);
 		resideMenu.setMenuListener(menuListener);
 		

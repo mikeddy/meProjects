@@ -14,12 +14,6 @@ import android.widget.Toast;
 
 import com.example.aademo.R;
 
-/**
- * User: special
- * Date: 13-12-22
- * Time: 下午3:26
- * Mail: specialcyci@gmail.com
- */
 public class CalendarFragment extends Fragment {
 
     private View parentView;
