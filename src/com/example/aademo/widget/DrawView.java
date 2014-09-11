@@ -89,8 +89,10 @@ public class DrawView extends View {
 			 x=xiaodianweizhi-Math.abs(Math.sin(((double)((360-radian)*Math.PI/180)))*(banjing/2-((banjing-neiquan)/4)));
 			 y=xiaodianweizhi-Math.abs(Math.cos(((double)((360-radian)*Math.PI/180)))*(banjing/2-((banjing-neiquan)/4)));
 		}
+		
 		endPointCoord[0]=x;
 		endPointCoord[1]=y;
+		
 	}
 	private void jisuanradian(float percent){
 	    radian=(float)percent/100*360;

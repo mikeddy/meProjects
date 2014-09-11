@@ -2,6 +2,8 @@ package com.example.aademo;
 
 import java.util.ArrayList;
 
+import com.example.aademo.util.PalLog;
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Gravity;
@@ -39,6 +41,7 @@ public class MainActivity extends BaseActivity {
 		listItemHolders.add(new MainItemHolder("翻阅listview源码后根据自己的理解写出的一些小玩意", CustomViewGroupActivity.class));
 		listItemHolders.add(new MainItemHolder("图片的手动控制旋转", WheelMenuActivity.class));
 		listItemHolders.add(new MainItemHolder("控件旋转", RotateActivity.class));
+		listItemHolders.add(new MainItemHolder("仿新版QQ侧滑", ResideMenuActivity.class));
 		
 		
 		

@@ -1,6 +1,8 @@
 package com.example.aademo;
 
 import android.os.Bundle;
+import android.view.ViewTreeObserver.OnGlobalLayoutListener;
+import android.widget.TextView;
 
 public class CircleImageActivity extends BaseActivity {
 	//v4.1

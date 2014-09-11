@@ -17,4 +17,9 @@
         <!-- All customizations that are NOT specific to a particular API-level can go here. -->
     </style>
 
+    <style name="fragment_text">
+        <item name="android:textColor">#ffacacac</item>
+        <item name="android:textSize">25sp</item>
+    </style>
+
 </resources>

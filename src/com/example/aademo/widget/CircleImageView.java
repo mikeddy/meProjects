@@ -14,6 +14,7 @@ import android.widget.ImageView;
 import com.example.aademo.R;
 
 public class CircleImageView extends ImageView {
+	
 
 	private int borderWidth = 0;
 	private int viewWidth;
@@ -129,4 +130,5 @@ public class CircleImageView extends ImageView {
 
 		return (result);
 	}
+	
 }
