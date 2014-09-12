@@ -17,6 +17,16 @@
         android:max="100"
         android:progressDrawable="@drawable/seekbar_style" />
 
+    <ProgressBar
+        android:id="@+id/progressBar1"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="fill_parent"
+        android:layout_height="2dp"
+        android:layout_marginTop="8dp"
+        android:progress="20"
+        android:max="100"
+        android:progressDrawable="@drawable/redseekbar_style" />
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content" >

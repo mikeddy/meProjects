@@ -8,7 +8,7 @@ import android.widget.Button;
 import android.widget.ProgressBar;
 
 public class HorizontalProgressBarActivity extends BaseActivity implements OnClickListener {
-	private ProgressBar progressBar;
+	private ProgressBar progressBar,progressBar1;
 	Button btn_add, btn_sub;
 	int mProgress = 0;
 
@@ -21,11 +21,14 @@ public class HorizontalProgressBarActivity extends BaseActivity implements OnCli
 
 	private void init() {
 		progressBar = (ProgressBar) findViewById(R.id.progressBar);
+		progressBar1=(ProgressBar)findViewById(R.id.progressBar1);
 		btn_add = (Button) findViewById(R.id.btn_add);
 		btn_sub = (Button) findViewById(R.id.btn_sub);
+		
 		btn_add.setOnClickListener(this);
 		btn_sub.setOnClickListener(this);
 		progressBar.setProgress(mProgress);
+		progressBar1.setProgress(mProgress);
 	}
 
 	@Override
@@ -46,5 +49,6 @@ public class HorizontalProgressBarActivity extends BaseActivity implements OnCli
 			mProgress = 0;
 		
 		progressBar.setProgress(mProgress);
+		progressBar1.setProgress(mProgress);
 	}
 }
