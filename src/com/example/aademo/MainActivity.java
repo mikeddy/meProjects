@@ -42,6 +42,7 @@ public class MainActivity extends BaseActivity {
 		listItemHolders.add(new MainItemHolder("图片的手动控制旋转", WheelMenuActivity.class));
 		listItemHolders.add(new MainItemHolder("控件旋转", RotateActivity.class));
 		listItemHolders.add(new MainItemHolder("仿新版QQ侧滑", ResideMenuActivity.class));
+		listItemHolders.add(new MainItemHolder("雪花旋转进度条", SnowProgressActivity.class));
 		
 		
 		

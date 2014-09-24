@@ -24,12 +24,30 @@
         test:thumb_visible="false" />
 
     <FrameLayout
-        android:layout_width="200dp"
-        android:layout_height="200dp" >
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" >
 
         <LinearLayout
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
+            android:gravity="center" >
+
+            <com.example.aademo.widget.CircleProgressBarlarge
+                android:id="@+id/holoCircularProgressBar2"
+                android:layout_width="200dp"
+                android:layout_height="200dp"
+                test:background_width="20dp"
+                test:marker_visible="false"
+                test:progress_background_color="#897644"
+                test:progress_color="#f14274"
+                test:stroke_width="20dp"
+                test:thumb_visible="false" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:background="@drawable/circleprogressbg"
             android:gravity="center" >
 
             <TextView
@@ -41,17 +59,6 @@
                 android:textColor="#4b4b4b"
                 android:textSize="30dp" />
         </LinearLayout>
-
-        <com.example.aademo.widget.CircleProgressBarlarge
-            android:id="@+id/holoCircularProgressBar2"
-            android:layout_width="fill_parent"
-            android:layout_height="fill_parent"
-            test:background_width="10dp"
-            test:marker_visible="false"
-            test:progress_background_color="#ededed"
-            test:progress_color="#f14274"
-            test:stroke_width="10dp"
-            test:thumb_visible="false" />
     </FrameLayout>
 
     <LinearLayout
