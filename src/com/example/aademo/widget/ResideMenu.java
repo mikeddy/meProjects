@@ -20,6 +20,7 @@ import android.widget.LinearLayout;
 import android.widget.ScrollView;
 
 import com.example.aademo.R;
+import com.example.aademo.util.PalLog;
 import com.nineoldandroids.animation.Animator;
 import com.nineoldandroids.animation.AnimatorSet;
 import com.nineoldandroids.animation.ObjectAnimator;
@@ -36,10 +37,21 @@ public class ResideMenu extends FrameLayout {
 	private static final int PRESSED_DOWN = 3;
 	private static final int PRESSED_DONE = 4;
 	private static final int PRESSED_MOVE_VERTICAL = 5;
+	private int pressedState = PRESSED_DOWN;
 
 	public static final int SWIPEDIR_LEFT = 6;// 只有左边有菜单
 	public static final int SWIPEDIR_RIGHT = 7;// 只有右边有菜单
 	public static final int SWIPEDIR_BOTH = 8;// 两边都有菜单
+
+	private static final int VECTOR_RIGHT = 9;// 如果确定presstate==PRESSED_MOVE_HORIZANTAL后再判断滑动的方向
+	private static final int VECTOR_LEFT = 10;// 如果确定presstate==PRESSED_MOVE_HORIZANTAL后再判断滑动的方向
+	private static final int VECTOR_NONE = 11;// 如果确定presstate==PRESSED_MOVE_HORIZANTAL后再判断滑动的方向
+	private int vectordir = VECTOR_NONE;// 滑动的矢量方向(如果pressedState==PRESSED_MOVE_HORIZANTAL)则此变量起作用
+
+	public static final int EDG_LEFT = 12;// 左边界
+	public static final int EDG_RIGHT = 13;// 右边
+	public static final int EDG_NONE = 14;// 无边界,说明处于中间位置
+	private int edg = EDG_NONE;
 
 	// private ImageView imageViewShadow;
 	private ImageView imageViewBackground;
@@ -70,19 +82,18 @@ public class ResideMenu extends FrameLayout {
 	private float lastRawX;
 	private boolean isInIgnoredView = false;
 	private int scaleDirection = DIRECTION_LEFT;
-	private int pressedState = PRESSED_DOWN;
 	private List<Integer> disabledSwipeDirection = new ArrayList<Integer>();
 	// valid scale factor is between 0.0f and 1.0f
 	// 缩放值(展开菜单的时候,主View会缩放成原来的多大1.0f表示跟原来的一样大,0.0f表示缩放到消失)
 	private float mScaleValue = 0.5f;
 	private float offsetValue = 0.5f;// 移出屏幕的偏移值,值越大移出屏幕的部分越多
-	private float mMenuScaleValue=0.7f;//执行动画时,Menu的小缩放值
+	private float mMenuScaleValue = 0.7f;// 执行动画时,Menu的小缩放值
 	private int mSwipeDir = SWIPEDIR_LEFT;
 	private VelocityTracker mVelocityTracker;// 手势速率
 	private int mMinSlideVelocity;// 最小速率触发值
 	private int xOffset = 0, yOffset = 0;
-	
-	private View mLeftContent,mRightContent;
+
+	private View mLeftContent, mRightContent;
 
 	public ResideMenu(Context context) {
 		super(context);
@@ -112,7 +123,7 @@ public class ResideMenu extends FrameLayout {
 		// setShadowAdjustScaleXByOrientation();
 		viewDecor.addView(this, 0);// 由于==part1==部分执行的代码将activity的根view移除了.所以在这里需要添加上(即将此ResideMenu作为activity的根布局)
 		setViewPadding();
-		
+
 	}
 
 	private void initValue(Activity activity) {
@@ -129,13 +140,12 @@ public class ResideMenu extends FrameLayout {
 		viewDecor.removeViewAt(0);// 移除activity的setContentView的那个布局
 		viewActivity.setContent(mContent);// 将activity的布局添加进viewActivity
 		addView(viewActivity);// 添加viewActivity
-//		ViewGroup parent = (ViewGroup) scrollViewLeftMenu.getParent();
-//		parent.removeView(scrollViewLeftMenu);
-//		parent.removeView(scrollViewRightMenu);
+		// ViewGroup parent = (ViewGroup) scrollViewLeftMenu.getParent();
+		// parent.removeView(scrollViewLeftMenu);
+		// parent.removeView(scrollViewRightMenu);
 		scrollViewLeftMenu.setVisibility(View.GONE);
 		scrollViewRightMenu.setVisibility(View.GONE);
-		
-		
+
 	}
 
 	/**
@@ -149,21 +159,23 @@ public class ResideMenu extends FrameLayout {
 
 	public void setLeftMenuContent(View v) {
 		layoutLeftMenu.addView(v);
-		mLeftContent=v;
+		mLeftContent = v;
 		rebuildMenu();
 	}
 
 	public void setRightMenuContent(View v) {
 		layoutRightMenu.addView(v);
-		mRightContent=v;
+		mRightContent = v;
 		rebuildMenu();
 	}
 
 	private void rebuildMenu() {
 		layoutLeftMenu.removeAllViews();
 		layoutRightMenu.removeAllViews();
-		if(mLeftContent!=null)layoutLeftMenu.addView(mLeftContent);
-		if(mRightContent!=null)layoutRightMenu.addView(mRightContent);
+		if (mLeftContent != null)
+			layoutLeftMenu.addView(mLeftContent);
+		if (mRightContent != null)
+			layoutRightMenu.addView(mRightContent);
 	}
 
 	/**
@@ -216,7 +228,7 @@ public class ResideMenu extends FrameLayout {
 
 		isOpened = false;
 		AnimatorSet scaleUp_activity = buildScaleAnimation(viewActivity, 1.0f, 1.0f);
-		AnimatorSet scaleUp_menu = buildScaleAnimation(scrollViewMenu, mMenuScaleValue,mMenuScaleValue);
+		AnimatorSet scaleUp_menu = buildScaleAnimation(scrollViewMenu, mMenuScaleValue, mMenuScaleValue);
 		// AnimatorSet scaleUp_shadow = buildScaleUpAnimation(imageViewShadow,
 		// 1.0f, 1.0f);
 		AnimatorSet alpha_menu = buildMenuAnimation(scrollViewMenu, 0.0f);
@@ -357,7 +369,8 @@ public class ResideMenu extends FrameLayout {
 	 * @param v
 	 */
 	public void addIgnoredView(View v) {
-		ignoredViews.add(v);
+		if (!ignoredViews.contains(v))
+			ignoredViews.add(v);
 	}
 
 	/**
@@ -417,8 +430,10 @@ public class ResideMenu extends FrameLayout {
 	@Override
 	public boolean dispatchTouchEvent(MotionEvent ev) {
 		float currentActivityScaleX = ViewHelper.getScaleX(viewActivity);
-		if (currentActivityScaleX == 1.0f)
+		if (currentActivityScaleX == 1.0f) {
+			PalLog.printD("part0");
 			setScaleDirectionByRawX(ev.getRawX());
+		}
 
 		switch (ev.getAction()) {
 		case MotionEvent.ACTION_DOWN:
@@ -428,31 +443,49 @@ public class ResideMenu extends FrameLayout {
 			yOffset = 0;
 			isInIgnoredView = isInIgnoredView(ev) && !isOpened();
 			pressedState = PRESSED_DOWN;
+			vectordir = VECTOR_NONE;
 			mVelocityTracker = VelocityTracker.obtain();
 			mVelocityTracker.addMovement(ev);
 			break;
 
 		case MotionEvent.ACTION_MOVE:
 			mVelocityTracker.addMovement(ev);
+			PalLog.printD("part1");
 			if (isInIgnoredView || isInDisableDirection(scaleDirection))
 				break;
-
 			if (pressedState != PRESSED_DOWN && pressedState != PRESSED_MOVE_HORIZANTAL)
 				break;
-
+			if (Interplater()) {
+				break;
+			}
+			PalLog.printD("part2");
 			xOffset = (int) (ev.getX() - lastActionDownX);
 			yOffset = (int) (ev.getY() - lastActionDownY);
-
+			PalLog.printD("part2.1");
 			if (pressedState == PRESSED_DOWN) {
+				PalLog.printD("part2.2");
 				if (yOffset > 15 || yOffset < -15) {
 					pressedState = PRESSED_MOVE_VERTICAL;
 					break;
 				}
+				PalLog.printD("part2.3" + xOffset);
 				if (xOffset < -15 || xOffset > 15) {
+					PalLog.printD("part2.4");
 					pressedState = PRESSED_MOVE_HORIZANTAL;
-					ev.setAction(MotionEvent.ACTION_CANCEL);
+					if (xOffset < -15)
+						vectordir = VECTOR_LEFT;
+					else if (xOffset > 15)
+						vectordir = VECTOR_RIGHT;
+					if (Interplater()) {
+						break;
+					} else {
+						ev.setAction(MotionEvent.ACTION_CANCEL);
+					}
+					PalLog.printD("part3");
+					break;
 				}
 			} else if (pressedState == PRESSED_MOVE_HORIZANTAL) {
+				PalLog.printD("part4");
 				if (currentActivityScaleX < 0.95)
 					showScrollViewMenu();
 
@@ -473,12 +506,14 @@ public class ResideMenu extends FrameLayout {
 					ViewHelper.setScaleY(scrollViewMenu, (1 - targetScale) * 5.0f);
 				}
 				lastRawX = ev.getRawX();
+				PalLog.printD("part5");
 				return true;
 			}
 			break;
 
 		case MotionEvent.ACTION_CANCEL:
 		case MotionEvent.ACTION_UP:
+			PalLog.printD("part6");
 			if (isInIgnoredView)
 				break;
 			if (pressedState != PRESSED_MOVE_HORIZANTAL)
@@ -486,6 +521,10 @@ public class ResideMenu extends FrameLayout {
 			if (mVelocityTracker == null) {
 				break;
 			}
+			if (Interplater()) {
+				return super.dispatchTouchEvent(ev);
+			}
+			PalLog.printD("part7");
 			mVelocityTracker.addMovement(ev);
 			mVelocityTracker.computeCurrentVelocity(1000);
 			float velocityX = Math.abs(mVelocityTracker.getXVelocity());
@@ -532,7 +571,9 @@ public class ResideMenu extends FrameLayout {
 
 		}
 		lastRawX = ev.getRawX();
-		return super.dispatchTouchEvent(ev);
+		boolean aa = super.dispatchTouchEvent(ev);
+		PalLog.printD("boolean " + aa);
+		return aa;
 	}
 
 	public int getScreenHeight() {
@@ -558,6 +599,10 @@ public class ResideMenu extends FrameLayout {
 		this.offsetValue = offsetValue;
 	}
 
+	public void setEdg(int edg) {
+		this.edg = edg;
+	}
+
 	public interface OnMenuListener {
 
 		/**
@@ -574,63 +619,95 @@ public class ResideMenu extends FrameLayout {
 	}
 
 	private void showScrollViewMenu() {
-//		if (scrollViewMenu != null && scrollViewMenu.getParent() == null) {
+		// if (scrollViewMenu != null && scrollViewMenu.getParent() == null) {
 		if (scrollViewMenu != null) {
-//			addView(scrollViewMenu,1);
+			// addView(scrollViewMenu,1);
 			scrollViewMenu.setVisibility(View.VISIBLE);
 		}
 	}
 
 	private void hideScrollViewMenu() {
-//		if (scrollViewMenu != null && scrollViewMenu.getParent() != null) {
-			if (scrollViewMenu != null) {
-//			removeView(scrollViewMenu);
+		// if (scrollViewMenu != null && scrollViewMenu.getParent() != null) {
+		if (scrollViewMenu != null) {
+			// removeView(scrollViewMenu);
 			scrollViewMenu.setVisibility(View.GONE);
 		}
 	}
-	
-	
-	
-	
-	
-//	/**
-//	 * a helper method to build scale up animation;
-//	 * 
-//	 * @param target
-//	 * @param targetScaleX
-//	 * @param targetScaleY
-//	 * @return
-//	 */
-//	private AnimatorSet buildScaleUpAnimation(View target, float targetScaleX, float targetScaleY) {
-//
-//		AnimatorSet scaleUp = new AnimatorSet();
-//		scaleUp.playTogether(ObjectAnimator.ofFloat(target, "scaleX", targetScaleX), ObjectAnimator.ofFloat(target, "scaleY", targetScaleY));
-//		scaleUp.setInterpolator(AnimationUtils.loadInterpolator(activity, android.R.anim.decelerate_interpolator));
-//		scaleUp.setDuration(150);
-//		return scaleUp;
-//	}
-	
-//	private AnimatorSet buildMenuScaleUpAnimation(View target, float targetScaleX, float targetScaleY) {
-//
-//		AnimatorSet scaleUp = new AnimatorSet();
-//		scaleUp.playTogether(ObjectAnimator.ofFloat(target, "scaleX", targetScaleX), ObjectAnimator.ofFloat(target, "scaleY", targetScaleY));
-//		scaleUp.setInterpolator(AnimationUtils.loadInterpolator(activity, android.R.anim.decelerate_interpolator));
-//		scaleUp.setDuration(150);
-//		return scaleUp;
-//	}
-	
+
+	@Override
+	public boolean onTouchEvent(MotionEvent event) {
+		boolean bb = super.onTouchEvent(event);
+		PalLog.printD("onTouchEvent:" + bb);
+		return bb;
+	}
+
+	@Override
+	public boolean onInterceptTouchEvent(MotionEvent ev) {
+		boolean bb = super.onInterceptTouchEvent(ev);
+		PalLog.printD("onInterceptTouchEvent:" + bb);
+		return bb;
+	}
+
+	public boolean Interplater() {
+		if (pressedState == PRESSED_MOVE_HORIZANTAL) {
+			if (isOpened())
+				return false;
+			// 如果到达左边界,手指往左边滑
+			else if (edg == EDG_LEFT && vectordir == VECTOR_LEFT) {
+				return true;
+			}else if (edg == EDG_RIGHT && vectordir == VECTOR_RIGHT) {// 如果到达右边界,手指往右边滑
+				return true;
+			}else if (edg == EDG_NONE) {
+				return true;
+			}
+		}
+		return false;
+	}
+
+	// /**
+	// * a helper method to build scale up animation;
+	// *
+	// * @param target
+	// * @param targetScaleX
+	// * @param targetScaleY
+	// * @return
+	// */
+	// private AnimatorSet buildScaleUpAnimation(View target, float
+	// targetScaleX, float targetScaleY) {
+	//
+	// AnimatorSet scaleUp = new AnimatorSet();
+	// scaleUp.playTogether(ObjectAnimator.ofFloat(target, "scaleX",
+	// targetScaleX), ObjectAnimator.ofFloat(target, "scaleY", targetScaleY));
+	// scaleUp.setInterpolator(AnimationUtils.loadInterpolator(activity,
+	// android.R.anim.decelerate_interpolator));
+	// scaleUp.setDuration(150);
+	// return scaleUp;
+	// }
+
+	// private AnimatorSet buildMenuScaleUpAnimation(View target, float
+	// targetScaleX, float targetScaleY) {
+	//
+	// AnimatorSet scaleUp = new AnimatorSet();
+	// scaleUp.playTogether(ObjectAnimator.ofFloat(target, "scaleX",
+	// targetScaleX), ObjectAnimator.ofFloat(target, "scaleY", targetScaleY));
+	// scaleUp.setInterpolator(AnimationUtils.loadInterpolator(activity,
+	// android.R.anim.decelerate_interpolator));
+	// scaleUp.setDuration(150);
+	// return scaleUp;
+	// }
+
 	// 根据屏幕方向,决定滑动时的阴影缩放值
-		// private void setShadowAdjustScaleXByOrientation() {
-		// int orientation = getResources().getConfiguration().orientation;
-		// if (orientation == Configuration.ORIENTATION_LANDSCAPE) {
-		// shadowAdjustScaleX = 0.034f;
-		// shadowAdjustScaleY = 0.12f;
-		// } else if (orientation == Configuration.ORIENTATION_PORTRAIT) {
-		// shadowAdjustScaleX = 0.06f;
-		// shadowAdjustScaleY = 0.07f;
-		// }
-		// }
-	
+	// private void setShadowAdjustScaleXByOrientation() {
+	// int orientation = getResources().getConfiguration().orientation;
+	// if (orientation == Configuration.ORIENTATION_LANDSCAPE) {
+	// shadowAdjustScaleX = 0.034f;
+	// shadowAdjustScaleY = 0.12f;
+	// } else if (orientation == Configuration.ORIENTATION_PORTRAIT) {
+	// shadowAdjustScaleX = 0.06f;
+	// shadowAdjustScaleY = 0.07f;
+	// }
+	// }
+
 	/**
 	 * the visiblity of shadow under the activity view;
 	 * 
@@ -694,26 +771,26 @@ public class ResideMenu extends FrameLayout {
 	// this.rightMenuItems = menuItems;
 	// rebuildMenu();
 	// }
-	
+
 	// /**
-		// * get the left menu items;
-		// *
-		// * @return
-		// */
-		// @Deprecated
-		// public List<ResideMenuItem> getMenuItems() {
-		// return leftMenuItems;
-		// }
-		//
-		// /**
-		// * get the menu items;
-		// *
-		// * @return
-		// */
-		// public List<ResideMenuItem> getMenuItems(int direction) {
-		// if (direction == DIRECTION_LEFT)
-		// return leftMenuItems;
-		// else
-		// return rightMenuItems;
-		// }
+	// * get the left menu items;
+	// *
+	// * @return
+	// */
+	// @Deprecated
+	// public List<ResideMenuItem> getMenuItems() {
+	// return leftMenuItems;
+	// }
+	//
+	// /**
+	// * get the menu items;
+	// *
+	// * @return
+	// */
+	// public List<ResideMenuItem> getMenuItems(int direction) {
+	// if (direction == DIRECTION_LEFT)
+	// return leftMenuItems;
+	// else
+	// return rightMenuItems;
+	// }
 }

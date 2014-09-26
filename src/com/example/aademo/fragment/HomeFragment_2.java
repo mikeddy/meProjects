@@ -9,17 +9,17 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AbsListView;
 import android.widget.AdapterView;
-import android.widget.AdapterView.OnItemClickListener;
 import android.widget.BaseAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
+import android.widget.AdapterView.OnItemClickListener;
 
 import com.example.aademo.ResideMenuActivity;
 import com.example.aademo.R;
 import com.example.aademo.widget.ResideMenu;
 
-public class HomeFragment extends Fragment implements OnItemClickListener {
+public class HomeFragment_2 extends Fragment  implements OnItemClickListener {
 
     private View parentView;
     private ResideMenu resideMenu;
@@ -66,20 +66,20 @@ public class HomeFragment extends Fragment implements OnItemClickListener {
 			if(convertView==null){
 				tv=new TextView(mAc);
 				tv.setLayoutParams(new AbsListView.LayoutParams(AbsListView.LayoutParams.FILL_PARENT, 100));
+//				tv.setLayoutParams(new layoutparam(LayoutParams.FILL_PARENT, 100));
 				tv.setTextColor(Color.RED);
 				convertView=tv;
 			}
 			else {
 				tv=(TextView)convertView;
 			}
-			tv.setText("hello 这里是 position"+position);
+			tv.setText("hello home2 这里是 position"+position);
 			return convertView;
 		}
     	
     }
 
-
-	@Override
+    @Override
 	public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 		Toast.makeText(mAc, position+"", Toast.LENGTH_SHORT).show();
 	}
