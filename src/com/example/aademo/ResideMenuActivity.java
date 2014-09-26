@@ -13,11 +13,14 @@ import android.support.v4.view.ViewPager.OnPageChangeListener;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
+import android.widget.ImageView;
 
 import com.example.aademo.fragment.HomeFragment;
 import com.example.aademo.fragment.HomeFragment_2;
 import com.example.aademo.fragment.HomeFragment_3;
+import com.example.aademo.util.PalLog;
 import com.example.aademo.widget.ResideMenu;
+import com.nineoldandroids.view.ViewHelper;
 
 public class ResideMenuActivity extends FragmentActivity {
 
@@ -26,6 +29,7 @@ public class ResideMenuActivity extends FragmentActivity {
 	PagerAdapter mPagerAdapter;
 	ArrayList<Fragment> arraylist_Fragment;
 	ViewPager vp_main;
+	ImageView img;
 
 	/**
 	 * Called when the activity is first created.
@@ -40,6 +44,7 @@ public class ResideMenuActivity extends FragmentActivity {
 
 	private void init() {
 		vp_main = (ViewPager) findViewById(R.id.residemenu_vp_main);
+		img = (ImageView) findViewById(R.id.residemenu_img_ico);
 		arraylist_Fragment = new ArrayList<Fragment>();
 		arraylist_Fragment.add(new HomeFragment());
 		arraylist_Fragment.add(new HomeFragment_2());
@@ -50,18 +55,21 @@ public class ResideMenuActivity extends FragmentActivity {
 			@Override
 			public void onPageSelected(int arg0) {
 				resideMenu.setEdg(arg0 == 0 ? ResideMenu.EDG_LEFT : ResideMenu.EDG_NONE);
-//				resideMenu.setEdg(arg0 == adapter.getCount()-1 ? ResideMenu.EDG_RIGHT : ResideMenu.EDG_NONE);
+				// resideMenu.setEdg(arg0 == adapter.getCount()-1 ?
+				// ResideMenu.EDG_RIGHT : ResideMenu.EDG_NONE);
 			}
 
 			@Override
 			public void onPageScrolled(int arg0, float arg1, int arg2) {
+				PalLog.printD("aaa"+arg0+","+arg1+","+arg2);
+				ViewHelper.setTranslationX(img, arg2 / 3);
 			}
 
 			@Override
 			public void onPageScrollStateChanged(int arg0) {
 			}
 		});
-//		resideMenu.setEdg(ResideMenu.EDG_NONE);
+		// resideMenu.setEdg(ResideMenu.EDG_NONE);
 		resideMenu.setEdg(ResideMenu.EDG_LEFT);
 		// resideMenu.addIgnoredView(vp_main);
 	}
@@ -75,7 +83,7 @@ public class ResideMenuActivity extends FragmentActivity {
 		resideMenu.setLeftMenuContent(v);
 		resideMenu.setScaleValue(0.8f);
 		resideMenu.setOffsetValue(2.5f);
-//		resideMenu.setSwipeDir(ResideMenu.SWIPEDIR_RIGHT);
+		// resideMenu.setSwipeDir(ResideMenu.SWIPEDIR_RIGHT);
 		resideMenu.setSwipeDir(ResideMenu.SWIPEDIR_LEFT);
 
 		findViewById(R.id.title_bar_left_menu).setOnClickListener(new View.OnClickListener() {

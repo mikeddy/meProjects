@@ -33,6 +33,7 @@ public class ResideMenu extends FrameLayout {
 
 	public static final int DIRECTION_LEFT = 0;
 	public static final int DIRECTION_RIGHT = 1;
+
 	private static final int PRESSED_MOVE_HORIZANTAL = 2;
 	private static final int PRESSED_DOWN = 3;
 	private static final int PRESSED_DONE = 4;
@@ -431,7 +432,7 @@ public class ResideMenu extends FrameLayout {
 	public boolean dispatchTouchEvent(MotionEvent ev) {
 		float currentActivityScaleX = ViewHelper.getScaleX(viewActivity);
 		if (currentActivityScaleX == 1.0f) {
-			PalLog.printD("part0");
+//			PalLog.printD("part0");
 			setScaleDirectionByRawX(ev.getRawX());
 		}
 
@@ -450,7 +451,7 @@ public class ResideMenu extends FrameLayout {
 
 		case MotionEvent.ACTION_MOVE:
 			mVelocityTracker.addMovement(ev);
-			PalLog.printD("part1");
+//			PalLog.printD("part1");
 			if (isInIgnoredView || isInDisableDirection(scaleDirection))
 				break;
 			if (pressedState != PRESSED_DOWN && pressedState != PRESSED_MOVE_HORIZANTAL)
@@ -458,19 +459,19 @@ public class ResideMenu extends FrameLayout {
 			if (Interplater()) {
 				break;
 			}
-			PalLog.printD("part2");
+//			PalLog.printD("part2");
 			xOffset = (int) (ev.getX() - lastActionDownX);
 			yOffset = (int) (ev.getY() - lastActionDownY);
-			PalLog.printD("part2.1");
+//			PalLog.printD("part2.1");
 			if (pressedState == PRESSED_DOWN) {
-				PalLog.printD("part2.2");
+//				PalLog.printD("part2.2");
 				if (yOffset > 15 || yOffset < -15) {
 					pressedState = PRESSED_MOVE_VERTICAL;
 					break;
 				}
-				PalLog.printD("part2.3" + xOffset);
+//				PalLog.printD("part2.3" + xOffset);
 				if (xOffset < -15 || xOffset > 15) {
-					PalLog.printD("part2.4");
+//					PalLog.printD("part2.4");
 					pressedState = PRESSED_MOVE_HORIZANTAL;
 					if (xOffset < -15)
 						vectordir = VECTOR_LEFT;
@@ -481,11 +482,11 @@ public class ResideMenu extends FrameLayout {
 					} else {
 						ev.setAction(MotionEvent.ACTION_CANCEL);
 					}
-					PalLog.printD("part3");
+//					PalLog.printD("part3");
 					break;
 				}
 			} else if (pressedState == PRESSED_MOVE_HORIZANTAL) {
-				PalLog.printD("part4");
+//				PalLog.printD("part4");
 				if (currentActivityScaleX < 0.95)
 					showScrollViewMenu();
 
@@ -506,14 +507,14 @@ public class ResideMenu extends FrameLayout {
 					ViewHelper.setScaleY(scrollViewMenu, (1 - targetScale) * 5.0f);
 				}
 				lastRawX = ev.getRawX();
-				PalLog.printD("part5");
+//				PalLog.printD("part5");
 				return true;
 			}
 			break;
 
 		case MotionEvent.ACTION_CANCEL:
 		case MotionEvent.ACTION_UP:
-			PalLog.printD("part6");
+//			PalLog.printD("part6");
 			if (isInIgnoredView)
 				break;
 			if (pressedState != PRESSED_MOVE_HORIZANTAL)
@@ -524,7 +525,7 @@ public class ResideMenu extends FrameLayout {
 			if (Interplater()) {
 				return super.dispatchTouchEvent(ev);
 			}
-			PalLog.printD("part7");
+//			PalLog.printD("part7");
 			mVelocityTracker.addMovement(ev);
 			mVelocityTracker.computeCurrentVelocity(1000);
 			float velocityX = Math.abs(mVelocityTracker.getXVelocity());
@@ -572,7 +573,7 @@ public class ResideMenu extends FrameLayout {
 		}
 		lastRawX = ev.getRawX();
 		boolean aa = super.dispatchTouchEvent(ev);
-		PalLog.printD("boolean " + aa);
+//		PalLog.printD("boolean " + aa);
 		return aa;
 	}
 
@@ -637,14 +638,14 @@ public class ResideMenu extends FrameLayout {
 	@Override
 	public boolean onTouchEvent(MotionEvent event) {
 		boolean bb = super.onTouchEvent(event);
-		PalLog.printD("onTouchEvent:" + bb);
+//		PalLog.printD("onTouchEvent:" + bb);
 		return bb;
 	}
 
 	@Override
 	public boolean onInterceptTouchEvent(MotionEvent ev) {
 		boolean bb = super.onInterceptTouchEvent(ev);
-		PalLog.printD("onInterceptTouchEvent:" + bb);
+//		PalLog.printD("onInterceptTouchEvent:" + bb);
 		return bb;
 	}
 
@@ -655,9 +656,9 @@ public class ResideMenu extends FrameLayout {
 			// 如果到达左边界,手指往左边滑
 			else if (edg == EDG_LEFT && vectordir == VECTOR_LEFT) {
 				return true;
-			}else if (edg == EDG_RIGHT && vectordir == VECTOR_RIGHT) {// 如果到达右边界,手指往右边滑
+			} else if (edg == EDG_RIGHT && vectordir == VECTOR_RIGHT) {// 如果到达右边界,手指往右边滑
 				return true;
-			}else if (edg == EDG_NONE) {
+			} else if (edg == EDG_NONE) {
 				return true;
 			}
 		}

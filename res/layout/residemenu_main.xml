@@ -52,6 +52,17 @@
             android:background="#ebebeb" />
     </LinearLayout>
 
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="10dp" >
+
+        <ImageView
+            android:id="@+id/residemenu_img_ico"
+            android:layout_width="20dp"
+            android:layout_height="5dp"
+            android:background="#e1295b" />
+    </LinearLayout>
+
     <android.support.v4.view.ViewPager
         android:id="@+id/residemenu_vp_main"
         android:layout_width="fill_parent"
