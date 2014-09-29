@@ -16,6 +16,9 @@
         <attr name="thumb_visible" format="boolean" />
         <attr name="marker_visible" format="boolean" />
         <attr name="android:gravity" />
+        <attr name="progress_img" format="reference|color" />
+        <attr name="progress_bottom_img" format="reference|color" />
+        <attr name="radius" format="dimension" />
     </declare-styleable>
 
     <attr name="circularProgressBarStyle" format="reference" />

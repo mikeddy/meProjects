@@ -2,6 +2,7 @@ package com.example.aademo;
 
 import java.util.ArrayList;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
@@ -14,12 +15,14 @@ import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 
 import com.example.aademo.fragment.HomeFragment;
 import com.example.aademo.fragment.HomeFragment_2;
 import com.example.aademo.fragment.HomeFragment_3;
 import com.example.aademo.util.PalLog;
 import com.example.aademo.widget.ResideMenu;
+import com.example.aademo.widget.ScrollLineView;
 import com.nineoldandroids.view.ViewHelper;
 
 public class ResideMenuActivity extends FragmentActivity {
@@ -29,7 +32,10 @@ public class ResideMenuActivity extends FragmentActivity {
 	PagerAdapter mPagerAdapter;
 	ArrayList<Fragment> arraylist_Fragment;
 	ViewPager vp_main;
-	ImageView img;
+//	ImageView img;
+	LinearLayout lin_scrollline;
+	Context mContext;
+	ScrollLineView scrollLineView;
 
 	/**
 	 * Called when the activity is first created.
@@ -37,6 +43,7 @@ public class ResideMenuActivity extends FragmentActivity {
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+		mContext=this;
 		setContentView(R.layout.residemenu_main);
 		setUpMenu();
 		init();
@@ -44,13 +51,22 @@ public class ResideMenuActivity extends FragmentActivity {
 
 	private void init() {
 		vp_main = (ViewPager) findViewById(R.id.residemenu_vp_main);
-		img = (ImageView) findViewById(R.id.residemenu_img_ico);
+		lin_scrollline=(LinearLayout)findViewById(R.id.residemenu_lin_scrollline);
+//		img = (ImageView) findViewById(R.id.residemenu_img_ico);
 		arraylist_Fragment = new ArrayList<Fragment>();
 		arraylist_Fragment.add(new HomeFragment());
 		arraylist_Fragment.add(new HomeFragment_2());
 		arraylist_Fragment.add(new HomeFragment_3());
 		final MyFragementAdapter adapter = new MyFragementAdapter(getSupportFragmentManager());
 		vp_main.setAdapter(adapter);
+		lin_scrollline.post(new Runnable() {
+			
+			@Override
+			public void run() {
+				scrollLineView=new ScrollLineView(mContext, lin_scrollline.getWidth(), 3);
+				lin_scrollline.addView(scrollLineView.getView());
+			}
+		});
 		vp_main.setOnPageChangeListener(new OnPageChangeListener() {
 			@Override
 			public void onPageSelected(int arg0) {
@@ -62,7 +78,10 @@ public class ResideMenuActivity extends FragmentActivity {
 			@Override
 			public void onPageScrolled(int arg0, float arg1, int arg2) {
 				PalLog.printD("aaa"+arg0+","+arg1+","+arg2);
-				ViewHelper.setTranslationX(img, arg2 / 3);
+				scrollLineView.scroll(arg0, arg1);
+//				ViewHelper.setTranslationX(img, arg2 / 3);
+//				ViewHelper.setTranslationX(img, arg1*itemWidth+(arg0*itemWidth));
+//				ViewHelper.setX(img, arg2 / 3);
 			}
 
 			@Override

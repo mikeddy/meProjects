@@ -53,14 +53,9 @@
     </LinearLayout>
 
     <LinearLayout
+        android:id="@+id/residemenu_lin_scrollline"
         android:layout_width="fill_parent"
         android:layout_height="10dp" >
-
-        <ImageView
-            android:id="@+id/residemenu_img_ico"
-            android:layout_width="20dp"
-            android:layout_height="5dp"
-            android:background="#e1295b" />
     </LinearLayout>
 
     <android.support.v4.view.ViewPager
