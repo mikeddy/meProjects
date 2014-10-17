@@ -72,7 +72,9 @@
          <activity
             android:name="com.example.aademo.SnowProgressActivity"
             android:screenOrientation="portrait" />
-         
+         <activity
+            android:name="com.example.aademo.StickyActivity"
+            android:screenOrientation="portrait" />
          
     </application>
 

@@ -1,0 +1,29 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#000000"
+    android:gravity="center"
+    android:orientation="vertical" >
+
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="50dp"
+        android:background="#69698e"
+        android:text="这里是textview1" />
+
+    <TextView
+        android:id="@+id/stick_item_tv_2"
+        android:layout_width="fill_parent"
+        android:layout_height="50dp"
+        android:background="#638875"
+        android:text="这里是textview2" />
+
+    <TextView
+        android:id="@+id/stick_item_tv_3"
+        android:layout_width="fill_parent"
+        android:layout_height="50dp"
+        android:background="#ea93eb"
+        android:text="这里是textview3" />
+
+</LinearLayout>
