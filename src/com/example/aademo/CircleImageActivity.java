@@ -1,5 +1,8 @@
 package com.example.aademo;
 
+import com.example.aademo.util.PalLog;
+
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.ViewTreeObserver.OnGlobalLayoutListener;
 import android.widget.TextView;
