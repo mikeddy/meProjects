@@ -7,6 +7,6 @@
         android:id="@+id/touchscale_head_img"
         android:layout_width="fill_parent"
         android:layout_height="170dp"
-        android:background="@drawable/touchscale_headimg" />
+        android:background="@drawable/cover_pic" />
 
 </LinearLayout>

@@ -33,7 +33,7 @@ public class LayersDrawableActivity extends BaseActivity {
 	}
 
 	private void initViews() {
-		imgView.setImageDrawable(getLayerDrawable(BitmapFactory.decodeResource(getResources(), R.drawable.headicon)));
+		imgView.setImageDrawable(getLayerDrawable(BitmapFactory.decodeResource(getResources(), R.drawable.cover_pic)));
 	}
 
 	@SuppressWarnings("deprecation")
