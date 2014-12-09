@@ -45,10 +45,7 @@ public class MainActivity extends BaseActivity {
 		listItemHolders.add(new MainItemHolder("雪花旋转进度条", SnowProgressActivity.class));
 		listItemHolders.add(new MainItemHolder("ListView的保持不动的item", StickyActivity.class));
 		listItemHolders.add(new MainItemHolder("跳转到其他app", GotoOtherAPPActivity.class));
-		
-		
-		
-		
+		listItemHolders.add(new MainItemHolder("展开动画的listviewitem", ExpendListviewitemActivity.class));
 		
 		
 		for (int i = 0; i < listItemHolders.size(); i++) {

@@ -78,6 +78,9 @@
          <activity
             android:name="com.example.aademo.GotoOtherAPPActivity"
             android:screenOrientation="portrait" />
+         <activity
+            android:name="com.example.aademo.ExpendListviewitemActivity"
+            android:screenOrientation="portrait" />
     </application>
 
 </manifest>
