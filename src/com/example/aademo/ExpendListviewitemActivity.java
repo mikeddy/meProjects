@@ -1,8 +1,5 @@
 package com.example.aademo;
 
-import java.util.ArrayList;
-
-import android.graphics.Rect;
 import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -11,9 +8,8 @@ import android.widget.AbsListView;
 import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.ListView;
-import android.widget.TextView;
 
-import com.example.aademo.util.PalLog;
+import java.util.ArrayList;
 
 public class ExpendListviewitemActivity extends BaseActivity {
     ListView lv;
@@ -91,36 +87,6 @@ public class ExpendListviewitemActivity extends BaseActivity {
             return convertView;
         }
 
-    }
-
-
-    public void smoothScrollByOffset(int position) {
-        int index = -1;
-        if (position < 0) {
-            index = lv.getFirstVisiblePosition();
-        } else if (position > 0) {
-            index = lv.getLastVisiblePosition();
-        }
-
-        if (index > -1) {
-            View child = lv.getChildAt(index - lv.getFirstVisiblePosition());
-            if (child != null) {
-                Rect visibleRect = new Rect();
-                if (child.getGlobalVisibleRect(visibleRect)) {
-                    // the child is partially visible
-                    int childRectArea = child.getWidth() * child.getHeight();
-                    int visibleRectArea = visibleRect.width() * visibleRect.height();
-                    float visibleArea = (visibleRectArea / (float) childRectArea);
-                    final float visibleThreshold = 0.75f;
-                    if ((position < 0) && (visibleArea < visibleThreshold)) {
-                        ++index;
-                    } else if ((position > 0) && (visibleArea < visibleThreshold)) {
-                        --index;
-                    }
-                }
-                lv.smoothScrollToPosition(Math.max(0, Math.min(lv.getCount(), index + position)));
-            }
-        }
     }
 
     class ExpendBean {

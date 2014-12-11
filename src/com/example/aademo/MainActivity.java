@@ -1,9 +1,5 @@
 package com.example.aademo;
 
-import java.util.ArrayList;
-
-import com.example.aademo.util.PalLog;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Gravity;
@@ -11,8 +7,13 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.LinearLayout;
-import android.widget.TextView;
-import android.widget.LinearLayout.LayoutParams;;
+import android.widget.LinearLayout.LayoutParams;
+
+import java.util.ArrayList;
+
+import zxing.activity.CaptureActivity;
+
+;
 
 public class MainActivity extends BaseActivity {
 	
@@ -46,7 +47,8 @@ public class MainActivity extends BaseActivity {
 		listItemHolders.add(new MainItemHolder("ListView的保持不动的item", StickyActivity.class));
 		listItemHolders.add(new MainItemHolder("跳转到其他app", GotoOtherAPPActivity.class));
 		listItemHolders.add(new MainItemHolder("展开动画的listviewitem", ExpendListviewitemActivity.class));
-		
+        listItemHolders.add(new MainItemHolder("带闪光灯的二维码扫描", CaptureActivity.class));
+
 		
 		for (int i = 0; i < listItemHolders.size(); i++) {
 			linParent.addView(listItemHolders.get(i).btn);
