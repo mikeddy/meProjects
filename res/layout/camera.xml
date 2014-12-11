@@ -34,7 +34,7 @@
                 android:layout_weight="1.0"
                 android:background="@color/aroundhalftrans"
                 android:gravity="center"
-                android:text="扫描图书码"
+                android:text="扫描一维码"
                 android:textColor="@android:color/white"
                 android:textSize="18sp"
                 android:textStyle="bold"/>
