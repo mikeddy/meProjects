@@ -39,8 +39,8 @@ import zxing.camera.CameraManager;
  */
 public final class ViewfinderView extends View {
 
-    private static final int[] SCANNER_ALPHA = {0, 64, 128, 192, 255, 192, 128, 64};
-    private static final long ANIMATION_DELAY = 100L;
+    private static final int[] SCANNER_ALPHA = {0,16,32,64, 128, 192, 255, 192, 128, 64,32,16,0};
+    private static final long ANIMATION_DELAY = 10L;
     private static final int OPAQUE = 0xFF;
 
     private final Paint paint;
@@ -104,7 +104,9 @@ public final class ViewfinderView extends View {
             // Draw a red "laser scanner" line through the middle to show decoding is active
             paint.setColor(laserColor);
             paint.setAlpha(SCANNER_ALPHA[scannerAlpha]);
-            scannerAlpha = (scannerAlpha + 1) % SCANNER_ALPHA.length;
+            if(offsetY%5==0){
+                scannerAlpha = (scannerAlpha + 1) % SCANNER_ALPHA.length;
+            }
 //      int middle = frame.height() / 2 + frame.top;
             if (offsetY >= frame.bottom - frame.top) offsetY = 0;
             int startY = frame.top;
