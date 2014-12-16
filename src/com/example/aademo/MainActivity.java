@@ -47,6 +47,7 @@ public class MainActivity extends BaseActivity {
 		listItemHolders.add(new MainItemHolder("ListView的保持不动的item", StickyActivity.class));
 		listItemHolders.add(new MainItemHolder("跳转到其他app", GotoOtherAPPActivity.class));
         listItemHolders.add(new MainItemHolder("带闪光灯的二维码扫描", CaptureActivity.class));
+        listItemHolders.add(new MainItemHolder("Event Bus 全局通信DEMO", EventBusActivity.class));
 
 		
 		for (int i = 0; i < listItemHolders.size(); i++) {
