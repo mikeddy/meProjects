@@ -1,22 +1,19 @@
 package com.example.aademo;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Bundle;
-import android.text.Html;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.webkit.WebView;
-import android.webkit.WebViewClient;
 import android.widget.Button;
-import android.widget.TextView;
 import android.widget.Toast;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class GotoOtherAPPActivity extends BaseActivity {
 	Button btn_goto, btn_callPhone;
@@ -54,7 +51,7 @@ public class GotoOtherAPPActivity extends BaseActivity {
 			@Override
 			public void onClick(View v) {
 				if (checkExists(mContext, "com.ncf.firstp2p")) {
-					Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("firstp2p://service.firstp2p.com/p2p/detail?id=4964"));
+					Intent intent = new Intent("com.ncf.firstp2p.activity.SplashActivity", Uri.parse("firstp2p://service.firstp2p.com/p2p/detail?id=4964"));
 					startActivity(intent);
 				} else {
 					showToast("您需要先安装firstp2p");
@@ -83,7 +80,7 @@ public class GotoOtherAPPActivity extends BaseActivity {
 			for (int i = 0; i < pinfo.size(); i++) {
 				String pn = pinfo.get(i).packageName;
 				if(pn.equals(packageName)){
-					Toast.makeText(context, pinfo.get(i).versionCode, Toast.LENGTH_LONG).show();
+					Toast.makeText(context, pinfo.get(i).versionCode+"", Toast.LENGTH_LONG).show();
 				}
 				pName.add(pn);
 			}

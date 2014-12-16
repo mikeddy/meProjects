@@ -87,9 +87,6 @@
          <activity
             android:name="com.example.aademo.GotoOtherAPPActivity"
             android:screenOrientation="portrait" />
-         <activity
-            android:name="com.example.aademo.ExpendListviewitemActivity"
-            android:screenOrientation="portrait" />
         <activity
             android:name="zxing.activity.CaptureActivity"
             android:screenOrientation="portrait" />
