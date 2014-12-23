@@ -22,9 +22,17 @@ public class MyPath {
     //动画执行完毕锁(动画执行完毕后需要锁住,避免不必要的重复计算)
     boolean endlocker=false;
 
+    //是否为全部遮罩(全部遮罩就是一点一点出现的效果)
+    boolean isown=true;
+
+
 
 
     public MyPath(float startRatio,float endRatio){
+        this(startRatio, endRatio, true);
+    }
+
+    public MyPath(float startRatio,float endRatio,boolean own){
         mPaint = new Paint();
         mPaint.setStyle(Paint.Style.STROKE);
         mPaint.setStrokeWidth(5.0f);
@@ -32,8 +40,8 @@ public class MyPath {
         mPaint.setColor(Color.argb(180, 255, 255, 255));
         mStartRatio=startRatio;
         mEndRatio=endRatio;
+        isown=own;
     }
-
 
     public Path getPath(){
         return mPath;
@@ -50,16 +58,26 @@ public class MyPath {
     public void calculateRatio(float ratio){
         if(endlocker)return;
         mCalculatePercent=(ratio-mStartRatio)/(mEndRatio-mStartRatio);
+//        PalLog.printD("calculate"+mCalculatePercent+"======="+(ratio-mStartRatio)+"======"+(mEndRatio-mStartRatio));
         if(mCalculatePercent>1)mCalculatePercent=1;
         if(mCalculatePercent<0)mCalculatePercent=0;
     }
 
     public void makePathEffect(){
         if(endlocker)return;
-        float length = mPathMeasure.getLength();
-        PathEffect effect = new DashPathEffect(new float[]{length, length}, length * (1 - mCalculatePercent));
-        mPaint.setPathEffect(effect);
-        if(mCalculatePercent>=1)endlocker=true;
+        float length;
+        if(isown){
+            length = mPathMeasure.getLength();
+            PathEffect effect = new DashPathEffect(new float[]{length, length}, length * (1 - mCalculatePercent));
+            mPaint.setPathEffect(effect);
+        }else{
+            length = mPathMeasure.getLength()/10;
+            PathEffect effect = new DashPathEffect(new float[]{length, length/7,length/2,length/7,length/3,length/7}, length*20 * mCalculatePercent);
+            mPaint.setPathEffect(effect);
+        }
+
+
+        if(mCalculatePercent>=1&&isown)endlocker=true;
     }
 
     public void savePath(){

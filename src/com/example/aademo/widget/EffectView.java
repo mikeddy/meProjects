@@ -6,6 +6,7 @@ import android.graphics.Path;
 import android.util.AttributeSet;
 import android.view.View;
 import android.view.animation.Animation;
+import android.view.animation.LinearInterpolator;
 import android.view.animation.Transformation;
 
 import com.example.aademo.R;
@@ -36,12 +37,13 @@ public class EffectView extends View {
     }
 
 
-    public void startType(int type) {
+    public void startType(int type,int time) {
         startDrawing = false;
         mtype = type;
         mRatio = 0;
         myAnimation.cancel();
-        myAnimation.setDuration(2000);
+        myAnimation.setDuration(time);
+        myAnimation.setInterpolator(new LinearInterpolator());
         setAnimation(myAnimation);
         startAnimation(myAnimation);
     }
@@ -69,8 +71,39 @@ public class EffectView extends View {
         } else if (mtype == 2) {
             measurePathType_2();
         }else if(mtype==3){
-
+            measurePathType_3();
+        }else if (mtype==4){
+            measurePathType_4();
         }
+    }
+
+    private void measurePathType_4() {
+        float y = getHeight()/2;
+        float x = getWidth();
+
+        mEffectPath.clear();
+        MyPath path = mEffectPath.createNew(0, 1.0f,false);
+        path.getPath().moveTo(x/10,y);
+        path.getPath().lineTo(x-x/10,y);
+        path.getPaint().setStrokeWidth(15.0f);
+        path.getPaint().setColor(getResources().getColor(R.color.dodgerblue));
+        path.savePath();
+    }
+
+    private void measurePathType_3() {
+        float height = getHeight() / 2;
+        float width = getWidth() / 2;
+        float x = getLeft() + width / 2;
+        float y = getTop() + height / 2;
+
+        mEffectPath.clear();
+        MyPath path = mEffectPath.createNew(0, 1.0f,false);
+        path.getPath().moveTo(x, y);
+        path.getPath().lineTo(x + width, y);
+        path.getPath().lineTo(x + width, y + height);
+        path.getPath().lineTo(x, y + height);
+        path.getPath().lineTo(x, y);
+        path.savePath();
     }
 
     private void measurePathType_2() {

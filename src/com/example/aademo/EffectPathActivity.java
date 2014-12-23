@@ -38,14 +38,16 @@ public class EffectPathActivity extends  BaseActivity implements View.OnClickLis
     public void onClick(View v) {
         switch (v.getId()){
             case R.id.effect_btn1:
-                efView.startType(1);
+                efView.startType(1,2000);
                 break;
             case R.id.effect_btn2:
-                efView.startType(2);
+                efView.startType(2,2000);
                 break;
             case R.id.effect_btn3:
+                efView.startType(3,20000);
                 break;
             case R.id.effect_btn4:
+                efView.startType(4,20000);
                 break;
             default:
                 break;

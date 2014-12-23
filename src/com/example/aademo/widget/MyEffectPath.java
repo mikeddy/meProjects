@@ -14,15 +14,21 @@ public class MyEffectPath {
         arraylist_Mypath.clear();
     }
 
+
+    public MyPath createNew(float startRatio,float endRatio){
+        return createNew(startRatio,endRatio,true);
+    }
+
     /**
      * 执行动画的时间轴百分比
      * @param startRatio  动画起点时间轴半分比
      * @param endRatio 动画结束时间轴半分比
+     * @param own 是否完整遮罩
      * @return 比如一个动画一共需要2秒,此时startRatio 为0.4,endRatio为0.6,则这个动画的执行时间轴是 2*0.4-2*0.6 即为0.8秒-1.2秒
      *
      */
-    public MyPath createNew(float startRatio,float endRatio){
-        MyPath path=new MyPath(startRatio,endRatio);
+    public MyPath createNew(float startRatio,float endRatio,boolean own){
+        MyPath path=new MyPath(startRatio,endRatio,own);
         arraylist_Mypath.add(path);
         return path;
     }
