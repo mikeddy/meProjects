@@ -93,6 +93,9 @@
         <activity
             android:name="com.example.aademo.EventBusActivity"
             android:screenOrientation="portrait" />
+        <activity
+            android:name="com.example.aademo.EffectPathActivity"
+            android:screenOrientation="portrait" />
     </application>
 
 </manifest>
