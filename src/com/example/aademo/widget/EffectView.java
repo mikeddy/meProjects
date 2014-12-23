@@ -2,18 +2,13 @@ package com.example.aademo.widget;
 
 import android.content.Context;
 import android.graphics.Canvas;
-import android.graphics.Color;
-import android.graphics.DashPathEffect;
-import android.graphics.Paint;
 import android.graphics.Path;
-import android.graphics.PathEffect;
-import android.graphics.PathMeasure;
 import android.util.AttributeSet;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.Transformation;
 
-import com.example.aademo.util.PalLog;
+import com.example.aademo.R;
 
 /**
  * Created by mik_eddy on 14/12/22.
@@ -21,11 +16,9 @@ import com.example.aademo.util.PalLog;
 public class EffectView extends View {
     public int mtype = 1;
     boolean startDrawing = false;
-    private PathMeasure mPathMeasure = new PathMeasure();
-    private Path mPath = new Path();
-    private Paint mPaint;
     float mRatio = 0;
     myAnimation myAnimation;
+    MyEffectPath mEffectPath;
 
     public EffectView(Context context) {
         super(context);
@@ -55,11 +48,7 @@ public class EffectView extends View {
 
 
     private void initPaint() {
-        mPaint = new Paint();
-        mPaint.setStyle(Paint.Style.STROKE);
-        mPaint.setStrokeWidth(5.0f);
-        mPaint.setAntiAlias(true);
-        mPaint.setColor(Color.argb(180, 255, 255, 255));
+        mEffectPath = new MyEffectPath();
         myAnimation = new myAnimation(this);
     }
 
@@ -67,46 +56,71 @@ public class EffectView extends View {
     @Override
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
-        super.onDraw(canvas);
         if (!startDrawing) {
             startDrawing = true;
             makeAndMeasurePath();
         }
-        float length = mPathMeasure.getLength();
-        PathEffect effect = new DashPathEffect(new float[]{length, length}, length * (1 - mRatio));
-        mPaint.setPathEffect(effect);
-        canvas.drawPath(mPath, mPaint);
+        mEffectPath.draw(canvas, mRatio);
     }
 
     private void makeAndMeasurePath() {
-        mPath.reset();
-        if(mtype==1){
+        if (mtype == 1) {
             measurePathType_1();
+        } else if (mtype == 2) {
+            measurePathType_2();
+        }else if(mtype==3){
+
         }
-        mPath.close();
-        mPathMeasure.setPath(mPath, false);
     }
 
+    private void measurePathType_2() {
+        float height = getHeight() / 2;
+        float width = getWidth() / 2;
+        float radius = width / 5;
 
-    private void measurePathType_1(){
-        float height=getHeight()/2;
-        float width=getWidth()/2;
-        float x=getLeft()+width/2;
-        float y=getTop()+height/2;
+        mEffectPath.clear();
+        MyPath pathCircle = mEffectPath.createNew(0, 0.7f);
+        pathCircle.getPath().addCircle(width, height, radius, Path.Direction.CCW);
+        pathCircle.savePath();
 
+        MyPath pathRight = mEffectPath.createNew(0.7f, 0.9f);
+        pathRight.getPath().moveTo(width - radius / 2, height - radius / 12);
+        pathRight.getPath().lineTo(width - radius / 4, height + radius / 3);
+        pathRight.getPaint().setColor(getResources().getColor(R.color.red));
+        pathRight.savePath();
 
-        mPath.moveTo(x,y);
-        mPath.lineTo(x + width, y);
-        mPath.lineTo(x + width, y+height);
-        mPath.lineTo(x, y + height);
-        mPath.lineTo(x, y);
-        mPath.moveTo(x,y);
-
-//        mPath.lineTo(x + width, y+height);
-//        mPath.moveTo(x + width, y+height);
+        MyPath pathRight1 = mEffectPath.createNew(0.9f, 1.0f);
+        pathRight1.getPath().moveTo(width - radius / 4, height + radius / 3);
+        pathRight1.getPath().lineTo(width + radius / 2, height - radius / 3);
+        pathRight1.getPaint().setColor(getResources().getColor(R.color.red));
+        pathRight1.savePath();
     }
 
+    private void measurePathType_1() {
+        float height = getHeight() / 2;
+        float width = getWidth() / 2;
+        float x = getLeft() + width / 2;
+        float y = getTop() + height / 2;
 
+        mEffectPath.clear();
+        MyPath path = mEffectPath.createNew(0, 0.7f);
+        path.getPath().moveTo(x, y);
+        path.getPath().lineTo(x + width, y);
+        path.getPath().lineTo(x + width, y + height);
+        path.getPath().lineTo(x, y + height);
+        path.getPath().lineTo(x, y);
+        path.savePath();
+
+        MyPath path1 = mEffectPath.createNew(0.7f, 1.0f);
+        path1.getPath().moveTo(x, y);
+        path1.getPath().lineTo(x + width, y + height);
+        path1.savePath();
+
+        MyPath path2 = mEffectPath.createNew(0.7f, 1.0f);
+        path2.getPath().moveTo(x + width, y);
+        path2.getPath().lineTo(x, y + height);
+        path2.savePath();
+    }
 
 
     class myAnimation extends Animation {
@@ -120,7 +134,6 @@ public class EffectView extends View {
         protected void applyTransformation(float interpolatedTime, Transformation t) {
             super.applyTransformation(interpolatedTime, t);
             mRatio = interpolatedTime;
-            PalLog.printD(mRatio+"");
             mView.invalidate();
         }
     }

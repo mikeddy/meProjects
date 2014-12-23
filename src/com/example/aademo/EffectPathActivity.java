@@ -8,6 +8,7 @@ import com.example.aademo.widget.EffectView;
 
 /**
  * Created by mik_eddy on 14/12/22.
+ * 初步简单实现,如需实际使用,需要自己考虑并完善
  */
 public class EffectPathActivity extends  BaseActivity implements View.OnClickListener{
     Button btn_1,btn_2,btn_3,btn_4;
@@ -40,6 +41,7 @@ public class EffectPathActivity extends  BaseActivity implements View.OnClickLis
                 efView.startType(1);
                 break;
             case R.id.effect_btn2:
+                efView.startType(2);
                 break;
             case R.id.effect_btn3:
                 break;
