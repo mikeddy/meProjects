@@ -73,16 +73,10 @@
             android:name="com.example.aademo.WheelMenuActivity"
             android:screenOrientation="portrait" />
          <activity
-            android:name="com.example.aademo.RotateActivity"
-            android:screenOrientation="portrait" />
-         <activity
             android:name="com.example.aademo.ResideMenuActivity"
             android:screenOrientation="portrait" />
          <activity
             android:name="com.example.aademo.SnowProgressActivity"
-            android:screenOrientation="portrait" />
-         <activity
-            android:name="com.example.aademo.StickyActivity"
             android:screenOrientation="portrait" />
          <activity
             android:name="com.example.aademo.GotoOtherAPPActivity"
