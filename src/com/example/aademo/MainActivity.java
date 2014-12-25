@@ -9,6 +9,8 @@ import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.LinearLayout.LayoutParams;
 
+import com.xgx.testlibs.utils.Util;
+
 import java.util.ArrayList;
 
 import zxing.activity.CaptureActivity;
@@ -48,7 +50,9 @@ public class MainActivity extends BaseActivity {
         listItemHolders.add(new MainItemHolder("Event Bus 全局通信DEMO", EventBusActivity.class));
         listItemHolders.add(new MainItemHolder("EffectPath 逐步动画实现", EffectPathActivity.class));
 
-		
+
+        Util util=new Util();
+        util.MyUtil();
 		for (int i = 0; i < listItemHolders.size(); i++) {
 			linParent.addView(listItemHolders.get(i).btn);
 		}
