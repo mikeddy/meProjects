@@ -20,6 +20,7 @@
 -dontusemixedcaseclassnames
 -dontskipnonpubliclibraryclasses
 -verbose
+-keepattributes Exceptions,InnerClasses,Signature,Deprecated,SourceFile,LineNumberTable,*Annotation*,EnclosingMethod
 
 # Optimization is turned off by default. Dex does not like code run
 # through the ProGuard optimize and preverify steps (and performs some
@@ -33,3 +34,4 @@
 # project.properties file.
 
 -keep class com.xgx.testlibs.utils.** {*;}
+-keep class com.nineoldandroids.**{*;}
