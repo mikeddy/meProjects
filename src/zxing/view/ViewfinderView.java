@@ -33,6 +33,7 @@ import java.util.HashSet;
 
 import zxing.camera.CameraManager;
 
+
 /**
  * This view is overlaid on top of the camera preview. It adds the viewfinder rectangle and partial
  * transparency outside it, as well as the laser scanner animation and result points.
@@ -49,6 +50,7 @@ public final class ViewfinderView extends View {
     private final int resultColor;
     private final int frameColor;
     private final int laserColor;
+    private final int rimColor;
     private final int resultPointColor;
     private int scannerAlpha;
     private int offsetY = 0;
@@ -68,6 +70,7 @@ public final class ViewfinderView extends View {
         frameColor = resources.getColor(R.color.viewfinder_frame);
         laserColor = resources.getColor(R.color.viewfinder_laser);
         resultPointColor = resources.getColor(R.color.possible_result_points);
+        rimColor=resources.getColor(R.color.white);
         scannerAlpha = 0;
         possibleResultPoints = new HashSet<ResultPoint>(5);
     }
@@ -114,27 +117,16 @@ public final class ViewfinderView extends View {
             canvas.drawRect(frame.left + 2, startY - 1, frame.right - 1, startY + 2, paint);
             offsetY += 1;
 
-//      Collection<ResultPoint> currentPossible = possibleResultPoints;
-//      Collection<ResultPoint> currentLast = lastPossibleResultPoints;
-//      if (currentPossible.isEmpty()) {
-//        lastPossibleResultPoints = null;
-//      } else {
-//        possibleResultPoints = new HashSet<ResultPoint>(5);
-//        lastPossibleResultPoints = currentPossible;
-//        paint.setAlpha(OPAQUE);
-//        paint.setColor(resultPointColor);
-//        for (ResultPoint point : currentPossible) {
-//          canvas.drawCircle(frame.left + point.getX(), frame.top + point.getY(), 6.0f, paint);
-//        }
-//      }
-//      if (currentLast != null) {
-//        paint.setAlpha(OPAQUE / 2);
-//        paint.setColor(resultPointColor);
-//        for (ResultPoint point : currentLast) {
-//          canvas.drawCircle(frame.left + point.getX(), frame.top + point.getY(), 3.0f, paint);
-//        }
-//      }
-
+            //draw rim
+            paint.setColor(rimColor);
+            canvas.drawRect(frame.left+3, frame.top+3, frame.left+40, frame.top +10, paint);
+            canvas.drawRect(frame.left+3, frame.top+3, frame.left+10, frame.top +40, paint);
+            canvas.drawRect(frame.right-40, frame.top+3, frame.right-3, frame.top +10, paint);
+            canvas.drawRect(frame.right-10, frame.top+3, frame.right-3, frame.top +40, paint);
+            canvas.drawRect(frame.left+3, frame.bottom-10, frame.left+40, frame.bottom -3, paint);
+            canvas.drawRect(frame.left+3, frame.bottom-40, frame.left+10, frame.bottom -3, paint);
+            canvas.drawRect(frame.right-40, frame.bottom-10, frame.right-3, frame.bottom-3, paint);
+            canvas.drawRect(frame.right-10, frame.bottom-40, frame.right-3, frame.bottom-3, paint);
             // Request another update at the animation interval, but only repaint the laser line,
             // not the entire viewfinder mask.
             postInvalidateDelayed(ANIMATION_DELAY, frame.left, frame.top, frame.right, frame.bottom);

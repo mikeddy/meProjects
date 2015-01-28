@@ -23,6 +23,7 @@ import com.google.zxing.BarcodeFormat;
 import com.google.zxing.Result;
 
 import java.io.IOException;
+import java.util.HashMap;
 import java.util.Vector;
 
 import zxing.camera.CameraManager;
@@ -54,14 +55,14 @@ public class CaptureActivity extends BaseActivity implements Callback {
     protected void onCreate(Bundle paramBundle) {
         super.onCreate(paramBundle);
         setContentView(R.layout.camera);
-        findViewById();
-        processLogic();
         CameraManager.init(this);
+        init();
     }
 
-    int index=0;
-
-    protected void findViewById() {
+    private void init(){
+        CameraManager.init(getApplication());
+        hasSurface = false;
+        inactivityTimer = new InactivityTimer(this);
         viewfinderView = (ViewfinderView) findViewById(R.id.viewfinder_view);
         cancelScanButton = (Button) this.findViewById(R.id.btn_cancel_scan);
         btn_cameralight = (Button) findViewById(R.id.btn_camera_light);
@@ -71,19 +72,16 @@ public class CaptureActivity extends BaseActivity implements Callback {
             public void onClick(View v) {
                 if(index%2==0){
                     CameraManager.get().openF();
+                    btn_cameralight.setBackgroundResource(R.drawable.light_open);
                 }else{
                     CameraManager.get().stopF();
+                    btn_cameralight.setBackgroundResource(R.drawable.light_close);
                 }
                 index++;
             }
         });
     }
-
-    protected void processLogic() {
-        CameraManager.init(getApplication());
-        hasSurface = false;
-        inactivityTimer = new InactivityTimer(this);
-    }
+    int index=0;
 
     @Override
     protected void onResume() {
@@ -133,6 +131,7 @@ public class CaptureActivity extends BaseActivity implements Callback {
         super.onDestroy();
     }
 
+
     /**
      * Handler scan result
      *
@@ -147,7 +146,9 @@ public class CaptureActivity extends BaseActivity implements Callback {
         if (resultString.equals("")) {
             Toast.makeText(CaptureActivity.this, "扫码失败", Toast.LENGTH_SHORT).show();
         } else {
-			Toast.makeText(CaptureActivity.this, "扫码结果:"+resultString, Toast.LENGTH_SHORT).show();
+            HashMap<String, Object> paramMap = new HashMap<String, Object>();
+            showToast(resultString+"");
+            finish();
         }
     }
 

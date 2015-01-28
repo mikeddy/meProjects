@@ -36,6 +36,7 @@ import zxing.activity.CaptureActivity;
 import zxing.camera.CameraManager;
 import zxing.camera.PlanarYUVLuminanceSource;
 
+
 final class DecodeHandler extends Handler {
 
   private static final String TAG = DecodeHandler.class.getSimpleName();
