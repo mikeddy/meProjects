@@ -81,7 +81,6 @@
     <orderEntry type="library" exported="" name="android-support-v4" level="project" />
     <orderEntry type="library" exported="" name="EventBus-2.4.0" level="project" />
     <orderEntry type="library" exported="" name="zxing" level="project" />
-    <orderEntry type="library" exported="" name="testlib" level="project" />
   </component>
 </module>
 
