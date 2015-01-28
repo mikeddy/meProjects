@@ -79,6 +79,7 @@ public class MainActivity extends BaseActivity {
             }else{
                 btn=(Button)convertView.getTag();
             }
+            btn.setText(itembean.getName());
             btn.setOnClickListener(new OnClickListener() {
                 @Override
                 public void onClick(View v) {
