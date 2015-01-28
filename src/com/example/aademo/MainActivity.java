@@ -37,7 +37,6 @@ public class MainActivity extends BaseActivity {
 		listItemHolders.add(new MainItemHolder("滑动遮盖效果", CoverActivity.class));
 		listItemHolders.add(new MainItemHolder("圆形图片", CircleImageActivity.class));
 		listItemHolders.add(new MainItemHolder("下拉放大效果", TouchScaleActivity.class));
-		listItemHolders.add(new MainItemHolder("文字多少决定textview的字体大小(不超过一行)", ScaleTextViewActivity.class));
 		listItemHolders.add(new MainItemHolder("Text颜色渐变AND圆形进度条", CircleProgressActivity.class));
 		listItemHolders.add(new MainItemHolder("自定义drawable.xml的深入研究", DrawableXMLActivity.class));
 		listItemHolders.add(new MainItemHolder("横向滑动的listview", HorizontalListViewActivity.class));
@@ -45,7 +44,6 @@ public class MainActivity extends BaseActivity {
 		listItemHolders.add(new MainItemHolder("图片的手动控制旋转", WheelMenuActivity.class));
 		listItemHolders.add(new MainItemHolder("仿新版QQ侧滑", ResideMenuActivity.class));
 		listItemHolders.add(new MainItemHolder("雪花旋转进度条", SnowProgressActivity.class));
-		listItemHolders.add(new MainItemHolder("跳转到其他app", GotoOtherAPPActivity.class));
         listItemHolders.add(new MainItemHolder("带闪光灯的二维码扫描", CaptureActivity.class));
         listItemHolders.add(new MainItemHolder("Event Bus 全局通信DEMO", EventBusActivity.class));
         listItemHolders.add(new MainItemHolder("EffectPath 逐步动画实现", EffectPathActivity.class));
