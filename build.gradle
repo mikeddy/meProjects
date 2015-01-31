@@ -6,23 +6,54 @@ buildscript {
         classpath 'com.android.tools.build:gradle:1.0.0'
     }
 }
-apply plugin: 'android'
+apply plugin: 'com.android.application'
 
 dependencies {
     compile fileTree(dir: 'libs', include: '*.jar')
     compile files('libs/zxing.jar')
     compile files('libs/EventBus-2.4.0.jar')
     compile files('libs/nineoldandroids-2.4.0.jar')
+    compile 'com.android.support:support-v4:20.0.0'
 }
 
 android {
     compileSdkVersion 15
-    buildToolsVersion "20.0.0"
+    buildToolsVersion "20"
+
+    lintOptions {
+        ignoreWarnings true
+        abortOnError false
+        checkAllWarnings false
+        checkReleaseBuilds false
+    }
 
     packagingOptions {
         exclude 'META-INF/NOTICE.txt'
         exclude 'META-INF/LICENSE.txt'
     }
+
+    signingConfigs
+            {
+                //keystore信息
+                release
+                        {
+                            storeFile file("keystore")//签名文件路径
+                            storePassword "xgx123"//签名密码
+                            keyAlias "xgx"//签名名称
+                            keyPassword "xgx123"//签名密码
+                        }
+            }
+
+    buildTypes {
+        release {
+            minifyEnabled true
+            proguardFiles 'proguard-project.txt'
+            signingConfig signingConfigs.release
+        }
+    }
+
+
+
 
 
     sourceSets {
