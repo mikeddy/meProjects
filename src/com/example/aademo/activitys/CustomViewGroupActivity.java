@@ -1,4 +1,4 @@
-package com.example.aademo;
+package com.example.aademo.activitys;
 
 import java.util.ArrayList;
 
@@ -10,8 +10,8 @@ import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.example.aademo.R;
 import com.example.aademo.impl.ViewAdapter;
-import com.example.aademo.util.PalLog;
 import com.example.aademo.widget.CustomViewGroup;
 
 public class CustomViewGroupActivity extends BaseActivity {

@@ -17,7 +17,7 @@ import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.Toast;
 
-import com.example.aademo.BaseActivity;
+import com.example.aademo.activitys.BaseActivity;
 import com.example.aademo.R;
 import com.google.zxing.BarcodeFormat;
 import com.google.zxing.Result;

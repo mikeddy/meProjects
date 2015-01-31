@@ -1,4 +1,4 @@
-package com.example.aademo;
+package com.example.aademo.activitys;
 
 import android.app.Activity;
 import android.app.AlertDialog;
@@ -11,6 +11,7 @@ import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.example.aademo.R;
 import com.example.aademo.widget.HorizontalListView;
 
 public class HorizontalListViewActivity extends Activity {

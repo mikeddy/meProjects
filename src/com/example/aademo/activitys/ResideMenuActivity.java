@@ -1,8 +1,5 @@
-package com.example.aademo;
+package com.example.aademo.activitys;
 
-import java.util.ArrayList;
-
-import android.R.interpolator;
 import android.content.Context;
 import android.graphics.Color;
 import android.os.Bundle;
@@ -19,6 +16,7 @@ import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.example.aademo.R;
 import com.example.aademo.fragment.HomeFragment;
 import com.example.aademo.fragment.HomeFragment_2;
 import com.example.aademo.fragment.HomeFragment_3;
@@ -28,6 +26,8 @@ import com.example.aademo.widget.ScrollLineView;
 import com.nineoldandroids.animation.AnimatorSet;
 import com.nineoldandroids.animation.ObjectAnimator;
 import com.nineoldandroids.view.ViewHelper;
+
+import java.util.ArrayList;
 
 public class ResideMenuActivity extends FragmentActivity {
 
@@ -73,10 +73,9 @@ public class ResideMenuActivity extends FragmentActivity {
 		final MyFragementAdapter adapter = new MyFragementAdapter(getSupportFragmentManager());
 		vp_main.setAdapter(adapter);
 		lin_scrollline.post(new Runnable() {
-
 			@Override
 			public void run() {
-				scrollLineView = new ScrollLineView(mContext, lin_scrollline.getWidth(), 3);
+                scrollLineView = new ScrollLineView(mContext, lin_scrollline.getWidth(), 3);
 				lin_scrollline.addView(scrollLineView.getView());
 			}
 		});
@@ -93,7 +92,9 @@ public class ResideMenuActivity extends FragmentActivity {
 			@Override
 			public void onPageScrolled(int arg0, float arg1, int arg2) {
 				PalLog.printD("aaa" + arg0 + "," + arg1 + "," + arg2);
-				scrollLineView.scroll(arg0, arg1);
+                if(scrollLineView!=null){
+                    scrollLineView.scroll(arg0, arg1);
+                }
 				// ViewHelper.setTranslationX(img, arg2 / 3);
 				// ViewHelper.setTranslationX(img,
 				// arg1*itemWidth+(arg0*itemWidth));

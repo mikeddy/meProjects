@@ -1,15 +1,14 @@
-package com.example.aademo;
+package com.example.aademo.activitys;
 
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.graphics.Color;
-import android.graphics.Matrix;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.LayerDrawable;
-import android.graphics.drawable.PaintDrawable;
 import android.os.Bundle;
 import android.widget.ImageView;
+
+import com.example.aademo.R;
 
 /**
  * 设置层叠效果

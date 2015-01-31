@@ -20,12 +20,13 @@
         android:targetSdkVersion="15" />
 
     <application
+        android:name=".MobileApplication"
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
         <activity
-            android:name="com.example.aademo.MainActivity"
+            android:name=".activitys.MainActivity"
             android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -34,55 +35,55 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.example.aademo.CustomSeekBarActivity"
+            android:name=".activitys.CustomSeekBarActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.example.aademo.HorizontalProgressBarActivity"
+            android:name=".activitys.HorizontalProgressBarActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.example.aademo.LayersDrawableActivity"
+            android:name=".activitys.LayersDrawableActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.example.aademo.SlideParent_Activity"
+            android:name=".activitys.SlideParent_Activity"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.example.aademo.CoverActivity"
+            android:name=".activitys.CoverActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.example.aademo.CircleImageActivity"
+            android:name=".activitys.CircleImageActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.example.aademo.TouchScaleActivity"
+            android:name=".activitys.TouchScaleActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.example.aademo.CircleProgressActivity"
+            android:name=".activitys.CircleProgressActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.example.aademo.DrawableXMLActivity"
+            android:name=".activitys.DrawableXMLActivity"
             android:screenOrientation="portrait" />
          <activity
-            android:name="com.example.aademo.HorizontalListViewActivity"
+            android:name=".activitys.HorizontalListViewActivity"
             android:screenOrientation="portrait" />
          <activity
-            android:name="com.example.aademo.CustomViewGroupActivity"
+            android:name=".activitys.CustomViewGroupActivity"
             android:screenOrientation="portrait" />
          <activity
-            android:name="com.example.aademo.WheelMenuActivity"
+            android:name=".activitys.WheelMenuActivity"
             android:screenOrientation="portrait" />
          <activity
-            android:name="com.example.aademo.ResideMenuActivity"
+            android:name=".activitys.ResideMenuActivity"
             android:screenOrientation="portrait" />
          <activity
-            android:name="com.example.aademo.SnowProgressActivity"
+            android:name=".activitys.SnowProgressActivity"
             android:screenOrientation="portrait" />
         <activity
             android:name="zxing.activity.CaptureActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.example.aademo.EventBusActivity"
+            android:name=".activitys.EventBusActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.example.aademo.EffectPathActivity"
+            android:name=".activitys.EffectPathActivity"
             android:screenOrientation="portrait" />
     </application>
 

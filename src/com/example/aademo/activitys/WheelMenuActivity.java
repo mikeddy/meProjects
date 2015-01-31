@@ -1,10 +1,11 @@
-package com.example.aademo;
+package com.example.aademo.activitys;
 
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.widget.TextView;
 
+import com.example.aademo.R;
 import com.example.aademo.widget.WheelMenu;
 
 public class WheelMenuActivity extends BaseActivity {

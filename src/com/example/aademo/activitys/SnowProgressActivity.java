@@ -1,6 +1,8 @@
-package com.example.aademo;
+package com.example.aademo.activitys;
 
 import android.os.Bundle;
+
+import com.example.aademo.R;
 
 public class SnowProgressActivity extends BaseActivity {
 	@Override

@@ -15,7 +15,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.AdapterView.OnItemClickListener;
 
-import com.example.aademo.ResideMenuActivity;
+import com.example.aademo.activitys.ResideMenuActivity;
 import com.example.aademo.R;
 import com.example.aademo.widget.ResideMenu;
 

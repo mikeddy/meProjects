@@ -1,9 +1,10 @@
-package com.example.aademo;
+package com.example.aademo.activitys;
 
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+import com.example.aademo.R;
 import com.example.aademo.widget.EffectView;
 
 /**

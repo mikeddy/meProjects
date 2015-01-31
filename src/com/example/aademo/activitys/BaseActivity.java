@@ -1,4 +1,4 @@
-package com.example.aademo;
+package com.example.aademo.activitys;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
@@ -8,6 +8,8 @@ import android.util.Log;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.Toast;
+
+import com.example.aademo.events.EventUtil;
 
 @SuppressLint("ShowToast")
 public class BaseActivity extends Activity {
@@ -34,9 +36,15 @@ public class BaseActivity extends Activity {
 			mToast.show();
 		}
 	}
-	
-	
-//	@Override
+
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        EventUtil.unregister(this);
+    }
+
+    //	@Override
 //	public View findViewById(int id) {
 //		
 //		return super.findViewById(id);

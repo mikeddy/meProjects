@@ -1,17 +1,14 @@
-package com.example.aademo;
+package com.example.aademo.activitys;
 
+import com.example.aademo.R;
 import com.example.aademo.impl.ICallBack;
 import com.example.aademo.widget.TouchScaleListView;
 
 import android.os.Bundle;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AbsListView;
-import android.widget.AbsListView.LayoutParams;
-import android.widget.AbsListView.OnScrollListener;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
-import android.widget.ListView;
 
 /**
  * 下拉放大效果

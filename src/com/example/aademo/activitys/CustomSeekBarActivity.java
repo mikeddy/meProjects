@@ -1,12 +1,12 @@
-package com.example.aademo;
+package com.example.aademo.activitys;
 
+import com.example.aademo.R;
 import com.example.aademo.widget.CustomSeekBar;
 
 import android.os.Bundle;
 import android.widget.SeekBar;
 import android.widget.TextView;
 import android.widget.SeekBar.OnSeekBarChangeListener;
-import static com.nineoldandroids.view.ViewHelper.setX;
 
 /**
  * 自定义seekbar,滑动seekbar的时候自定义一个跟随一起滑动的textview

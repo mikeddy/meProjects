@@ -1,11 +1,12 @@
-package com.example.aademo;
+package com.example.aademo.activitys;
 
-import android.app.Activity;
 import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.ProgressBar;
+
+import com.example.aademo.R;
 
 public class HorizontalProgressBarActivity extends BaseActivity implements OnClickListener {
 	private ProgressBar progressBar,progressBar1;

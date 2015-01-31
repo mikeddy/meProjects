@@ -1,10 +1,11 @@
-package com.example.aademo;
+package com.example.aademo.activitys;
 
 import android.os.Bundle;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.example.aademo.R;
 import com.example.aademo.impl.ICallBack;
 import com.example.aademo.widget.SlideParent;
 

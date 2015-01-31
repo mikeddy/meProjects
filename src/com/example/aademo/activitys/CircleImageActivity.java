@@ -1,11 +1,8 @@
-package com.example.aademo;
+package com.example.aademo.activitys;
 
-import com.example.aademo.util.PalLog;
+import com.example.aademo.R;
 
-import android.content.Intent;
 import android.os.Bundle;
-import android.view.ViewTreeObserver.OnGlobalLayoutListener;
-import android.widget.TextView;
 
 public class CircleImageActivity extends BaseActivity {
 	//v4.1

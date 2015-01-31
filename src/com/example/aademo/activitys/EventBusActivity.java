@@ -1,19 +1,18 @@
-package com.example.aademo;
+package com.example.aademo.activitys;
 
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+import com.example.aademo.R;
+import com.example.aademo.events.EventUtil;
 import com.example.aademo.events.MyTestEvent;
 import com.example.aademo.impl.ICallBack;
 import com.example.aademo.impl.IEventBusImpl;
-
-import de.greenrobot.event.EventBus;
+import com.example.aademo.widget.EventBusView;
 
 public class EventBusActivity extends BaseActivity implements IEventBusImpl.IEventBusOnEventImpl<MyTestEvent>{
     Button btn_send;
-    EventBus eventBus;
-
     int onEventMainThreadClickTimes=0;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,10 +22,9 @@ public class EventBusActivity extends BaseActivity implements IEventBusImpl.IEve
     }
 
     private void init(){
-        eventBus=EventBus.getDefault();
-        eventBus.register(this);
+        EventUtil.register(this);
+        EventBusView ebv=new EventBusView();//测试使用
         btn_send=(Button)findViewById(R.id.eventbus_btn_send);
-
         btn_send.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -39,7 +37,7 @@ public class EventBusActivity extends BaseActivity implements IEventBusImpl.IEve
                         showToast(param[0].toString());
                     }
                 });
-                eventBus.post(testEvent);
+                EventUtil.post(testEvent);
             }
         });
     }
