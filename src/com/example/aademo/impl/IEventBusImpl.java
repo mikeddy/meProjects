@@ -1,6 +1,7 @@
 package com.example.aademo.impl;
 
 import com.example.aademo.events.BaseEvent;
+import com.example.aademo.events.NotifyEvent;
 
 /**
  * ================================
@@ -61,6 +62,11 @@ public interface IEventBusImpl {
 
     interface IEventBusAsyncImpl<T extends BaseEvent> {
         public void onEventAsync(T event);
+    }
+
+    //通知独享接口
+    interface  iEventBusNotifyImpl {
+        public void onEvent(NotifyEvent event);
     }
 }
 
