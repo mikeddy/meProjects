@@ -20,7 +20,12 @@
         <attr name="progress_bottom_img" format="reference|color" />
         <attr name="radius" format="dimension" />
     </declare-styleable>
+    <declare-styleable name="AutoScaleTextView">
+        <attr name="minTextSize" format="dimension" />
+    </declare-styleable>
 
     <attr name="circularProgressBarStyle" format="reference" />
+    <attr name="autoScaleTextViewStyle" format="reference" />
+
 
 </resources>

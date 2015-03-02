@@ -1,0 +1,39 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:mepro="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:layout_height="match_parent" >
+    <com.example.aademo.widget.AutoScaleTextView
+        mepro:minTextSize="1dp"
+        android:background="#fc6969"
+        android:gravity="center"
+        android:layout_width="100dp"
+        android:layout_height="30dp"
+        android:layout_gravity="center_horizontal"
+        android:text="cupcakea"
+        android:textSize="16dp"/>
+
+    <com.example.aademo.widget.AutoScaleTextView
+        mepro:minTextSize="1dp"
+        android:background="#fc6969"
+        android:gravity="center"
+        android:layout_marginTop="5dp"
+        android:layout_width="100dp"
+        android:layout_height="30dp"
+        android:layout_gravity="center_horizontal"
+        android:text="hello everybody!!"
+        android:textSize="16dp"/>
+
+    <com.example.aademo.widget.AutoScaleTextView
+        mepro:minTextSize="1dp"
+        android:background="#fc6969"
+        android:gravity="center"
+        android:layout_marginTop="5dp"
+        android:layout_width="100dp"
+        android:layout_height="30dp"
+        android:layout_gravity="center_horizontal"
+        android:text="hello everybody how are you!!"
+        android:textSize="16dp"/>
+</LinearLayout>

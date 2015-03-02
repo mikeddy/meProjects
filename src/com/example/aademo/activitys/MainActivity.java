@@ -47,6 +47,7 @@ public class MainActivity extends BaseActivity {
         arraylist_itemBeans.add(new ItemBean("带闪光灯的二维码扫描", CaptureActivity.class));
         arraylist_itemBeans.add(new ItemBean("Event Bus 全局通信DEMO", EventBusActivity.class));
         arraylist_itemBeans.add(new ItemBean("EffectPath 逐步动画实现", EffectPathActivity.class));
+        arraylist_itemBeans.add(new ItemBean("自动改变字体大小以适应宽度的textview", ScaleTextViewActivity.class));
 
         MainAdapter adapter=new MainAdapter();
         lv.setAdapter(adapter);
