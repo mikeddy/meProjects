@@ -35,7 +35,7 @@ public class MainActivity extends BaseActivity {
 		arraylist_itemBeans.add(new ItemBean("横向进度条", HorizontalProgressBarActivity.class));
 		arraylist_itemBeans.add(new ItemBean("层图片", LayersDrawableActivity.class));
 		arraylist_itemBeans.add(new ItemBean("滑动遮盖效果", CoverActivity.class));
-		arraylist_itemBeans.add(new ItemBean("圆形图片", CircleImageActivity.class));
+		arraylist_itemBeans.add(new ItemBean("圆形图片(带选择效果的)", CircleImageActivity.class));
 		arraylist_itemBeans.add(new ItemBean("下拉放大效果", TouchScaleActivity.class));
 		arraylist_itemBeans.add(new ItemBean("Text颜色渐变AND圆形进度条", CircleProgressActivity.class));
 		arraylist_itemBeans.add(new ItemBean("自定义drawable.xml的深入研究", DrawableXMLActivity.class));
