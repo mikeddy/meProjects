@@ -32,4 +32,13 @@
         app:civ_selectorStrokeWidth="4dp"
         app:civ_shadow="true"/>
 
+    <com.example.aademo.widget.SelImageView
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_margin="8dp"
+        android:clickable="true"
+        android:src="@drawable/default_header_ico"
+        app:civ_selectorColor="#4444ccfc"
+        app:civ_selectorStrokeColor="#aa5677fc"/>
 </LinearLayout>

@@ -333,6 +333,7 @@
     <color name="circleprogress_tv_color_top">#d8d9bc</color>
     <color name="circleprogress_tv_color_bottom">#59443c</color>
     <color name="aroundhalftrans">#827e7b88</color>
+    <color name="defselfilter">#33000000</color>
 
 
 
