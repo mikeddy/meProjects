@@ -88,6 +88,11 @@
         <activity
             android:name=".activitys.ScaleTextViewActivity"
             android:screenOrientation="portrait" />
+        <activity
+            android:name=".activitys.NoSoftInputActivity"
+            android:screenOrientation="portrait" />
+
+
     </application>
 
 </manifest>

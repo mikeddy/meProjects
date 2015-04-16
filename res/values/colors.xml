@@ -335,6 +335,9 @@
     <color name="aroundhalftrans">#827e7b88</color>
     <color name="defselfilter">#33000000</color>
 
+    <color name="keyboard_select">#bcc0c4</color>
+    <color name="keyboard_unselect">#fcfcfc</color>
+
 
 
 
