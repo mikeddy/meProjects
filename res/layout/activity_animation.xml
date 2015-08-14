@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="fill_parent"
+              android:layout_height="fill_parent"
+              android:orientation="vertical">
+
+    <Button
+        android:id="@+id/animation_btn_1"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="动画1"
+        />
+
+    <Button
+        android:id="@+id/animation_btn_2"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="动画2"
+        />
+
+    <Button
+        android:id="@+id/animation_btn_3"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="动画3"
+        />
+</LinearLayout>

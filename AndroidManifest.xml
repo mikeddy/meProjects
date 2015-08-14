@@ -91,6 +91,18 @@
         <activity
             android:name=".activitys.NoSoftInputActivity"
             android:screenOrientation="portrait" />
+        <activity
+            android:name=".activitys.AnimationActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activitys.AnimationOneActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activitys.AnimationTwoActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activitys.AnimationThreeActivity"
+            android:screenOrientation="portrait" />
 
 
     </application>
