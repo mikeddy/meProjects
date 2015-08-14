@@ -1,19 +1,22 @@
 package com.example.aademo.bean;
 
-import java.util.Random;
-
 import android.view.View;
 
+import java.util.Random;
+
+/**
+ * 用来记录每一个移动的View的当前位置的对象
+ */
 public class MoveBean {
 	int speed;
 	int potinX;
 	int pointY;
 	
-	public MoveBean(View v,int width,int height) {
+	public MoveBean(View v,int startx,int starty) {
 		speed = new Random().nextInt(10);
 		speed += 5;// 速度范围5-15px;
-		potinX = new Random().nextInt(width - v.getMeasuredWidth());
-		pointY = height;
+		potinX = new Random().nextInt(startx - v.getMeasuredWidth());
+		pointY = starty;
 	}
 	public int getSpeed() {
 		return speed;

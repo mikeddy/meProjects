@@ -57,7 +57,7 @@ public class AnimationOneActivity extends BaseActivity {
 
             @Override
             public int getViewCount() {
-                return 1;
+                return 20;
             }
 
             @Override
@@ -73,7 +73,7 @@ public class AnimationOneActivity extends BaseActivity {
                 return convertView;
             }
         });
-//        cvg_bg.setDir(CustomViewGroup.DIRECTION.BOTTOM2TOP);
+        cvg_bg.setDir(CustomViewGroup.DIRECTION.TOP2BTTOM);
         cvg_bg.startAnimation();
     }
 
