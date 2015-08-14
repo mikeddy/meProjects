@@ -9,6 +9,7 @@ import android.view.ViewGroup;
 import com.example.aademo.R;
 import com.example.aademo.bean.MoveBean;
 import com.example.aademo.impl.ViewAdapter;
+import com.example.aademo.util.PalLog;
 
 import java.util.LinkedList;
 import java.util.Queue;
@@ -25,7 +26,7 @@ public class CustomViewGroup extends ViewGroup {
 	private Queue<View> mRemovedViewQueue = new LinkedList<View>();
 	public static final int MAXCOUNT = 10;//最多能允许的子view个数
 	public int defaultMaxCount = MAXCOUNT;
-	boolean isStart = false;
+	boolean isStart = false;//是否已开启动画
 	private DIRECTION dir=DIRECTION.BOTTOM2TOP;//默认的滚动方向
 
 	public CustomViewGroup(Context context) {
@@ -55,11 +56,13 @@ public class CustomViewGroup extends ViewGroup {
 		Thread t = new Thread(new Runnable() {
 			@Override
 			public void run() {
-				while (true) {
+				while (isStart) {
+					PalLog.printD("is running");
 					mHandler.sendEmptyMessage(0);
 					try {
 						Thread.sleep(10);
 					} catch (Exception e) {
+
 					}
 				}
 			}
@@ -96,6 +99,7 @@ public class CustomViewGroup extends ViewGroup {
 			return;
 		int childCount = getChildCount();//获取子view的个数
 		for (int i = 0; i < childCount; i++) {
+			PalLog.printD("i:"+i);
 			View childView = getChildAt(i);
 			MoveBean bean = getMoveBeanFromTag(childView);//获取每个childview中的MoveBean对象
 			if (bean != null) {
@@ -182,6 +186,10 @@ public class CustomViewGroup extends ViewGroup {
 
 	public void setDir(DIRECTION tDir){
 		dir=tDir;
+	}
+
+	public void stopAnimation(){
+		isStart=false;
 	}
 
 }

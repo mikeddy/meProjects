@@ -8,11 +8,17 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.example.aademo.R;
 import com.example.aademo.impl.ViewAdapter;
+import com.example.aademo.util.DensityUtils;
+import com.example.aademo.util.PalLog;
 import com.example.aademo.widget.CustomViewGroup;
+
+import java.util.ArrayList;
+import java.util.Random;
 
 /**
  * Created by mik_eddy on 15/8/14.
@@ -20,7 +26,10 @@ import com.example.aademo.widget.CustomViewGroup;
 public class AnimationOneActivity extends BaseActivity {
     TextView tv_plan,tv_planbottom;
     CustomViewGroup cvg_bg;
-    public static final int STARTCOUNT=20;//一共有多少颗星星
+    Random mRandom=new Random();
+    ArrayList<Integer>arlit_startIco=new ArrayList<Integer>();
+
+    public static final int STARTCOUNT=10;//一共有多少颗星星
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -37,6 +46,12 @@ public class AnimationOneActivity extends BaseActivity {
     }
 
     private void processLogic() {
+
+        arlit_startIco.add(R.drawable.draw_animation_star);
+        arlit_startIco.add(R.drawable.draw_animation_star_1);
+        arlit_startIco.add(R.drawable.draw_animation_star_2);
+        arlit_startIco.add(R.drawable.draw_animation_star_3);
+
         tv_plan.startAnimation(AnimationUtils.loadAnimation(this, R.anim.anim_animation_1_plan));
         tv_planbottom.startAnimation(AnimationUtils.loadAnimation(this, R.anim.anim_animation_1_planbottom));
         mHandler.sendEmptyMessageDelayed(0, 1000);
@@ -57,7 +72,7 @@ public class AnimationOneActivity extends BaseActivity {
 
             @Override
             public int getViewCount() {
-                return 20;
+                return STARTCOUNT;
             }
 
             @Override
@@ -70,6 +85,10 @@ public class AnimationOneActivity extends BaseActivity {
                 } else {
                     img = (ImageView) convertView.getTag();
                 }
+                int nextInt=mRandom.nextInt(4);
+                img.setImageResource(arlit_startIco.get(nextInt));
+                int tIntRange=DensityUtils.dp2px(mContext, (nextInt + 2) * 5);
+                img.setLayoutParams(new LinearLayout.LayoutParams(tIntRange,tIntRange));
                 return convertView;
             }
         });
@@ -80,6 +99,7 @@ public class AnimationOneActivity extends BaseActivity {
     @Override
     protected void onDestroy() {
         super.onDestroy();
-//        cvg_bg.stop();
+        PalLog.printD("=======aaaa");
+        cvg_bg.stopAnimation();
     }
 }
