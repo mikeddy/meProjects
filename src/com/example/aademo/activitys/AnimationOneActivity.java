@@ -6,6 +6,7 @@ import android.os.Message;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -16,6 +17,7 @@ import com.example.aademo.impl.ViewAdapter;
 import com.example.aademo.util.DensityUtils;
 import com.example.aademo.util.PalLog;
 import com.example.aademo.widget.CustomViewGroup;
+import com.nineoldandroids.animation.ObjectAnimator;
 
 import java.util.ArrayList;
 import java.util.Random;
@@ -52,11 +54,36 @@ public class AnimationOneActivity extends BaseActivity {
         arlit_startIco.add(R.drawable.draw_animation_star_2);
         arlit_startIco.add(R.drawable.draw_animation_star_3);
 
-        tv_plan.startAnimation(AnimationUtils.loadAnimation(this, R.anim.anim_animation_1_plan));
+        Animation anim=AnimationUtils.loadAnimation(this, R.anim.anim_animation_1_plan);
+        anim.setAnimationListener(new Animation.AnimationListener() {
+            @Override
+            public void onAnimationStart(Animation animation) {
+
+            }
+
+            @Override
+            public void onAnimationEnd(Animation animation) {
+                mShakeHandler.sendEmptyMessageDelayed(0,2000);
+            }
+
+            @Override
+            public void onAnimationRepeat(Animation animation) {
+
+            }
+        });
+        tv_plan.startAnimation(anim);
         tv_planbottom.startAnimation(AnimationUtils.loadAnimation(this, R.anim.anim_animation_1_planbottom));
         mHandler.sendEmptyMessageDelayed(0, 1000);
 
     }
+    Handler mShakeHandler=new Handler(){
+        @Override
+        public void dispatchMessage(Message msg) {
+            super.dispatchMessage(msg);
+            shakeView(tv_plan, 7, 200);
+            sendEmptyMessageDelayed(0,3000);
+        }
+    };
 
     Handler mHandler=new Handler(){
         @Override
@@ -65,6 +92,15 @@ public class AnimationOneActivity extends BaseActivity {
             loadBgStartAnimation();
         }
     };
+
+    public static void shakeView(View v, float offset, int dura) {
+        float tPositive=v.getTop()-offset;
+        float tMinus=v.getTop()+offset;
+        float tSource=v.getTop();
+        ObjectAnimator animX = ObjectAnimator.ofFloat(v, "y", tPositive, tMinus,tPositive, tMinus, tSource);
+        animX.setDuration(dura);
+        animX.start();
+    }
 
 
     private void loadBgStartAnimation(){

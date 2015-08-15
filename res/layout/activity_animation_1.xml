@@ -2,7 +2,7 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
              android:layout_width="fill_parent"
              android:layout_height="fill_parent"
-             android:background="#455a64">
+             android:background="@drawable/animation_bg_1">
 
     <LinearLayout
         android:layout_width="fill_parent"
@@ -40,6 +40,7 @@
             android:id="@+id/animtion1_plan"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
             android:background="@drawable/rocketry"/>
     </LinearLayout>
 

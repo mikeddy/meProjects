@@ -9,7 +9,6 @@ import android.view.ViewGroup;
 import com.example.aademo.R;
 import com.example.aademo.bean.MoveBean;
 import com.example.aademo.impl.ViewAdapter;
-import com.example.aademo.util.PalLog;
 
 import java.util.LinkedList;
 import java.util.Queue;
@@ -57,7 +56,6 @@ public class CustomViewGroup extends ViewGroup {
 			@Override
 			public void run() {
 				while (isStart) {
-					PalLog.printD("is running");
 					mHandler.sendEmptyMessage(0);
 					try {
 						Thread.sleep(10);
@@ -99,7 +97,6 @@ public class CustomViewGroup extends ViewGroup {
 			return;
 		int childCount = getChildCount();//获取子view的个数
 		for (int i = 0; i < childCount; i++) {
-			PalLog.printD("i:"+i);
 			View childView = getChildAt(i);
 			MoveBean bean = getMoveBeanFromTag(childView);//获取每个childview中的MoveBean对象
 			if (bean != null) {
