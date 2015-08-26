@@ -15,7 +15,6 @@ import android.widget.TextView;
 import com.example.aademo.R;
 import com.example.aademo.impl.ViewAdapter;
 import com.example.aademo.util.DensityUtils;
-import com.example.aademo.util.PalLog;
 import com.example.aademo.widget.CustomViewGroup;
 import com.nineoldandroids.animation.ObjectAnimator;
 
@@ -31,7 +30,7 @@ public class AnimationOneActivity extends BaseActivity {
     Random mRandom=new Random();
     ArrayList<Integer>arlit_startIco=new ArrayList<Integer>();
 
-    public static final int STARTCOUNT=10;//一共有多少颗星星
+    public static final int STARTCOUNT=5;//一共有多少颗星星
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -135,7 +134,7 @@ public class AnimationOneActivity extends BaseActivity {
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        PalLog.printD("=======aaaa");
         cvg_bg.stopAnimation();
     }
+
 }

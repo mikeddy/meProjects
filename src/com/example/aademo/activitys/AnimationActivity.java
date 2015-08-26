@@ -19,6 +19,8 @@ public class AnimationActivity extends BaseActivity implements View.OnClickListe
         init();
     }
 
+    
+
 
     private void init(){
         btn1=(Button)findViewById(R.id.animation_btn_1);

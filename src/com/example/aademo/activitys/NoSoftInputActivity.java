@@ -21,7 +21,7 @@ public class NoSoftInputActivity extends BaseActivity {
     public static final int TYPE_RMB = 3;//人民币 非负数字,最前面加￥符号,后面加上.00,输入.的时候进入小数状态
 
 
-    int type = TYPE_RMB;
+    int type = TYPE_CARD;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -98,7 +98,7 @@ public class NoSoftInputActivity extends BaseActivity {
                 } else if (type == TYPE_NUM) {//数字
                     if (!isPoint(v)) edittable.insert(index, v.getTag().toString());
                 } else if (type == TYPE_CARD) {//银行卡
-                    if (!isPoint(v) && !isTract(v) && edittable.length() < 18) {
+                    if (!isPoint(v) && !isTract(v) && edittable.length() < 19) {
                         edittable.insert(index, v.getTag().toString());
 //						PalLog.printD(index + "=====");
                         String card = edittable.toString();

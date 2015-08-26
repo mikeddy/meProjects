@@ -27,6 +27,7 @@
             android:id="@+id/animation2_img_light"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
             android:src="@drawable/animation_2_light"/>
     </LinearLayout>
 
@@ -51,7 +52,7 @@
             android:id="@+id/animation2_img_ufo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="110dp"
+            android:layout_marginBottom="70dp"
             android:src="@drawable/animation_2_ufo"/>
     </LinearLayout>
 
