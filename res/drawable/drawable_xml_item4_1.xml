@@ -1,1 +1,1 @@
-<?xml version="1.0" encoding="utf-8"?><transition xmlns:android="http://schemas.android.com/apk/res/android"    android:opacity="transparent">    <item android:drawable="@drawable/ic_launcher"/>    <item android:drawable="@drawable/icon_home"/></transition>
+<?xml version="1.0" encoding="utf-8"?><transition xmlns:android="http://schemas.android.com/apk/res/android"    android:opacity="transparent">    <item android:drawable="@drawable/icon_home"/>    <item android:drawable="@drawable/ic_launcher"/></transition>

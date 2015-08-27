@@ -103,7 +103,9 @@
         <activity
             android:name=".activitys.AnimationThreeActivity"
             android:screenOrientation="portrait" />
-
+        <activity
+            android:name=".activitys.TestActivity"
+            android:screenOrientation="portrait" />
 
     </application>
 

@@ -105,14 +105,18 @@
             android:src="@drawable/drawable_xml_item4_1"
             android:layout_weight="1" />
 
-        <TextView
+        <ImageView
+            android:id="@+id/img_item_4_2"
             android:layout_width="0dp"
             android:layout_height="fill_parent"
+            android:src="@drawable/drawable_xml_item4_2"
             android:layout_weight="1" />
 
-        <TextView
+        <ImageView
+            android:id="@+id/img_item_4_3"
             android:layout_width="0dp"
             android:layout_height="fill_parent"
+            android:src="@drawable/drawable_xml_item4_3"
             android:layout_weight="1" />
     </LinearLayout>
 
