@@ -8,20 +8,34 @@ import android.util.TypedValue;
 import android.widget.TextView;
 
 import com.example.aademo.R;
+import com.example.aademo.util.DensityUtils;
 
 /**
- * A custom Text View that lowers the text size when the text is to big for the TextView. Modified version of one found on stackoverflow
- * 
- * @author Andreas Krings - www.ankri.de
- * @version 1.0
- * 
+ *
+ * 自动伸缩的textview
+ *
+ * @author XuGaoxiang
+ * @modified XuWei
  */
 public class AutoScaleTextView extends TextView
 {
-	private Paint textPaint;
 
-	private float preferredTextSize;
-	private float minTextSize;
+	/** 持续缩放临界值 */
+	private static final float THRESHOLD = 0.5f;
+	/** 最小字体大小，单位sp */
+	private static final float MIN_TEXT_SIZE = 10f;
+	/** 缩放比 */
+	private static final float SCALE_RATIO = 1.1f;
+
+	/** 用于计算文字所占尺寸 */
+	private Paint mMeasureSizePaint;
+	/** 设定字体大小，单位px */
+	private float mOriginalTextSize;
+	/** 转换完的最小字体大小，单位px */
+	private float mTranslateMinTextSize;
+
+	/** 是否已经完成了缩放处理 */
+	private boolean mIsHasScaled;
 
 	public AutoScaleTextView(Context context)
 	{
@@ -30,68 +44,99 @@ public class AutoScaleTextView extends TextView
 
 	public AutoScaleTextView(Context context, AttributeSet attrs)
 	{
-        this(context, attrs, R.attr.autoScaleTextViewStyle);
-
-		// Use this constructor, if you do not want use the default style
-		// super(context, attrs);
+		this(context, attrs, R.attr.autoScaleTextViewStyle);
 	}
 
 	public AutoScaleTextView(Context context, AttributeSet attrs, int defStyle)
 	{
 		super(context, attrs, defStyle);
 
-		this.textPaint = new Paint();
+		this.mMeasureSizePaint = new Paint();
 
-		TypedArray a;
-        a = context.obtainStyledAttributes(attrs,R.styleable.AutoScaleTextView, defStyle, 0);
-        this.minTextSize = a.getDimension(R.styleable.AutoScaleTextView_minTextSize, 10f);
-		a.recycle();
+		TypedArray attributes = context.obtainStyledAttributes(attrs,R.styleable.AutoScaleTextView, defStyle, 0);
+		this.mTranslateMinTextSize = attributes.getDimensionPixelSize(R.styleable.AutoScaleTextView_minTextSize, DensityUtils.sp2px(getContext(), MIN_TEXT_SIZE));
+		attributes.recycle();
 
-		this.preferredTextSize = this.getTextSize();
+		this.mOriginalTextSize = this.getTextSize();
 	}
 
 	/**
-	 * Set the minimum text size for this view
-	 * 
+	 *
+	 * 设置最小的字体大小
 	 * @param minTextSize
-	 *            The minimum text size
 	 */
 	public void setMinTextSize(float minTextSize)
 	{
-		this.minTextSize = minTextSize;
+		this.mTranslateMinTextSize = minTextSize;
+	}
+
+	@Override
+	public void setTextSize(int unit, float size) {
+		super.setTextSize(unit, size);
+		mIsHasScaled = false;
+		mOriginalTextSize = getTextSize();
+		refitText(getText().toString(), getWidth());
 	}
 
 	/**
-	 * Resize the text so that it fits
-	 * 
-	 * @param text
-	 *            The text. Neither <code>null</code> nor empty.
-	 * @param textWidth
-	 *            The width of the TextView. > 0
+	 *
+	 * 重新改变text的size
+	 *
+	 * @param text  需要传入的text
+	 *
+	 * @param widgetWidth  text的宽度
+	 *
 	 */
-	private void refitText(String text, int textWidth)
+	private void refitText(String text, int widgetWidth)
 	{
-		if (textWidth <= 0 || text == null || text.length() == 0)
+		if (widgetWidth <= 0 || text == null || text.length() == 0)
 			return;
 
-		// the width
-		int targetWidth = textWidth - this.getPaddingLeft() - this.getPaddingRight();
+		//净宽度，除去左右padding
+		int pureWidth = widgetWidth - this.getPaddingLeft() - this.getPaddingRight();
 
-		final float threshold = 0.5f; // How close we have to be
+		this.mMeasureSizePaint.set(this.getPaint());
 
-		this.textPaint.set(this.getPaint());
-
-		while ((this.preferredTextSize - this.minTextSize) > threshold)
-		{
-			float size = (this.preferredTextSize + this.minTextSize) / 2;
-			this.textPaint.setTextSize(size);
-			if (this.textPaint.measureText(text) >= targetWidth)
-				this.preferredTextSize = size; // too big
-			else
-				this.minTextSize = size; // too small
+		float tempSize = mOriginalTextSize;
+		while ((tempSize - mTranslateMinTextSize) > THRESHOLD) {
+			mMeasureSizePaint.setTextSize(tempSize);
+			if (mMeasureSizePaint.measureText(text) >= pureWidth)
+				tempSize /= SCALE_RATIO; // 文字太大了,测绘宽度已经超过控件的宽度了
+			else{
+				break;
+			}
 		}
-		// Use min size so that we undershoot rather than overshoot
-		this.setTextSize(TypedValue.COMPLEX_UNIT_PX, this.minTextSize);
+		//循环结束后,就已经设置成一个最合适的字体大小了
+		mIsHasScaled = true;
+		super.setTextSize(TypedValue.COMPLEX_UNIT_PX, tempSize);
+	}
+
+
+	/**
+	 * 设置text并且重新计算伸缩textSize
+	 * @param text
+	 */
+	public void setTextAndResize(String text){
+		mIsHasScaled =false;
+		setText(text);
+	}
+
+	private void reSize(float size,String text,float targetWidth){
+		float nSize=this.mOriginalTextSize;
+		while ((nSize -mTranslateMinTextSize ) > THRESHOLD)
+		{
+			size = (nSize + mTranslateMinTextSize) / 2;
+			this.mMeasureSizePaint.setTextSize(size);
+			if (this.mMeasureSizePaint.measureText(text) >= targetWidth)
+				nSize = size; // 文字太大了,测绘宽度已经超过控件的宽度了
+			else{
+				break;
+			}
+
+		}
+		//循环结束后,就已经设置成一个最合适的字体大小了
+		mIsHasScaled =true;
+		this.setTextSize(TypedValue.COMPLEX_UNIT_PX, size);
 	}
 
 	@Override
@@ -103,7 +148,8 @@ public class AutoScaleTextView extends TextView
 	@Override
 	protected void onSizeChanged(int width, int height, int oldwidth, int oldheight)
 	{
-		if (width != oldwidth)
+		//只要width!=oldwidth 就说明是可以缩放的,否则就说明已经是缩放到最小了
+		if (width != oldwidth && !mIsHasScaled)
 			this.refitText(this.getText().toString(), width);
 	}
 
