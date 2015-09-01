@@ -16,8 +16,8 @@
     <uses-feature android:name="android.hardware.camera.flash" />
 
     <uses-sdk
-        android:minSdkVersion="8"
-        android:targetSdkVersion="15" />
+        android:minSdkVersion="17"
+        android:targetSdkVersion="17" />
 
     <application
         android:name=".MobileApplication"
@@ -103,6 +103,16 @@
         <activity
             android:name=".activitys.AnimationThreeActivity"
             android:screenOrientation="portrait" />
+        <activity
+            android:name=".activitys.GaussoBscureActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activitys.GaussoBscureOneActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activitys.GaussoBscureTwoActivity"
+            android:screenOrientation="portrait" />
+
         <activity
             android:name=".activitys.TestActivity"
             android:screenOrientation="portrait" />

@@ -50,6 +50,7 @@ public class MainActivity extends BaseActivity {
         arraylist_itemBeans.add(new ItemBean("自动改变字体大小以适应宽度的textview", ScaleTextViewActivity.class));
         arraylist_itemBeans.add(new ItemBean("不弹输入法edittext", NoSoftInputActivity.class));
         arraylist_itemBeans.add(new ItemBean("自定义小动画", AnimationActivity.class));
+        arraylist_itemBeans.add(new ItemBean("高斯模糊效果", GaussoBscureActivity.class));
         arraylist_itemBeans.add(new ItemBean("测试Activity", TestActivity.class));
 
 
