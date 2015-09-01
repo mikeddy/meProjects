@@ -73,6 +73,6 @@ public class GaussoBscureOneActivity extends BaseActivity implements View.OnClic
         view.setBackground(new BitmapDrawable(getResources(), overlay));
         rs.destroy();
 
-        tv_ms.setText("cost " + (System.currentTimeMillis() - startMs) + "ms");
+        tv_ms.setText("耗时:" + (System.currentTimeMillis() - startMs) + "ms");
     }
 }

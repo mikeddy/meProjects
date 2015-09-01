@@ -75,6 +75,6 @@ public class GaussoBscureTwoActivity extends BaseActivity implements View.OnClic
         blur.forEach(overlayAlloc);
         overlayAlloc.copyTo(overlay);
         view.setBackground(new BitmapDrawable(getResources(), overlay));
-        tv_ms.setText("cost " + (System.currentTimeMillis() - startMs) + "ms");
+        tv_ms.setText("耗时:" + (System.currentTimeMillis() - startMs) + "ms");
     }
 }
