@@ -38,7 +38,13 @@
         android:layout_gravity="center_horizontal"
         android:layout_margin="8dp"
         android:clickable="true"
-        android:src="@drawable/default_header_ico"
-        app:civ_selectorColor="#4444ccfc"
-        app:civ_selectorStrokeColor="#aa5677fc"/>
+        android:src="@drawable/ic_launcher"/>
+
+    <com.example.aademo.widget.SelButton
+        android:id="@+id/circleimage_btn_ic"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:textColor="@color/red"
+        android:text="11"
+        android:background="@drawable/ic_launcher"/>
 </LinearLayout>
