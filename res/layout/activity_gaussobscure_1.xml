@@ -18,7 +18,7 @@
         android:layout_height="200dp"
         android:gravity="center"
         android:layout_gravity="center"
-        android:text="模糊效果"
+        android:text="-"
         android:textColor="@android:color/white"
         android:textSize="48sp"
         android:textStyle="bold"
