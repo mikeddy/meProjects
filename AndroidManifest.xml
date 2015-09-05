@@ -112,6 +112,9 @@
         <activity
             android:name=".activitys.GaussoBscureTwoActivity"
             android:screenOrientation="portrait" />
+        <activity
+            android:name=".activitys.DragToDetailActivity"
+            android:screenOrientation="portrait" />
 
         <activity
             android:name=".activitys.TestActivity"
