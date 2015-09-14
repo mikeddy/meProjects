@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.PackageManager.NameNotFoundException;
+import android.view.MotionEvent;
 
 //跟App相关的辅助类
 public class AppUtils
@@ -54,6 +55,16 @@ public class AppUtils
 			e.printStackTrace();
 		}
 		return null;
+	}
+
+	public static String getEventActionName(MotionEvent event){
+		if(event.getAction()==MotionEvent.ACTION_CANCEL)return "ACTION_CANCEL";
+		else if(event.getAction()==MotionEvent.ACTION_DOWN)return "ACTION_DOWN";
+		else if(event.getAction()==MotionEvent.ACTION_MOVE)return "ACTION_MOVE";
+		else if(event.getAction()==MotionEvent.ACTION_OUTSIDE)return "ACTION_OUTSIDE";
+		else if(event.getAction()==MotionEvent.ACTION_UP)return "ACTION_UP";
+		return "UNKNOW:"+event.getAction();
+
 	}
 
 }

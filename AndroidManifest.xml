@@ -115,6 +115,10 @@
         <activity
             android:name=".activitys.DragToDetailActivity"
             android:screenOrientation="portrait" />
+        <activity
+            android:name=".activitys.TwoDirectListViewActivity"
+            android:screenOrientation="portrait" />
+
 
         <activity
             android:name=".activitys.TestActivity"
