@@ -53,28 +53,27 @@ public class DragLinearLayout extends LinearLayout {
 
     @Override
     public boolean onInterceptTouchEvent(MotionEvent ev) {
-//        final int action = ev.getAction();
-//        float y = ev.getY();
-//        PalLog.printD("parent==>onInterceptTouchEvent");
-//        switch (action) {
-//            case MotionEvent.ACTION_DOWN:
-//                mFloatLastY = y;
-//                break;
-//            case MotionEvent.ACTION_MOVE:
-//                float dy = y - mFloatLastY;
-////                PalLog.printD("bbbb"+mBoolDragging+"   "+dy+"    "+mTouchSlop);
-//                if (Math.abs(dy) > mTouchSlop) {
-//                    mBoolDragging = true;
-////                    return true;
-//                }
-//                break;
-//            case MotionEvent.ACTION_CANCEL:
-//            case MotionEvent.ACTION_UP:
-//                mBoolDragging = false;
-//                break;
-//        }
-        return true;
-//        return super.onInterceptTouchEvent(ev);
+        final int action = ev.getAction();
+        float y = ev.getY();
+        switch (action) {
+            case MotionEvent.ACTION_DOWN:
+                mFloatLastY = y;
+                break;
+            case MotionEvent.ACTION_MOVE:
+                float dy = y - mFloatLastY;
+//                PalLog.printD("bbbb"+mBoolDragging+"   "+dy+"    "+mTouchSlop);
+                if (Math.abs(dy) > mTouchSlop) {
+                    mBoolDragging = true;
+//                    return true;
+                }
+                break;
+            case MotionEvent.ACTION_CANCEL:
+            case MotionEvent.ACTION_UP:
+                mBoolDragging = false;
+                break;
+        }
+        if(mBoolDragging) return true;
+        return super.onInterceptTouchEvent(ev);
     }
 
     @Override
