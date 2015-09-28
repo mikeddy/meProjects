@@ -55,7 +55,6 @@ public class MainActivity extends BaseActivity {
         arraylist_itemBeans.add(new ItemBean("支持双向滑动的listview(未完工)",TwoDirectListViewActivity.class));
         arraylist_itemBeans.add(new ItemBean("测试Activity", TestActivity.class));
 
-
         MainAdapter adapter=new MainAdapter();
         lv.setAdapter(adapter);
 	}

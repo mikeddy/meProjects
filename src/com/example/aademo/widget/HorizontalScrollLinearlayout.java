@@ -3,7 +3,9 @@ package com.example.aademo.widget;
 import android.content.Context;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
+import android.view.VelocityTracker;
 import android.widget.LinearLayout;
+import android.widget.OverScroller;
 
 import com.example.aademo.util.AppUtils;
 import com.example.aademo.util.PalLog;
@@ -13,11 +15,10 @@ import com.example.aademo.util.PalLog;
  */
 public class HorizontalScrollLinearlayout extends LinearLayout {
 
-//    private float mFloatLastX;//最后一次获取到的X坐标
-//    private float mFloatLastY;//最后一次获取到得Y坐标
-//    private int mTouchSlop;//最小滑动触发阀值
-//    private boolean mBoolDragging = false;//是否处在拖动状态
-//    private boolean mBoolInControl = true;//默认让横向滑动控件先获取事件处理权,如果发现用户实际想滑动的是listview,再把事件给listview
+    private OverScroller mScroller;
+    private VelocityTracker mVelocityTracker;
+    private static final int DEFAULTX = -10000000;
+    private float mFloatLastX = DEFAULTX;//最后一次获取到的X坐标
 
     public HorizontalScrollLinearlayout(Context context) {
         super(context);
@@ -35,48 +36,66 @@ public class HorizontalScrollLinearlayout extends LinearLayout {
     }
 
     private void init(Context context) {
-//        mTouchSlop = ViewConfiguration.get(context).getScaledTouchSlop();
+        mScroller = new OverScroller(context);
     }
 
     @Override
     public boolean dispatchTouchEvent(MotionEvent ev) {
-        PalLog.printE("child==>dispatchTouchEvent==>"+ AppUtils.getEventActionName(ev));
+        PalLog.printE("child==>dispatchTouchEvent==>" + AppUtils.getEventActionName(ev));
         return super.dispatchTouchEvent(ev);
     }
 
     @Override
     public boolean onInterceptTouchEvent(MotionEvent ev) {
-        PalLog.printE("child==>onInterceptTouchEvent==>"+ AppUtils.getEventActionName(ev));
+        PalLog.printE("child==>onInterceptTouchEvent==>" + AppUtils.getEventActionName(ev));
         return super.onInterceptTouchEvent(ev);
     }
 
     @Override
-    public boolean onTouchEvent(MotionEvent ev) {
-        PalLog.printE("child==>onTouchEvent==>"+ AppUtils.getEventActionName(ev));
-        return super.onTouchEvent(ev);
-//        final int action = ev.getAction();
-//        float x = ev.getX();
-//        float y=ev.getY();
-//        switch (action) {
-//            case MotionEvent.ACTION_DOWN:
-//                mFloatLastX = x;
-//                mFloatLastY=y;
-//                break;
-//            case MotionEvent.ACTION_MOVE:
-//                float dx = x - mFloatLastX;
-//                float dy=y-mFloatLastY;
-//                PalLog.printD("bbbb" + mBoolDragging + "   " + dx + "    " + mTouchSlop);
-//                if (Math.abs(dy) > mTouchSlop&&Math.abs(dy)>Math.abs(dx)) {
-////                    mBoolDragging = true;
-//                    mBoolInControl=false;
-//                }
-//                break;
-//            case MotionEvent.ACTION_CANCEL:
-//            case MotionEvent.ACTION_UP:
-////                mBoolDragging = false;
-//                break;
-//        }
-//        requestDisallowInterceptTouchEvent(mBoolInControl);
-//        return mBoolInControl;
+    public boolean onTouchEvent(MotionEvent event) {
+        PalLog.printE("child==>onTouchEvent==>" + AppUtils.getEventActionName(event));
+        return super.onTouchEvent(event);
+    }
+
+    /**
+     * 重写scrollTo防止滑过头
+     *
+     * @param x
+     * @param y
+     */
+    @Override
+    public void scrollTo(int x, int y) {
+        if (x < 0) {
+            x = 0;
+        }
+        if (x > getWidth()) {
+            x = getWidth();
+        }
+        if (x != getScrollX()) {
+            super.scrollTo(x, y);
+        }
+    }
+
+
+    @Override
+    public void computeScroll() {
+        if (mScroller.computeScrollOffset()) {
+            scrollTo(mScroller.getCurrX(), 0);
+            invalidate();
+        }
+    }
+
+    public void doScroll(MotionEvent ev) {
+        float x = ev.getX();
+        if (mFloatLastX == DEFAULTX) mFloatLastX = x;
+        float dx = ev.getX() - mFloatLastX;
+        int nIntOffset = (int) -dx;
+        PalLog.printD(ev.getAction() + "nIntOffset:" + nIntOffset);
+        scrollBy(nIntOffset, 0);
+        mFloatLastX = x;
+    }
+
+    public void reSet() {
+        mFloatLastX = DEFAULTX;
     }
 }
