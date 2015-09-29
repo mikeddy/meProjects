@@ -1,22 +1,22 @@
 package com.example.aademo.widget;
 
 import android.content.Context;
-import android.graphics.Rect;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
-import android.view.View;
 import android.view.ViewConfiguration;
 import android.widget.ListView;
 
 import com.example.aademo.util.AppUtils;
 import com.example.aademo.util.PalLog;
 
+import java.util.ArrayList;
+
 /**
  * Created by mik_eddy on 15/9/9.
  */
 public class MyListView extends ListView {
     public static final int DIR_DEFAULT = 1, DIR_VERTICAL = 2, DIR_HORIZONTAL = 3;
-    HorizontalScrollLinearlayout mHslin;
+    ArrayList<HorizontalScrollLinearlayout> arrayList_mHslin;
     private float mFloatLastX;//最后一次获取到的X坐标
     private float mFloatLastY;//最后一次获取到得Y坐标
     private int mTouchSlop;//最小滑动触发阀值
@@ -75,18 +75,10 @@ public class MyListView extends ListView {
                     if (absMax > mTouchSlop) {
                         mDir = absMax == absDx ? DIR_HORIZONTAL : DIR_VERTICAL;
                     }
-                    if (mDir == DIR_HORIZONTAL) {
-                        View v = getChildInTouchRect(ev);
-                        if (v != null && v instanceof HorizontalScrollLinearlayout) {
-                            mHslin = (HorizontalScrollLinearlayout) v;
-//                            MotionEvent newEvent = MotionEvent.obtain(ev);
-//                            newEvent.setAction(MotionEvent.ACTION_DOWN);
-                        }
-                        break;
-                    }
+                    if(mDir==DIR_HORIZONTAL)doChildScroll(ev,true);
                 }
                 if (mDir == DIR_HORIZONTAL) {
-                    mHslin.doScroll(ev);
+                    doChildScroll(ev,false);
                     return true;
                 } else if (mDir == DIR_VERTICAL) {
 
@@ -95,28 +87,49 @@ public class MyListView extends ListView {
             case MotionEvent.ACTION_UP:
             case MotionEvent.ACTION_CANCEL:
                 mDir = DIR_DEFAULT;
-                if (mHslin != null) mHslin.reSet();
+                reSetChild();
                 break;
         }
         return super.onTouchEvent(ev);
     }
 
-
-    public View getChildInTouchRect(MotionEvent event) {
-        Rect rect = new Rect();
-        int childCount = getChildCount();
-        int[] listViewCoords = new int[2];
-        getLocationOnScreen(listViewCoords);
-        int x = (int) event.getRawX() - listViewCoords[0];
-        int y = (int) event.getRawY() - listViewCoords[1];
-        View child;
-        for (int i = 0; i < childCount; i++) {
-            child = getChildAt(i);
-            child.getHitRect(rect);
-            if (rect.contains(x, y)) {
-                return child;
+    public void doChildScroll(MotionEvent ev,boolean isFirst) {
+        for (int i = 0; i < getArrayList_mHslin().size(); i++) {
+            if(isFirst){
+                ev=MotionEvent.obtain(ev);
+                ev.setAction(MotionEvent.ACTION_DOWN);
             }
+            getArrayList_mHslin().get(i).doScroll(ev);
         }
-        return null;
+    }
+
+    public void reSetChild() {
+        for (int i = 0; i < getArrayList_mHslin().size(); i++) {
+            getArrayList_mHslin().get(i).reSet();
+        }
+    }
+
+
+//    public View getChildInTouchRect(MotionEvent event) {
+//        Rect rect = new Rect();
+//        int childCount = getChildCount();
+//        int[] listViewCoords = new int[2];
+//        getLocationOnScreen(listViewCoords);
+//        int x = (int) event.getRawX() - listViewCoords[0];
+//        int y = (int) event.getRawY() - listViewCoords[1];
+//        View child;
+//        for (int i = 0; i < childCount; i++) {
+//            child = getChildAt(i);
+//            child.getHitRect(rect);
+//            if (rect.contains(x, y)) {
+//                return child;
+//            }
+//        }
+//        return null;
+//    }
+
+    public ArrayList<HorizontalScrollLinearlayout> getArrayList_mHslin() {
+        if (arrayList_mHslin == null) arrayList_mHslin = new ArrayList<HorizontalScrollLinearlayout>();
+        return arrayList_mHslin;
     }
 }

@@ -2,15 +2,52 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
               android:layout_width="match_parent"
               android:layout_height="match_parent"
-              android:clipChildren="false"
+              android:clipChildren="true"
               android:orientation="vertical">
 
     <LinearLayout
-        android:id="@+id/view_pager"
-        android:layout_width="match_parent"
+        android:id="@+id/test_lin_content"
+        android:layout_width="wrap_content"
         android:layout_height="0dip"
         android:layout_weight="1.0"
         android:orientation="vertical">
+
+        <LinearLayout
+            android:id="@+id/test_lin_1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <include layout="@layout/item_twodirect"/>
+        </LinearLayout>
+
+
+        <Button
+            android:id="@+id/test_btn_1"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="点我获取第一个宽度"
+            />
+
+        <HorizontalScrollView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:id="@+id/test_lin_2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <include layout="@layout/item_twodirect"/>
+            </LinearLayout>
+
+        </HorizontalScrollView>
+
+
+        <Button
+            android:id="@+id/test_btn_2"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="点我获取第2个宽度"/>
     </LinearLayout>
 
     <LinearLayout

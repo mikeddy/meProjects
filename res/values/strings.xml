@@ -7,6 +7,8 @@
 
     <item name="tag_moveitem" type="id"></item>
 
+    <item name="horizontalscrollitem" type="id"></item>
+
     <!-- 一维码扫描相关start -->
     <item name="auto_focus" type="id"/>
     <item name="decode" type="id"/>
