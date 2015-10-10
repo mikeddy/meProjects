@@ -19,7 +19,7 @@ import zxing.activity.CaptureActivity;
 ;
 
 public class MainActivity extends BaseActivity {
-	
+
     ListView lv;
     ArrayList<ItemBean>arraylist_itemBeans=new ArrayList<ItemBean>();
 	@Override
@@ -28,7 +28,7 @@ public class MainActivity extends BaseActivity {
 		setContentView(R.layout.main);
 		init();
 	}
-	
+
 	private void init(){
         lv=(ListView)findViewById(R.id.main_lv);
 		arraylist_itemBeans.add(new ItemBean("滑动动画开关", SlideParent_Activity.class));
