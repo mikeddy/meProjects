@@ -67,7 +67,7 @@ public class DragLinearLayout extends LinearLayout {
                 if (!mBoolDragging) {
                     if (Math.abs(dy) > mTouchSlop) {
                         if (mIntLocation == LOC_BOTTOM) {
-                            if (lv_content != null && lv_content.getFirstVisiblePosition() == 0 && dy > 0) mBoolDragging = true;
+                            if (isInTop()&&dy > 0) mBoolDragging = true;
                         } else {
                             mBoolDragging = true;
                         }
@@ -126,6 +126,19 @@ public class DragLinearLayout extends LinearLayout {
 
         }
         return super.onTouchEvent(event);
+    }
+
+    private boolean isInTop(){
+        if(lv_content!=null){
+            if(lv_content.getFirstVisiblePosition() == 0 ){
+                int[] nFirstItemLoc = new int[2];
+                int[] nLvLoc=new int[2];
+                lv_content.getChildAt(0).getLocationOnScreen(nFirstItemLoc);
+                lv_content.getLocationOnScreen(nLvLoc);
+                if(nFirstItemLoc[1]==nLvLoc[1])return true;
+            }
+        }
+        return false;
     }
 
     /**
