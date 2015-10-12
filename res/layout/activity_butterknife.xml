@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="fill_parent"
+              android:layout_height="fill_parent"
+              android:orientation="vertical">
+
+    <Button
+        android:id="@+id/butterknife_btn_1"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="你好,我是按钮1"
+        />
+
+    <TextView
+        android:id="@+id/butterknife_tv_1"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="你好,我是textview1"
+        />
+    <Button
+        android:id="@+id/butterknife_btn_2"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="你好,我是按钮2"
+        />
+
+
+    <TextView
+        android:id="@+id/butterknife_tv_2"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="你好,我是textview2"
+        />
+
+    <Button
+        android:id="@+id/butterknife_btn_3"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="你好,我是按钮3"
+        />
+
+
+    <TextView
+        android:id="@+id/butterknife_tv_3"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="你好,我是textview3"
+        />
+
+    <Button
+        android:id="@+id/butterknife_btn_4"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="你好,我是按钮4"
+        />
+
+
+    <TextView
+        android:id="@+id/butterknife_tv_4"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="你好,我是textview4"
+        />
+</LinearLayout>

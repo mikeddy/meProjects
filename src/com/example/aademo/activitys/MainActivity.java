@@ -54,6 +54,7 @@ public class MainActivity extends BaseActivity {
         arraylist_itemBeans.add(new ItemBean("高斯模糊效果", GaussoBscureActivity.class));
         arraylist_itemBeans.add(new ItemBean("上拉查看详情效果", DragToDetailActivity.class));
         arraylist_itemBeans.add(new ItemBean("支持双向滑动的listview(待调整)",TwoDirectListViewActivity.class));
+        arraylist_itemBeans.add(new ItemBean("ButterKnife使用方法",ButterknifeActivity.class));
         arraylist_itemBeans.add(new ItemBean("测试Activity", TestActivity.class));
 
         HorizontalScrollView lin;
