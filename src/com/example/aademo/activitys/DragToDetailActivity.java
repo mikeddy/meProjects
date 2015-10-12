@@ -1,19 +1,19 @@
 package com.example.aademo.activitys;
 
+import android.graphics.Color;
 import android.os.Bundle;
-import android.support.v4.view.PagerAdapter;
-import android.support.v4.view.ViewPager;
 import android.view.Gravity;
 import android.view.View;
+import android.view.ViewGroup;
 import android.view.ViewTreeObserver;
+import android.widget.AbsListView;
+import android.widget.BaseAdapter;
 import android.widget.LinearLayout;
+import android.widget.ListView;
 import android.widget.TextView;
 
 import com.example.aademo.R;
 import com.example.aademo.widget.DragLinearLayout;
-
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  * 上拉加载更多
@@ -22,9 +22,11 @@ import java.util.List;
 public class DragToDetailActivity extends BaseActivity implements View.OnClickListener {
     DragLinearLayout draglin_parent;
     LinearLayout lin_top, lin_bottom;
-    ViewPager vp_content;
+    ListView lv_content;
     int mIntHeight;
     int mIntWidth;
+    public static final int MAXVIEWTYPE = 2;
+    public static final int TYPE_HEAD = 0, TYPE_NORMAL = 1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,7 +41,7 @@ public class DragToDetailActivity extends BaseActivity implements View.OnClickLi
         draglin_parent = (DragLinearLayout) findViewById(R.id.drag_lin_parent);
         lin_top = (LinearLayout) findViewById(R.id.drag_lin_top);
         lin_bottom = (LinearLayout) findViewById(R.id.drag_lin_bottom);
-        vp_content = (ViewPager) findViewById(R.id.dragitem_vp_content);
+        lv_content = (ListView) findViewById(R.id.drag_lv_content);
     }
 
     private void processLogic() {
@@ -49,13 +51,14 @@ public class DragToDetailActivity extends BaseActivity implements View.OnClickLi
                 draglin_parent.getViewTreeObserver().removeOnGlobalLayoutListener(this);
                 lin_top.getLayoutParams().height = draglin_parent.getHeight();
                 lin_bottom.getLayoutParams().height = draglin_parent.getHeight();
-                mIntHeight=draglin_parent.getHeight();
-                mIntWidth=draglin_parent.getWidth();
+                mIntHeight = draglin_parent.getHeight();
+                mIntWidth = draglin_parent.getWidth();
                 lin_top.invalidate();
                 lin_bottom.invalidate();
             }
         });
-        vp_content.setAdapter(new ViewPagerAdapter());
+        lv_content.setAdapter(new BottomAdapter());
+        draglin_parent.registerBottomListView(lv_content);
     }
 
     @Override
@@ -63,52 +66,80 @@ public class DragToDetailActivity extends BaseActivity implements View.OnClickLi
     }
 
 
-    class ViewPagerAdapter extends PagerAdapter {
+    class BottomAdapter extends BaseAdapter {
 
-        List<TextView> viewLists=new ArrayList<TextView>();
+        @Override
+        public int getItemViewType(int position) {
+            if (position == 0) return TYPE_HEAD;
+            return TYPE_NORMAL;
+        }
 
-        public ViewPagerAdapter(){
-            for (int i=0;i<10;i++){
-                TextView tv=new TextView(mContext);
-                viewLists.add(tv);
+        @Override
+        public int getViewTypeCount() {
+            return MAXVIEWTYPE;
+        }
+
+        @Override
+        public int getCount() {
+            return 30;
+        }
+
+        @Override
+        public Object getItem(int position) {
+            return null;
+        }
+
+        @Override
+        public long getItemId(int position) {
+            return 0;
+        }
+
+        @Override
+        public View getView(int position, View convertView, ViewGroup parent) {
+            int viewtype=getItemViewType(position);
+            if(viewtype==TYPE_HEAD){
+                return getHeadView(position,convertView,parent);
+            }else if(viewtype==TYPE_NORMAL){
+                return getNormalView(position,convertView,parent);
             }
-
+            return null;
         }
 
-        @Override
-        public int getCount() {//获得size
-            // TODO Auto-generated method stub
-            return viewLists.size();
+        public View getHeadView(int position, View convertView, ViewGroup parent) {
+            TextView tv;
+            if (convertView == null) {
+                tv = new TextView(mContext);
+                AbsListView.LayoutParams layoutParam = new AbsListView.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, 300);
+                tv.setLayoutParams(layoutParam);
+                tv.setTextSize(60);
+                tv.setTextColor(Color.BLACK);
+                tv.setGravity(Gravity.CENTER);
+                convertView=tv;
+            } else {
+                tv=(TextView)convertView;
+            }
+            tv.setText("我是head");
+            return convertView;
         }
 
-        @Override
-        public boolean isViewFromObject(View arg0, Object arg1) {
-            // TODO Auto-generated method stub
-            return arg0 == arg1;
+        public View getNormalView(int position, View convertView, ViewGroup parent) {
+            TextView tv;
+            if (convertView == null) {
+                tv = new TextView(mContext);
+                AbsListView.LayoutParams layoutParam = new AbsListView.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, 150);
+                tv.setLayoutParams(layoutParam);
+                tv.setText(position + "");
+                tv.setTextSize(30);
+                tv.setTextColor(Color.BLACK);
+                tv.setGravity(Gravity.CENTER);
+                tv.requestLayout();
+                convertView = tv;
+            } else {
+                tv = (TextView) convertView;
+            }
+            tv.setText("==" + position + "==");
+
+            return convertView;
         }
-
-
-        @Override
-        public void destroyItem(View view, int position, Object object)//销毁Item
-        {
-            ((ViewPager) view).removeView(viewLists.get(position));
-        }
-
-        @Override
-        public Object instantiateItem(View view, int position)//实例化Item
-        {
-            TextView tv=viewLists.get(position);
-            tv.setText(position+"");
-            tv.setTextSize(50);
-            tv.setLayoutParams(new ViewPager.LayoutParams());
-            tv.getLayoutParams().height=mIntHeight;
-            tv.getLayoutParams().width=mIntWidth;
-            tv.setGravity(Gravity.CENTER);
-            tv.requestLayout();
-            ((ViewPager) view).addView(tv, 0);
-
-            return viewLists.get(position);
-        }
-
     }
 }

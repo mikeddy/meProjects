@@ -1,16 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              android:id="@+id/drag_lin_bottom"
+<LinearLayout android:id="@+id/drag_lin_bottom"
+              xmlns:android="http://schemas.android.com/apk/res/android"
               android:layout_width="fill_parent"
               android:layout_height="fill_parent"
               android:background="@color/green"
               android:orientation="vertical">
-    <TextView
+
+    <ListView
+        android:id="@+id/drag_lv_content"
         android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
-        android:gravity="center"
-        android:text="向下拉↓"
-        android:textColor="@color/black"
-        android:textSize="30sp"
-        />
+        android:layout_height="fill_parent"/>
 </LinearLayout>

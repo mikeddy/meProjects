@@ -6,15 +6,17 @@ import android.view.MotionEvent;
 import android.view.VelocityTracker;
 import android.view.ViewConfiguration;
 import android.widget.LinearLayout;
+import android.widget.ListView;
 import android.widget.OverScroller;
-
-import com.example.aademo.util.PalLog;
 
 /**
  * Created by mik_eddy on 15/9/2.
  */
 public class DragLinearLayout extends LinearLayout {
 
+    //控件当前所处在的位置
+    public static final int LOC_BOTTOM = 1, LOC_TOP = 2;
+    public int mIntLocation = LOC_TOP;
     private OverScroller mScroller;
     private float mFloatLastY;//最后一次获取到的Y坐标
     private int mTouchSlop;//最小滑动触发阀值
@@ -22,6 +24,7 @@ public class DragLinearLayout extends LinearLayout {
     private int mMaximumVelocity;//最大手势速率
     private int mMinimumVelocity = 4000;//最小触发滚屏手势速率
     private VelocityTracker mVelocityTracker;
+    private ListView lv_content;
 
     public DragLinearLayout(Context context) {
         super(context);
@@ -61,10 +64,14 @@ public class DragLinearLayout extends LinearLayout {
                 break;
             case MotionEvent.ACTION_MOVE:
                 float dy = y - mFloatLastY;
-//                PalLog.printD("bbbb"+mBoolDragging+"   "+dy+"    "+mTouchSlop);
-                if (Math.abs(dy) > mTouchSlop) {
-                    mBoolDragging = true;
-//                    return true;
+                if (!mBoolDragging) {
+                    if (Math.abs(dy) > mTouchSlop) {
+                        if (mIntLocation == LOC_BOTTOM) {
+                            if (lv_content != null && lv_content.getFirstVisiblePosition() == 0 && dy > 0) mBoolDragging = true;
+                        } else {
+                            mBoolDragging = true;
+                        }
+                    }
                 }
                 break;
             case MotionEvent.ACTION_CANCEL:
@@ -72,7 +79,7 @@ public class DragLinearLayout extends LinearLayout {
                 mBoolDragging = false;
                 break;
         }
-        if(mBoolDragging) return true;
+        if (mBoolDragging) return true;
         return super.onInterceptTouchEvent(ev);
     }
 
@@ -98,7 +105,7 @@ public class DragLinearLayout extends LinearLayout {
                     scrollBy(0, nIntOffset);
                     mFloatLastY = y;//只有在mBoolDragging==true.即滑动状态时才计算新的偏移
                 }
-                PalLog.printD("scroll:" + getScrollY());
+//                PalLog.printD("scroll:" + getScrollY());
                 break;
             case MotionEvent.ACTION_UP:
             case MotionEvent.ACTION_CANCEL:
@@ -129,13 +136,14 @@ public class DragLinearLayout extends LinearLayout {
     private void scrollToTop(boolean nBooltoTop) {
         int nIntOffset;
         if (nBooltoTop) {
-            nIntOffset=0 - getScrollY();
+            nIntOffset = 0 - getScrollY();
         } else {
-            nIntOffset=getHeight() - getScrollY();
+            nIntOffset = getHeight() - getScrollY();
         }
-        int nIntDuration=Math.abs(nIntOffset/2);
+        int nIntDuration = Math.abs(nIntOffset / 2);
         mScroller.startScroll(0, getScrollY(), 0, nIntOffset, nIntDuration);
         invalidate();
+        mIntLocation = nBooltoTop ? LOC_TOP : LOC_BOTTOM;
     }
 
     /**
@@ -176,5 +184,9 @@ public class DragLinearLayout extends LinearLayout {
             mVelocityTracker.recycle();
             mVelocityTracker = null;
         }
+    }
+
+    public void registerBottomListView(ListView lv) {
+        lv_content = lv;
     }
 }
