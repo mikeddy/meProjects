@@ -22,6 +22,24 @@ public class ButterknifeActivity extends BaseActivity {
 
     @BindColor(R.color.yellow)
     int intColorYellow;
+    @Bind(R.id.butterknife_btn_1)
+    Button butterknifeBtn1;
+    @Bind(R.id.butterknife_tv_1)
+    TextView butterknifeTv1;
+    @Bind(R.id.butterknife_btn_2)
+    Button butterknifeBtn2;
+    @Bind(R.id.butterknife_tv_2)
+    TextView butterknifeTv2;
+    @Bind(R.id.butterknife_btn_3)
+    Button butterknifeBtn3;
+    @Bind(R.id.butterknife_tv_3)
+    TextView butterknifeTv3;
+    @Bind(R.id.butterknife_btn_4)
+    Button butterknifeBtn4;
+    @Bind(R.id.butterknife_tv_4)
+    TextView butterknifeTv4;
+    @Bind(R.id.butterknife_cb_1)
+    CheckBox butterknifeCb1;
 
 
     @OnCheckedChanged(R.id.butterknife_cb_1)
@@ -52,36 +70,5 @@ public class ButterknifeActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_butterknife);
         ButterKnife.bind(this);
-    }
-
-    /**
-     * This class contains all butterknife-injected Views & Layouts from layout file 'activity_butterknife.xml'
-     * for easy to all layout elements.
-     *
-     * @author ButterKnifeZelezny, plugin for Android Studio by Avast Developers (http://github.com/avast)
-     */
-    static class ViewHolder {
-        @Bind(R.id.butterknife_btn_1)
-        Button butterknifeBtn1;
-        @Bind(R.id.butterknife_tv_1)
-        TextView butterknifeTv1;
-        @Bind(R.id.butterknife_btn_2)
-        Button butterknifeBtn2;
-        @Bind(R.id.butterknife_tv_2)
-        TextView butterknifeTv2;
-        @Bind(R.id.butterknife_btn_3)
-        Button butterknifeBtn3;
-        @Bind(R.id.butterknife_tv_3)
-        TextView butterknifeTv3;
-        @Bind(R.id.butterknife_btn_4)
-        Button butterknifeBtn4;
-        @Bind(R.id.butterknife_tv_4)
-        TextView butterknifeTv4;
-        @Bind(R.id.butterknife_cb_1)
-        CheckBox butterknifeCb1;
-
-        ViewHolder(View view) {
-            ButterKnife.bind(this, view);
-        }
     }
 }
