@@ -124,6 +124,16 @@
         <activity
             android:name=".activitys.EventDirActivity"
             android:screenOrientation="portrait" />
+        <activity
+            android:name=".activitys.OptimizeUIActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activitys.OptimizeUI_1_0Activity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activitys.OptimizeUI_1_1Activity"
+            android:screenOrientation="portrait" />
+
 
 
         <activity

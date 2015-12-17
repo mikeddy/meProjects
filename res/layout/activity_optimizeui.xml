@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="fill_parent"
+              android:layout_height="fill_parent"
+              android:orientation="vertical">
+
+    <Button
+        android:id="@+id/optimize_btn_1"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="过度绘制"
+        />
+
+    <Button
+        android:id="@+id/optimize_btn_1_1"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="过度绘制(优化)"
+        />
+
+    <Button
+        android:id="@+id/optimize_btn_2"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="XML优化"
+        />
+
+    <Button
+        android:id="@+id/optimize_btn_2_1"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="XML优化(优化)"
+        />
+
+    <Button
+        android:id="@+id/optimize_btn_3"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="draw区域绘制"
+        />
+
+    <Button
+        android:id="@+id/optimize_btn_3_1"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="draw区域绘制优化(优化)"
+        />
+</LinearLayout>
