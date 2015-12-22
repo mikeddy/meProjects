@@ -12,6 +12,6 @@ public class OptimizeUI_3_1Activity extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_optimizeui_1_0);
+        setContentView(R.layout.activity_optimizeui_3_1);
     }
 }
