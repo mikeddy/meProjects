@@ -46,12 +46,16 @@ public class OptimizeUIActivity extends BaseActivity implements View.OnClickList
                 startActivity(new Intent(mContext,OptimizeUI_1_1Activity.class));
                 break;
             case R.id.optimize_btn_2:
+                startActivity(new Intent(mContext,OptimizeUI_2_0Activity.class));
                 break;
             case R.id.optimize_btn_2_1:
+                startActivity(new Intent(mContext,OptimizeUI_2_1Activity.class));
                 break;
             case R.id.optimize_btn_3:
+                startActivity(new Intent(mContext,OptimizeUI_3_0Activity.class));
                 break;
             case R.id.optimize_btn_3_1:
+                startActivity(new Intent(mContext,OptimizeUI_3_1Activity.class));
                 break;
         }
     }

@@ -134,6 +134,22 @@
             android:name=".activitys.OptimizeUI_1_1Activity"
             android:screenOrientation="portrait" />
 
+        <activity
+            android:name=".activitys.OptimizeUI_2_0Activity"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".activitys.OptimizeUI_2_1Activity"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".activitys.OptimizeUI_3_0Activity"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".activitys.OptimizeUI_3_1Activity"
+            android:screenOrientation="portrait" />
+
 
 
         <activity

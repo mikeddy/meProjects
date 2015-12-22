@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="fill_parent"
+                android:layout_height="100dp"
+                android:background="@color/white">
+
+    <ImageView
+        android:id="@+id/optimize_img_left"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_alignParentLeft="true"
+        android:layout_centerVertical="true"
+        android:src="@drawable/cover_pic"/>
+
+    <TextView
+        android:id="@+id/optimize_tv_top"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:layout_toRightOf="@id/optimize_img_left"
+        android:gravity="center"
+        android:text="大家好!"/>
+
+    <TextView
+        android:id="@+id/optimize_tv_bottom"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:layout_below="@id/optimize_tv_top"
+        android:layout_toRightOf="@id/optimize_img_left"
+        android:gravity="center"
+        android:text="大家好!"/>
+
+    <TextView
+        android:id="@+id/optimize_tv_top1"
+        android:layout_width="fill_parent"
+        android:layout_height="50dp"
+        android:layout_marginRight="10dp"
+        android:layout_toRightOf="@id/optimize_tv_top"
+        android:gravity="right|center_vertical"
+        android:text="hello!"
+        />
+
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="50dp"
+        android:layout_below="@id/optimize_tv_top1"
+        android:layout_marginRight="10dp"
+        android:layout_toRightOf="@id/optimize_tv_bottom"
+        android:gravity="right|center_vertical"
+        android:text="hello!"
+        />
+</RelativeLayout>
