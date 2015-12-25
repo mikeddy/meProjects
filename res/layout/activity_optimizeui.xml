@@ -22,14 +22,14 @@
         android:id="@+id/optimize_btn_2"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:text="XML优化"
+        android:text="XML"
         />
 
     <Button
         android:id="@+id/optimize_btn_2_1"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:text="XML优化(优化)"
+        android:text="XML(优化)"
         />
 
     <Button
@@ -43,6 +43,6 @@
         android:id="@+id/optimize_btn_3_1"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:text="draw区域绘制优化(优化)"
+        android:text="draw区域绘制(优化)"
         />
 </LinearLayout>
