@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="fill_parent"
+              android:layout_height="fill_parent"
+              android:orientation="vertical">
+
+    <com.example.aademo.widget.ParentScroll
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="2000dp"
+            android:background="@color/blue"
+            android:orientation="vertical">
+
+            <com.example.aademo.widget.ChildScroll
+                android:layout_width="200dp"
+                android:layout_height="200dp"
+                android:background="@color/red"
+                android:fillViewport="true">
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="500dp"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="fill_parent"
+                        android:layout_height="100dp"
+                        android:text="Hello"/>
+
+                    <TextView
+                        android:layout_width="fill_parent"
+                        android:layout_height="100dp"
+                        android:text="Hello"/>
+
+                    <TextView
+                        android:layout_width="fill_parent"
+                        android:layout_height="100dp"
+                        android:text="Hello"/>
+
+                    <TextView
+                        android:layout_width="fill_parent"
+                        android:layout_height="100dp"
+                        android:text="Hello"/>
+
+                    <TextView
+                        android:layout_width="fill_parent"
+                        android:layout_height="100dp"
+                        android:text="Hello"/>
+
+                    <TextView
+                        android:layout_width="fill_parent"
+                        android:layout_height="100dp"
+                        android:text="Hello"/>
+                </LinearLayout>
+            </com.example.aademo.widget.ChildScroll>
+
+            <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="100dp"
+                android:text="nihao"/>
+
+            <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="100dp"
+                android:text="nihao"/>
+
+            <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="100dp"
+                android:text="nihao"/>
+
+            <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="100dp"
+                android:text="nihao"/>
+
+            <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="100dp"
+                android:text="nihao"/>
+
+            <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="100dp"
+                android:text="nihao"/>
+
+            <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="100dp"
+                android:text="nihao"/>
+
+            <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="100dp"
+                android:text="nihao"/>
+
+            <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="100dp"
+                android:text="nihao"/>
+
+            <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="100dp"
+                android:text="nihao"/>
+
+            <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="100dp"
+                android:text="nihao"/>
+
+            <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="100dp"
+                android:text="nihao"/>
+
+            <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="100dp"
+                android:text="nihao"/>
+
+            <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="100dp"
+                android:text="nihao"/>
+
+            <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="100dp"
+                android:text="nihao"/>
+
+        </LinearLayout>
+    </com.example.aademo.widget.ParentScroll>
+</LinearLayout>
