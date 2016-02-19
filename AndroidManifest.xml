@@ -199,6 +199,12 @@
             android:name=".activitys.TestActivity"
             android:screenOrientation="portrait"
             />
+        <activity
+            android:name=".activitys.SVGActivity"
+            android:screenOrientation="portrait"
+            />
+
+
 
     </application>
 

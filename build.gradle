@@ -16,6 +16,7 @@ dependencies {
     compile 'com.android.support:support-v4:20.0.0'
     compile 'com.android.support:support-v4:21.0.3'
     compile files('libs/butterknife-7.0.1.jar')
+    compile files('libs/androidsvg-1.2.1.jar')
 }
 
 android {

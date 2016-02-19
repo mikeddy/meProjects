@@ -58,6 +58,7 @@ public class MainActivity extends BaseActivity {
         arraylist_itemBeans.add(new ItemBean("关于手势传递的测试",EventDirActivity.class));
         arraylist_itemBeans.add(new ItemBean("性能优化(渲染)",OptimizeUIActivity.class));
         arraylist_itemBeans.add(new ItemBean("双ScrollView嵌套",ScrollActivity.class));
+        arraylist_itemBeans.add(new ItemBean("SVG矢量缩放",SVGActivity.class));
         arraylist_itemBeans.add(new ItemBean("测试Activity", TestActivity.class));
 
         HorizontalScrollView lin;

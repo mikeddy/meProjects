@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:app="http://schemas.android.com/apk/res-auto"
+              android:layout_width="fill_parent"
+              android:layout_height="fill_parent"
+              android:background="#ff0000"
+              android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        android:background="#fc6918">
+
+        <com.example.aademo.widget.PathView
+            android:id="@+id/pathSvg"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            app:pathColor="@android:color/white"
+            app:pathWidth="1dp"
+            app:svg="@raw/bi"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:background="#ccde6f">
+
+        <com.example.aademo.widget.PathView
+            android:id="@+id/pathView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:pathColor="@android:color/black"
+            app:pathWidth="3dp"
+            />
+    </LinearLayout>
+
+</LinearLayout>
