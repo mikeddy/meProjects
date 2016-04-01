@@ -203,6 +203,12 @@
             android:name=".activitys.SVGActivity"
             android:screenOrientation="portrait"
             />
+        <activity
+            android:name=".activitys.ViewDragHelperActivity"
+            android:screenOrientation="portrait"
+            />
+
+
 
 
 
