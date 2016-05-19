@@ -197,8 +197,16 @@
             />
         <activity
             android:name=".activitys.TestActivity"
-            android:screenOrientation="portrait"
-            />
+            android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data android:scheme="testDemo" />
+            </intent-filter>
+        </activity>
         <activity
             android:name=".activitys.SVGActivity"
             android:screenOrientation="portrait"
@@ -207,9 +215,6 @@
             android:name=".activitys.ViewDragHelperActivity"
             android:screenOrientation="portrait"
             />
-
-
-
 
 
     </application>
