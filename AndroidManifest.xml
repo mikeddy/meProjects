@@ -217,7 +217,10 @@
             android:name=".activitys.ViewDragHelperActivity"
             android:screenOrientation="portrait"
             />
-
+        <activity
+            android:name=".activitys.FileWebViewActivity"
+            android:screenOrientation="portrait"
+            />
 
     </application>
 
