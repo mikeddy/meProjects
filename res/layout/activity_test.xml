@@ -2,64 +2,10 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
               android:layout_width="match_parent"
               android:layout_height="match_parent"
-              android:clipChildren="false"
               android:orientation="vertical">
 
-    <LinearLayout
-        android:id="@+id/test_lin_content"
-        android:layout_width="fill_parent"
-        android:layout_height="0dip"
-        android:layout_weight="1.0"
-        android:orientation="vertical">
-
-        <Button
-            android:id="@+id/test_btn_2"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:text="跳转实验"/>
-    </LinearLayout>
-
-    <LinearLayout
+    <WebView
+        android:id="@+id/webview"
         android:layout_width="match_parent"
-        android:layout_height="48dip"
-        android:background="#B0C4DE"
-        android:orientation="horizontal">
-
-        <ImageView
-            android:layout_width="0dip"
-            android:layout_height="fill_parent"
-            android:layout_weight="1.0"
-            android:scaleType="fitCenter"
-            android:src="@drawable/ic_launcher"/>
-
-        <ImageView
-            android:layout_width="0dip"
-            android:layout_height="fill_parent"
-            android:layout_weight="1.0"
-            android:scaleType="fitCenter"
-            android:src="@drawable/ic_launcher"/>
-
-        <ImageView
-            android:layout_width="0dip"
-            android:layout_height="84dip"
-            android:layout_gravity="bottom"
-            android:layout_weight="1.0"
-            android:scaleType="fitCenter"
-            android:src="@drawable/ic_launcher"/>
-
-        <ImageView
-            android:layout_width="0dip"
-            android:layout_height="fill_parent"
-            android:layout_weight="1.0"
-            android:scaleType="fitCenter"
-            android:src="@drawable/ic_launcher"/>
-
-        <ImageView
-            android:layout_width="0dip"
-            android:layout_height="fill_parent"
-            android:layout_weight="1.0"
-            android:scaleType="fitCenter"
-            android:src="@drawable/ic_launcher"/>
-    </LinearLayout>
-
+        android:layout_height="match_parent"></WebView>
 </LinearLayout>

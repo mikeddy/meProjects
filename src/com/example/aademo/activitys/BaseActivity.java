@@ -67,7 +67,7 @@ public class BaseActivity extends Activity {
 		Log.e(this.getClass().getName(), message);
 	}
 	
-	public int getColor(int colorid){
+	public int getmColor(int colorid){
 		return getResources().getColor(colorid);
 	}
 }

@@ -77,7 +77,7 @@ public class CoverLvItemBean {
 	// int length=strArr.length;
 	// for (int i = 0; i < length; i++) {
 	// SpannableString spannableString=new SpannableString(strArr[i]);
-	// spannableString.setSpan(new ForegroundColorSpan(res.getColor(Colors[i])),
+	// spannableString.setSpan(new ForegroundColorSpan(res.getmColor(Colors[i])),
 	// 0,strArr[i].length(), Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
 	// spannableString.setSpan(new AbsoluteSizeSpan(Sizes[i]),
 	// 0,strArr[i].length(), Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
