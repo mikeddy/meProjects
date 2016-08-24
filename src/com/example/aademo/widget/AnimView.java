@@ -14,6 +14,7 @@ import com.example.aademo.bean.AnimBean;
 import com.example.aademo.util.PalLog;
 
 import java.util.ArrayList;
+import java.util.Random;
 
 /**
  * Created by mik_eddy on 16/8/24.
@@ -23,6 +24,7 @@ public class AnimView extends View {
     Bitmap bitmap_2;
 
     int intViewHeight = 0;
+    int intViewWidth = 0;
 
     int bitmap_1_Width = 0;
     int bitmap_1_Height = 0;
@@ -51,7 +53,18 @@ public class AnimView extends View {
     @Override
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
         super.onMeasure(widthMeasureSpec, heightMeasureSpec);
-        intViewHeight = getHeight();
+    }
+
+    public void resetAnimBean(AnimBean bean) {
+        Random random = new Random();
+        bean.setRotate(random.nextInt(360));
+        bean.setRotatespeed(5 + random.nextInt(10));
+        bean.setSpeed(5 + random.nextInt(30));
+        bean.setStartX(random.nextInt(intViewWidth - bitmap_1_Width));
+        bean.setStartY(0);
+        bean.setDownCount(AnimBean.DEFAULTDOWNCOUNT);
+        bean.setNeedDraw(true);
+        bean.setCurrentImg(AnimBean.IMG_1);
     }
 
     public void start() {
@@ -63,39 +76,23 @@ public class AnimView extends View {
         bitmap_2_Width = bitmap_2.getWidth();
         bitmap_2_Height = bitmap_2.getHeight();
 
-        AnimBean bean1 = new AnimBean();
-        bean1.setRotate(0);
-        bean1.setRotatespeed(1);
-        bean1.setSpeed(5);
-        bean1.setStartX(100);
-        bean1.setStartY(10);
-
-        AnimBean bean2 = new AnimBean();
-        bean2.setRotate(0);
-        bean2.setRotatespeed(5);
-        bean2.setSpeed(10);
-        bean2.setStartX(200);
-        bean2.setStartY(0);
-
-
-        AnimBean bean3 = new AnimBean();
-        bean2.setRotate(0);
-        bean2.setRotatespeed(7);
-        bean2.setSpeed(7);
-        bean2.setStartX(300);
-        bean2.setStartY(0);
-
-        arraylist_animbeans.add(bean1);
-        arraylist_animbeans.add(bean2);
-        arraylist_animbeans.add(bean3);
-
-
         new Thread() {
             @Override
             public void run() {
                 super.run();
                 try {
                     Thread.sleep(2000);
+
+                    intViewHeight = getHeight();
+                    intViewWidth = getWidth();
+
+                    for (int i = 0; i < 10; i++) {
+                        AnimBean bean = new AnimBean();
+                        resetAnimBean(bean);
+                        arraylist_animbeans.add(bean);
+                    }
+
+
                     isRunning = true;
                     while (true) {
                         Thread.sleep(20);
@@ -116,8 +113,9 @@ public class AnimView extends View {
                                 //当图片处于点击后的状态时,倒数N次,之后图片不再绘制
                                 if (bean.getCurrentImg() == AnimBean.IMG_2) bean.setDownCount(bean.getDownCount() - 1);
                                 if (bean.getCurrentImg() == AnimBean.IMG_2 && bean.getDownCount() <= 0) bean.setNeedDraw(false);
+                            } else {
+                                resetAnimBean(bean);
                             }
-
                         }
                         postInvalidate();
                     }

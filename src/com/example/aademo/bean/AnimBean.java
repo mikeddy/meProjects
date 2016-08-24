@@ -7,6 +7,7 @@ import android.graphics.Rect;
  */
 public class AnimBean {
     public static final int IMG_1 = 1, IMG_2 = 2;
+    public static final int DEFAULTDOWNCOUNT=20;
 
     int startX = 200;  //X位置
     int startY = 0;  //y位置
@@ -15,7 +16,7 @@ public class AnimBean {
     int speed = 10; //下落速度
     int currentImg = IMG_1;//当前图片
     boolean needDraw = true;//是否需要再继续绘制了
-    int downCount = 20;//当图片1点击一下变成图片2的时候会持续一段时间,然后消失(这个倒计时就是持续的次数,每次刷新图片这个数字-1,当他等于0的时候就不显示图片2了)
+    int downCount = DEFAULTDOWNCOUNT;//当图片1点击一下变成图片2的时候会持续一段时间,然后消失(这个倒计时就是持续的次数,每次刷新图片这个数字-1,当他等于0的时候就不显示图片2了)
     Rect rect;//当前img所在范围区域
 
     public boolean inRect(int x, int y) {
