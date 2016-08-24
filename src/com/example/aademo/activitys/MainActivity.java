@@ -61,6 +61,7 @@ public class MainActivity extends BaseActivity {
         arraylist_itemBeans.add(new ItemBean("SVG矢量缩放",SVGActivity.class));
         arraylist_itemBeans.add(new ItemBean("ViewDrawHelper的使用",ViewDragHelperActivity.class));
         arraylist_itemBeans.add(new ItemBean("webview兼容type=file类型",FileWebViewActivity.class));
+        arraylist_itemBeans.add(new ItemBean("小游戏效果",AnimViewActivity.class));
         arraylist_itemBeans.add(new ItemBean("测试Activity", TestActivity.class));
 
         HorizontalScrollView lin;
