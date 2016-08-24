@@ -274,7 +274,7 @@ public class PathView extends View implements SvgUtils.AnimationStepListener {
     }
 
     /**
-     * If fillColor had value before then we replace untransparent pixels of bitmap by solid color
+     * If fillColor had value before then we replace untransparent pixels of bitmap_1 by solid color
      *
      * @param bitmap Draw to this canvas.
      */

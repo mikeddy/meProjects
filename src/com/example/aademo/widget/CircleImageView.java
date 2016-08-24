@@ -65,7 +65,7 @@ public class CircleImageView extends ImageView {
 	@SuppressLint("DrawAllocation")
 	@Override
 	public void onDraw(Canvas canvas) {
-		// load the bitmap
+		// load the bitmap_1
 		Bitmap image = null;
 		BitmapDrawable bitmapDrawable = (BitmapDrawable) this.getDrawable();
 		if (bitmapDrawable != null)

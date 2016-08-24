@@ -413,8 +413,8 @@ public class CircularImageView extends ImageView {
 			drawable.draw(canvas);
 			return bitmap;
 		} catch (OutOfMemoryError e) {
-			// Simply return null of failed bitmap creations
-			Log.e(TAG, "Encountered OutOfMemoryError while generating bitmap!");
+			// Simply return null of failed bitmap_1 creations
+			Log.e(TAG, "Encountered OutOfMemoryError while generating bitmap_1!");
 			return null;
 		}
 	}
