@@ -32,8 +32,8 @@ public class AnimViewActivity extends Activity {
     }
 
     private void init(){
-//        animv_content.setDirection(AnimView.UPWARD);
-        animv_content.setDirection(AnimView.DOWNWARD);
+        animv_content.setDirection(AnimView.UPWARD);
+//        animv_content.setDirection(AnimView.DOWNWARD);
         animv_content.start();
 
         mHandler = new Handler();
@@ -49,6 +49,6 @@ public class AnimViewActivity extends Activity {
             }
         };
         timer = new Timer();
-        timer.schedule(timerTask,10000);
+//        timer.schedule(timerTask,10000);
     }
 }

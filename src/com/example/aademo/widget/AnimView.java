@@ -165,13 +165,14 @@ public class AnimView extends View {
         if (event.getAction() == MotionEvent.ACTION_DOWN) {
             for (int i = 0; i < arraylist_animbeans.size(); i++) {
                 AnimBean bean = arraylist_animbeans.get(i);
-                if (bean.inRect((int) event.getX(), (int) event.getY()) && !isClicked) {
+                if (bean.inRect((int) event.getX(), (int) event.getY())) {
                     bean.setCurrentImg(AnimBean.IMG_2);
-                    isClicked = true;//同一区域点击一次只能有一次
+//                    isClicked = true;//同一区域点击一次只能有一次
+                    break;
                 }
             }
         }
-        isClicked = false;
+//        isClicked = false;
         return super.onTouchEvent(event);
     }
 
