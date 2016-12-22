@@ -229,6 +229,13 @@
             android:screenOrientation="portrait"
             />
 
+        <activity
+            android:name=".activitys.MoreItemViewpagerActivity"
+            android:screenOrientation="portrait"
+            />
+
+
+
     </application>
 
 </manifest>
