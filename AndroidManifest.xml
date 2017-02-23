@@ -234,6 +234,14 @@
             android:screenOrientation="portrait"
             />
 
+        <activity
+            android:name=".activitys.RecyclerViewActivity"
+            android:screenOrientation="portrait"
+            />
+
+
+
+
 
 
     </application>

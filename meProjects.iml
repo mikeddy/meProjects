@@ -81,7 +81,13 @@
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/classes" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/dependency-cache" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/dex-cache" />
-      <excludeFolder url="file://$MODULE_DIR$/build/intermediates/exploded-aar/com.android.support/support-v4/21.0.3/jars" />
+      <excludeFolder url="file://$MODULE_DIR$/build/intermediates/exploded-aar/com.android.support/recyclerview-v7/25.1.0/jars" />
+      <excludeFolder url="file://$MODULE_DIR$/build/intermediates/exploded-aar/com.android.support/support-compat/25.1.0/jars" />
+      <excludeFolder url="file://$MODULE_DIR$/build/intermediates/exploded-aar/com.android.support/support-core-ui/25.1.0/jars" />
+      <excludeFolder url="file://$MODULE_DIR$/build/intermediates/exploded-aar/com.android.support/support-core-utils/25.1.0/jars" />
+      <excludeFolder url="file://$MODULE_DIR$/build/intermediates/exploded-aar/com.android.support/support-fragment/25.1.0/jars" />
+      <excludeFolder url="file://$MODULE_DIR$/build/intermediates/exploded-aar/com.android.support/support-media-compat/25.1.0/jars" />
+      <excludeFolder url="file://$MODULE_DIR$/build/intermediates/exploded-aar/com.android.support/support-v4/25.1.0/jars" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/exploded-aar/io.reactivex/rxandroid/1.2.1/jars" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/incremental" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/incremental-safeguard" />
@@ -100,13 +106,19 @@
     <orderEntry type="jdk" jdkName="Android API 23 Platform (1)" jdkType="Android SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" exported="" name="butterknife-7.0.1" level="project" />
+    <orderEntry type="library" exported="" name="support-annotations-25.1.0" level="project" />
     <orderEntry type="library" exported="" name="nineoldandroids-2.4.0" level="project" />
-    <orderEntry type="library" exported="" name="support-v4-21.0.3" level="project" />
-    <orderEntry type="library" exported="" name="support-annotations-21.0.3" level="project" />
     <orderEntry type="library" exported="" name="androidsvg-1.2.1" level="project" />
     <orderEntry type="library" exported="" name="rxjava-1.2.3" level="project" />
-    <orderEntry type="library" exported="" name="EventBus-2.4.0" level="project" />
     <orderEntry type="library" exported="" name="zxing" level="project" />
     <orderEntry type="library" exported="" name="rxandroid-1.2.1" level="project" />
+    <orderEntry type="library" exported="" name="support-compat-25.1.0" level="project" />
+    <orderEntry type="library" exported="" name="support-fragment-25.1.0" level="project" />
+    <orderEntry type="library" exported="" name="support-v4-25.1.0" level="project" />
+    <orderEntry type="library" exported="" name="support-core-ui-25.1.0" level="project" />
+    <orderEntry type="library" exported="" name="support-media-compat-25.1.0" level="project" />
+    <orderEntry type="library" exported="" name="EventBus-2.4.0" level="project" />
+    <orderEntry type="library" exported="" name="recyclerview-v7-25.1.0" level="project" />
+    <orderEntry type="library" exported="" name="support-core-utils-25.1.0" level="project" />
   </component>
 </module>
