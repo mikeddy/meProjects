@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="fill_parent"
+              android:layout_height="fill_parent"
+              android:orientation="vertical">
+
+    <Button
+        android:id="@+id/rx_btn_1"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="Rx1"
+        />
+
+    <Button
+        android:id="@+id/rx_btn_2"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="Rx2"
+        />
+
+    <Button
+        android:id="@+id/rx_btn_3"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="Rx3"
+        />
+</LinearLayout>

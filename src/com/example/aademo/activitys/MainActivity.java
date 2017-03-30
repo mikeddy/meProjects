@@ -64,6 +64,7 @@ public class MainActivity extends BaseActivity {
         arraylist_itemBeans.add(new ItemBean("小游戏效果",AnimViewActivity.class));
         arraylist_itemBeans.add(new ItemBean("多个item的viewpager", MoreItemViewpagerActivity.class));
         arraylist_itemBeans.add(new ItemBean("Recyclerview用法", RecyclerViewActivity.class));
+        arraylist_itemBeans.add(new ItemBean("来玩一玩RxAndroid", RxAndroidActivity.class));
         arraylist_itemBeans.add(new ItemBean("测试Activity", TestActivity.class));
 
         HorizontalScrollView lin;

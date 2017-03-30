@@ -239,9 +239,10 @@
             android:screenOrientation="portrait"
             />
 
-
-
-
+        <activity
+            android:name=".activitys.RxAndroidActivity"
+            android:screenOrientation="portrait"
+        />
 
 
     </application>
