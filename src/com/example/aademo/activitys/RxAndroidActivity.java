@@ -6,6 +6,8 @@ import android.widget.Button;
 
 import com.example.aademo.R;
 import com.example.aademo.bean.TestBean;
+import com.example.aademo.bean.TestBean2;
+import com.example.aademo.bean.TestBean3;
 import com.example.aademo.util.PalLog;
 
 import butterknife.Bind;
@@ -13,6 +15,7 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 import rx.Observable;
 import rx.Subscriber;
+import rx.functions.Action1;
 import rx.functions.Func1;
 import rx.schedulers.Schedulers;
 
@@ -135,6 +138,59 @@ public class RxAndroidActivity extends BaseActivity {
             @Override
             public void onNext(TestBean testBean) {
                 PalLog.printE("subscribe onNext");
+            }
+        });
+    }
+
+
+    public void rx3(){
+        TestBean [] beans=new TestBean[4];
+        Observable.from(beans).map(new Func1<TestBean, TestBean2>() {
+            @Override
+            public TestBean2 call(TestBean testBean) {
+                for (int i = 0; i < 10; i++) {
+                    if(i==5){
+                        return testBean.getBean2();
+                    }
+                }
+                return testBean.getBean2();
+            }
+        }).filter(new Func1<TestBean2, Boolean>() {
+            @Override
+            public Boolean call(TestBean2 testBean2) {
+
+                return null;
+            }
+        }).map(new Func1<TestBean2, TestBean3>() {
+            @Override
+            public TestBean3 call(TestBean2 testBean2) {
+                return testBean2.getBean3();
+            }
+        }).subscribe(new Action1<TestBean3>() {
+            @Override
+            public void call(TestBean3 testBean3) {
+
+            }
+        });
+
+        Observable.from(beans).flatMap(new Func1<TestBean, Observable<TestBean2>>() {
+            @Override
+            public Observable<TestBean2> call(final TestBean testBean) {
+                return Observable.create(new Observable.OnSubscribe<TestBean2>() {
+                    @Override
+                    public void call(Subscriber<? super TestBean2> subscriber) {
+                        for (int i = 0; i < 10; i++) {
+                            if(i==5){
+                                subscriber.onNext(testBean.getBean2());
+                            }
+                        }
+                    }
+                });
+            }
+        }).filter(new Func1<TestBean2, Boolean>() {
+            @Override
+            public Boolean call(TestBean2 testBean2) {
+                return null;
             }
         });
     }
