@@ -6,15 +6,17 @@ import android.widget.Button;
 
 import com.example.aademo.R;
 import com.example.aademo.bean.TestBean;
-import com.example.aademo.bean.TestBean2;
-import com.example.aademo.bean.TestBean3;
 import com.example.aademo.util.PalLog;
+
+import java.util.ArrayList;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import rx.Observable;
+import rx.Observer;
 import rx.Subscriber;
+import rx.android.schedulers.AndroidSchedulers;
 import rx.functions.Action1;
 import rx.functions.Func1;
 import rx.schedulers.Schedulers;
@@ -32,11 +34,21 @@ public class RxAndroidActivity extends BaseActivity {
     @Bind(R.id.rx_btn_3)
     Button btn_rx3;
 
+
+    ArrayList<String> mArrayStrs = new ArrayList<>();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_rxandroid);
         ButterKnife.bind(this);
+        init();
+    }
+
+    private void init() {
+        for (int i = 0; i < 100; i++) {
+            mArrayStrs.add("hello" + i);
+        }
     }
 
 
@@ -50,147 +62,134 @@ public class RxAndroidActivity extends BaseActivity {
                 rx2();
                 break;
             case R.id.rx_btn_3:
+                rx3();
                 break;
         }
     }
 
     private void rx1() {
-        Observable.create(new Observable.OnSubscribe<String>() {
+        Observable.from(mArrayStrs).flatMap(new Func1<String, Observable<String>>() {
             @Override
-            public void call(Subscriber<? super String> subscriber) {
-                PalLog.printE("hello rx1=====");
-                subscriber.onNext("hi========");
-            }
-        }).subscribeOn(Schedulers.io())
-          .filter(new Func1<String, Boolean>() {
-            @Override
-            public Boolean call(String s) {
-                PalLog.printE(s+"2");
-                return true;
-            }
-        }).flatMap(new Func1<String, Observable<TestBean>>() {
-            @Override
-            public Observable<TestBean> call(String s) {
-                return Observable.create(new Observable.OnSubscribe<TestBean>() {
+            public Observable<String> call(final String s) {
+                return Observable.create(new Observable.OnSubscribe<String>() {
                     @Override
-                    public void call(Subscriber<? super TestBean> subscriber) {
-
-                    }
-                });
-            }
-        }).filter(new Func1<TestBean, Boolean>() {
-            @Override
-            public Boolean call(TestBean testBean) {
-                return true;
-            }
-        }).subscribe();
-    }
-
-
-    private void  rx2(){
-        Observable.just("hello1").map(new Func1<String, TestBean>() {
-            @Override
-            public TestBean call(String s) {
-                PalLog.printE("mapcall"+s);
-                TestBean bean=new TestBean();
-                bean.setAge("12");
-                bean.setName("小明");
-                return bean;
-            }
-        }).flatMap(new Func1<TestBean, Observable<TestBean>>() {
-            @Override
-            public Observable<TestBean> call(final TestBean testBean) {
-                PalLog.printE(testBean.getAge()+"=====flatMap1");
-                PalLog.printE(testBean.getName()+"=====flatMap1");
-                return Observable.create(new Observable.OnSubscribe<TestBean>(){
-
-                    @Override
-                    public void call(Subscriber<? super TestBean> subscriber) {
-                        PalLog.printE("flatMap1 call");
-                        subscriber.onNext(testBean);
-                    }
-                });
-            }
-        }).flatMap(new Func1<TestBean, Observable<TestBean>>() {
-            @Override
-            public Observable<TestBean> call(final TestBean testBean) {
-                PalLog.printE("flatmap2");
-                return Observable.create(new Observable.OnSubscribe<TestBean>() {
-                    @Override
-                    public void call(Subscriber<? super TestBean> subscriber) {
-                        PalLog.printE("flatMap2 call");
-//                        subscriber.onNext(testBean);
-                        subscriber.onCompleted();
-                    }
-                });
-            }
-        }).subscribe(new Subscriber<TestBean>() {
-            @Override
-            public void onCompleted() {
-                PalLog.printE("subscribe onCompleted");
-            }
-
-            @Override
-            public void onError(Throwable e) {
-                PalLog.printE("subscribe error");
-            }
-
-            @Override
-            public void onNext(TestBean testBean) {
-                PalLog.printE("subscribe onNext");
-            }
-        });
-    }
-
-
-    public void rx3(){
-        TestBean [] beans=new TestBean[4];
-        Observable.from(beans).map(new Func1<TestBean, TestBean2>() {
-            @Override
-            public TestBean2 call(TestBean testBean) {
-                for (int i = 0; i < 10; i++) {
-                    if(i==5){
-                        return testBean.getBean2();
-                    }
-                }
-                return testBean.getBean2();
-            }
-        }).filter(new Func1<TestBean2, Boolean>() {
-            @Override
-            public Boolean call(TestBean2 testBean2) {
-
-                return null;
-            }
-        }).map(new Func1<TestBean2, TestBean3>() {
-            @Override
-            public TestBean3 call(TestBean2 testBean2) {
-                return testBean2.getBean3();
-            }
-        }).subscribe(new Action1<TestBean3>() {
-            @Override
-            public void call(TestBean3 testBean3) {
-
-            }
-        });
-
-        Observable.from(beans).flatMap(new Func1<TestBean, Observable<TestBean2>>() {
-            @Override
-            public Observable<TestBean2> call(final TestBean testBean) {
-                return Observable.create(new Observable.OnSubscribe<TestBean2>() {
-                    @Override
-                    public void call(Subscriber<? super TestBean2> subscriber) {
-                        for (int i = 0; i < 10; i++) {
-                            if(i==5){
-                                subscriber.onNext(testBean.getBean2());
-                            }
+                    public void call(Subscriber<? super String> subscriber) {
+                        if (s.equals("hello1") || s.equals("hello2")) {
+                            PalLog.printE("flatmap:" + s + "  do onndex threadid:" + Thread.currentThread().getName());
+                            subscriber.onNext(s);
+                        } else {
+                            PalLog.printE("flatmap:" + s + "  do complete");
+                            subscriber.onCompleted();
                         }
                     }
                 });
             }
-        }).filter(new Func1<TestBean2, Boolean>() {
+        }).filter(new Func1<String, Boolean>() {
             @Override
-            public Boolean call(TestBean2 testBean2) {
+            public Boolean call(String s) {
+                PalLog.printE("filter :" + s);
+                return s.equals("hello1");
+            }
+        }).subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread()).subscribe(new Action1<String>() {
+            @Override
+            public void call(String s) {
+                PalLog.printE("Action" + s);
+            }
+        });
+    }
+
+
+    private void rx2() {
+        TestBean bean = new TestBean();
+        bean.setName("hello");
+        bean.setAge("12");
+        Observable.create(new Observable.OnSubscribe<Void>() {
+            @Override
+            public void call(Subscriber<? super Void> subscriber) {
+                PalLog.printE("call");
+                subscriber.onNext(null);
+                subscriber.onCompleted();
+                return;
+            }
+        }).subscribe(new Observer<Void>() {
+            @Override
+            public void onCompleted() {
+                PalLog.printE("onCompleted");
+            }
+
+            @Override
+            public void onError(Throwable e) {
+
+            }
+
+            @Override
+            public void onNext(Void s) {
+                PalLog.printE("onNext");
+            }
+        });
+    }
+
+
+    public void rx3() {
+        login().filter(new Func1<Boolean, Boolean>() {
+            @Override
+            public Boolean call(Boolean aBoolean) {
+                PalLog.printE("========message2");
+                return aBoolean;
+            }
+        }).flatMap(new Func1<Boolean, Observable<Boolean>>() {
+            @Override
+            public Observable<Boolean> call(Boolean aBoolean) {
+                PalLog.printE("========message3");
+                return authen();
+            }
+        }).filter(new Func1<Boolean, Boolean>() {
+            @Override
+            public Boolean call(Boolean aBoolean) {
+                PalLog.printE("========message5");
+                return aBoolean;
+            }
+        }).map(new Func1<Boolean, Void>() {
+            @Override
+            public Void call(Boolean aBoolean) {
+                PalLog.printE("========message6");
                 return null;
+            }
+        }).subscribe(new Action1<Void>() {
+            @Override
+            public void call(Void aVoid) {
+                PalLog.printE("========message7");
+            }
+        });
+    }
+
+    boolean isLogin = true;
+    boolean isAuthen = true;
+
+    public Observable<Boolean> login() {
+        return Observable.create(new Observable.OnSubscribe<Boolean>() {
+            @Override
+            public void call(Subscriber<? super Boolean> subscriber) {
+                PalLog.printE("========message1");
+                if (isLogin) {
+                    subscriber.onNext(true);
+                } else {
+                    subscriber.onNext(false);
+                }
+            }
+        });
+    }
+
+    public Observable<Boolean> authen() {
+        return Observable.create(new Observable.OnSubscribe<Boolean>() {
+            @Override
+            public void call(Subscriber<? super Boolean> subscriber) {
+                PalLog.printE("========message4");
+                if (isAuthen) {
+                    subscriber.onNext(true);
+                } else {
+                    subscriber.onNext(false);
+                }
             }
         });
     }
