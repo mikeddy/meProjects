@@ -1,6 +1,7 @@
 package com.example.aademo.activitys;
 
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.View;
 import android.widget.Button;
 
@@ -130,11 +131,39 @@ public class RxAndroidActivity extends BaseActivity {
     }
 
 
+    Subscriber<Void>mSubscrib=new Subscriber<Void>() {
+        @Override
+        public void onCompleted() {
+            PalLog.printE("========message onCompleted");
+        }
+
+        @Override
+        public void onError(Throwable e) {
+            PalLog.printE("========message onError");
+        }
+
+        @Override
+        public void onNext(Void aVoid) {
+            PalLog.printE("========message onNext");
+        }
+    };
+
+    Runnable mRunner=new Runnable() {
+        @Override
+        public void run() {
+            PalLog.printE("mSubscrib:"+mSubscrib.isUnsubscribed());
+        }
+    };
+
     public void rx3() {
+        Handler handler=new Handler();
+        handler.postDelayed(mRunner,10000);
+
         login().filter(new Func1<Boolean, Boolean>() {
             @Override
             public Boolean call(Boolean aBoolean) {
                 PalLog.printE("========message2");
+                mSubscrib.unsubscribe();
                 return aBoolean;
             }
         }).flatMap(new Func1<Boolean, Observable<Boolean>>() {
@@ -155,12 +184,7 @@ public class RxAndroidActivity extends BaseActivity {
                 PalLog.printE("========message6");
                 return null;
             }
-        }).subscribe(new Action1<Void>() {
-            @Override
-            public void call(Void aVoid) {
-                PalLog.printE("========message7");
-            }
-        });
+        }).subscribe(mSubscrib);
     }
 
     boolean isLogin = true;
@@ -170,7 +194,7 @@ public class RxAndroidActivity extends BaseActivity {
         return Observable.create(new Observable.OnSubscribe<Boolean>() {
             @Override
             public void call(Subscriber<? super Boolean> subscriber) {
-                PalLog.printE("========message1");
+                PalLog.printE("========message1"+mSubscrib.isUnsubscribed());
                 if (isLogin) {
                     subscriber.onNext(true);
                 } else {
@@ -186,7 +210,8 @@ public class RxAndroidActivity extends BaseActivity {
             public void call(Subscriber<? super Boolean> subscriber) {
                 PalLog.printE("========message4");
                 if (isAuthen) {
-                    subscriber.onNext(true);
+//                    subscriber.onNext(true);
+                    subscriber.onCompleted();
                 } else {
                     subscriber.onNext(false);
                 }
