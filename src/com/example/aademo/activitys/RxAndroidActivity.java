@@ -163,7 +163,6 @@ public class RxAndroidActivity extends BaseActivity {
             @Override
             public Boolean call(Boolean aBoolean) {
                 PalLog.printE("========message2");
-                mSubscrib.unsubscribe();
                 return aBoolean;
             }
         }).flatMap(new Func1<Boolean, Observable<Boolean>>() {
@@ -210,10 +209,11 @@ public class RxAndroidActivity extends BaseActivity {
             public void call(Subscriber<? super Boolean> subscriber) {
                 PalLog.printE("========message4");
                 if (isAuthen) {
-//                    subscriber.onNext(true);
+                    subscriber.onNext(true);
                     subscriber.onCompleted();
                 } else {
                     subscriber.onNext(false);
+                    subscriber.onCompleted();
                 }
             }
         });
