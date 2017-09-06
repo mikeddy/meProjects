@@ -2,13 +2,15 @@
 <manifest package="com.example.aademo"
           xmlns:android="http://schemas.android.com/apk/res/android"
           android:versionCode="1"
-          android:versionName="1.0"
-    >
+          android:versionName="1.0">
+
+    <uses-sdk
+        android:minSdkVersion="17"
+        android:targetSdkVersion="21"/>
 
     <uses-permission android:name="android.permission.INTERNET"/>
 
-
-    <!-- 手电相关-->
+    <!-- 手电相关 -->
     <uses-permission android:name="android.permission.CAMERA"/>
     <uses-permission android:name="android.permission.FLASHLIGHT"/>
     <uses-permission android:name="android.permission.VIBRATE"/>
@@ -18,65 +20,57 @@
     <uses-feature android:name="android.hardware.camera.autofocus"/>
     <uses-feature android:name="android.hardware.camera.flash"/>
 
-    <uses-permission android:name="android.permission.RECEIVE_SMS" />
-    <uses-permission android:name="android.permission.CALL_PHONE" />
-    <uses-permission android:name="android.permission.SUBSCRIBED_FEEDS_WRITE" />
-    <uses-permission android:name="android.permission.ACCESS_DOWNLOAD_MANAGER" />
-    <uses-permission android:name="android.permission.DOWNLOAD_WITHOUT_NOTIFICATION" />
-    <uses-permission android:name="com.android.launcher.permission.READ_SETTINGS" />
-    <uses-permission android:name="com.android.launcher.permission.WRITE_SETTINGS" />
-    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" />
-    <uses-permission android:name="android.permission.RESTART_PACKAGES" />
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
-    <uses-permission android:name="android.permission.DISABLE_KEYGUARD" />
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.WRITE_SETTINGS" />
-    <uses-permission android:name="android.permission.VIBRATE" />
-    <uses-permission android:name="android.permission.USE_CREDENTIALS" />
-    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
-    <uses-permission android:name="android.permission.READ_USER_DICTIONARY" />
-    <uses-permission android:name="android.permission.WRITE_USER_DICTIONARY" />
-    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
-    <uses-permission android:name="android.permission.REORDER_TASKS" />
-    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
-    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
-    <uses-permission android:name="android.permission.BROADCAST_STICKY" />
-    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
-    <uses-permission android:name="android.permission.GET_TASKS" />
-    <uses-permission android:name="android.permission.MEDIA_CONTENT_CONTROL" />
-    <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.READ_SMS" />
-    <uses-permission android:name="android.permission.READ_CONTACTS" />
-    <uses-permission android:name="android.permission.RECORD_AUDIO" />
-    <uses-permission android:name="android.permission.WAKE_LOCK" />
-    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
-    <uses-permission android:name="com.android.voicemail.permission.ADD_VOICEMAIL" />
-    <uses-permission android:name="android.permission.CHANGE_WIFI_MULTICAST_STATE" />
-    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
-    <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE" />
-    <uses-permission android:name="android.permission.CHANGE_CONFIGURATION" />
-    <uses-permission android:name="android.permission.EXPAND_STATUS_BAR" />
-    <uses-permission android:name="android.permission.BLUETOOTH" />
-    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
-
-
-    <uses-sdk
-        android:minSdkVersion="17"
-        android:targetSdkVersion="21"
-        />
+    <uses-permission android:name="android.permission.RECEIVE_SMS"/>
+    <uses-permission android:name="android.permission.CALL_PHONE"/>
+    <uses-permission android:name="android.permission.SUBSCRIBED_FEEDS_WRITE"/>
+    <uses-permission android:name="android.permission.ACCESS_DOWNLOAD_MANAGER"/>
+    <uses-permission android:name="android.permission.DOWNLOAD_WITHOUT_NOTIFICATION"/>
+    <uses-permission android:name="com.android.launcher.permission.READ_SETTINGS"/>
+    <uses-permission android:name="com.android.launcher.permission.WRITE_SETTINGS"/>
+    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS"/>
+    <uses-permission android:name="android.permission.RESTART_PACKAGES"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.DISABLE_KEYGUARD"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.WRITE_SETTINGS"/>
+    <uses-permission android:name="android.permission.VIBRATE"/>
+    <uses-permission android:name="android.permission.USE_CREDENTIALS"/>
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+    <uses-permission android:name="android.permission.READ_USER_DICTIONARY"/>
+    <uses-permission android:name="android.permission.WRITE_USER_DICTIONARY"/>
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+    <uses-permission android:name="android.permission.REORDER_TASKS"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.BROADCAST_STICKY"/>
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/>
+    <uses-permission android:name="android.permission.GET_TASKS"/>
+    <uses-permission android:name="android.permission.MEDIA_CONTENT_CONTROL"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.READ_SMS"/>
+    <uses-permission android:name="android.permission.READ_CONTACTS"/>
+    <uses-permission android:name="android.permission.RECORD_AUDIO"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS"/>
+    <uses-permission android:name="com.android.voicemail.permission.ADD_VOICEMAIL"/>
+    <uses-permission android:name="android.permission.CHANGE_WIFI_MULTICAST_STATE"/>
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.CHANGE_CONFIGURATION"/>
+    <uses-permission android:name="android.permission.EXPAND_STATUS_BAR"/>
+    <uses-permission android:name="android.permission.BLUETOOTH"/>
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN"/>
 
     <application
         android:name=".MobileApplication"
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
-        android:theme="@style/AppTheme"
-        >
+        android:theme="@style/AppTheme">
         <activity
             android:name=".activitys.MainActivity"
-            android:label="@string/app_name"
-            >
+            android:label="@string/app_name">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 
@@ -85,208 +79,153 @@
         </activity>
         <activity
             android:name=".activitys.CustomSeekBarActivity"
-            android:screenOrientation="portrait"
-            />
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".activitys.HorizontalProgressBarActivity"
-            android:screenOrientation="portrait"
-            />
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".activitys.LayersDrawableActivity"
-            android:screenOrientation="portrait"
-            />
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".activitys.SlideParent_Activity"
-            android:screenOrientation="portrait"
-            />
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".activitys.CoverActivity"
-            android:screenOrientation="portrait"
-            />
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".activitys.CircleImageActivity"
-            android:screenOrientation="portrait"
-            />
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".activitys.TouchScaleActivity"
-            android:screenOrientation="portrait"
-            />
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".activitys.CircleProgressActivity"
-            android:screenOrientation="portrait"
-            />
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".activitys.DrawableXMLActivity"
-            android:screenOrientation="portrait"
-            />
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".activitys.HorizontalListViewActivity"
-            android:screenOrientation="portrait"
-            />
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".activitys.CustomViewGroupActivity"
-            android:screenOrientation="portrait"
-            />
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".activitys.WheelMenuActivity"
-            android:screenOrientation="portrait"
-            />
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".activitys.ResideMenuActivity"
-            android:screenOrientation="portrait"
-            />
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".activitys.SnowProgressActivity"
-            android:screenOrientation="portrait"
-            />
+            android:screenOrientation="portrait"/>
         <activity
             android:name="zxing.activity.CaptureActivity"
-            android:screenOrientation="portrait"
-            />
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".activitys.EventBusActivity"
-            android:screenOrientation="portrait"
-            />
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".activitys.EffectPathActivity"
-            android:screenOrientation="portrait"
-            />
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".activitys.ScaleTextViewActivity"
-            android:screenOrientation="portrait"
-            />
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".activitys.NoSoftInputActivity"
-            android:screenOrientation="portrait"
-            />
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".activitys.AnimationActivity"
-            android:screenOrientation="portrait"
-            />
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".activitys.AnimationOneActivity"
-            android:screenOrientation="portrait"
-            />
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".activitys.AnimationTwoActivity"
-            android:screenOrientation="portrait"
-            />
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".activitys.AnimationThreeActivity"
-            android:screenOrientation="portrait"
-            />
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".activitys.GaussoBscureActivity"
-            android:screenOrientation="portrait"
-            />
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".activitys.GaussoBscureOneActivity"
-            android:screenOrientation="portrait"
-            />
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".activitys.GaussoBscureTwoActivity"
-            android:screenOrientation="portrait"
-            />
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".activitys.DragToDetailActivity"
-            android:screenOrientation="portrait"
-            />
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".activitys.TwoDirectListViewActivity"
-            android:screenOrientation="portrait"
-            />
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".activitys.ButterknifeActivity"
-            android:screenOrientation="portrait"
-            />
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".activitys.EventDirActivity"
-            android:screenOrientation="portrait"
-            />
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".activitys.OptimizeUIActivity"
-            android:screenOrientation="portrait"
-            />
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".activitys.OptimizeUI_1_0Activity"
-            android:screenOrientation="portrait"
-            />
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".activitys.OptimizeUI_1_1Activity"
-            android:screenOrientation="portrait"
-            />
-
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".activitys.OptimizeUI_2_0Activity"
-            android:screenOrientation="portrait"
-            />
-
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".activitys.OptimizeUI_2_1Activity"
-            android:screenOrientation="portrait"
-            />
-
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".activitys.OptimizeUI_3_0Activity"
-            android:screenOrientation="portrait"
-            />
-
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".activitys.OptimizeUI_3_1Activity"
-            android:screenOrientation="portrait"
-            />
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".activitys.ScrollActivity"
-            android:screenOrientation="portrait"
-            />
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".activitys.DeviceInfoActivity"
             android:screenOrientation="portrait">
             <intent-filter>
-                <action android:name="android.intent.action.VIEW" />
+                <action android:name="android.intent.action.VIEW"/>
 
-                <category android:name="android.intent.category.DEFAULT" />
-                <category android:name="android.intent.category.BROWSABLE" />
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
 
-                <data android:scheme="testDemo" />
+                <data android:scheme="testDemo"/>
             </intent-filter>
         </activity>
         <activity
             android:name=".activitys.SVGActivity"
-            android:screenOrientation="portrait"
-            />
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".activitys.ViewDragHelperActivity"
-            android:screenOrientation="portrait"
-            />
-
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".activitys.AnimViewActivity"
-            android:screenOrientation="portrait"
-            />
-
-
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".activitys.FileWebViewActivity"
-            android:screenOrientation="portrait"
-            />
-
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".activitys.MoreItemViewpagerActivity"
-            android:screenOrientation="portrait"
-            />
-
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".activitys.RecyclerViewActivity"
-            android:screenOrientation="portrait"
-            />
-
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".activitys.RxAndroidActivity"
-            android:screenOrientation="portrait"
-        />
-
-
+            android:screenOrientation="portrait"/>
+        <activity android:name=".activitys.TestActivity">
+        </activity>
     </application>
 
 </manifest>
