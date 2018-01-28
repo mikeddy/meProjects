@@ -56,6 +56,13 @@ android {
                             keyAlias "xgx"//签名名称
                             keyPassword "xgx123"//签名密码
                         }
+//                debug
+//                        {
+//                            storeFile file("keystore")//签名文件路径
+//                            storePassword "xgx123"//签名密码
+//                            keyAlias "xgx"//签名名称
+//                            keyPassword "xgx123"//签名密码
+//                        }
             }
 
     buildTypes {
@@ -64,8 +71,13 @@ android {
             proguardFiles 'proguard-project.txt'
             signingConfig signingConfigs.release
         }
+        debug
+                {
+                                    minifyEnabled false
+//                                    proguardFile 'proguard-project-gradle.txt'
+                    signingConfig signingConfigs.debug
+                }
     }
-
 
 
 
